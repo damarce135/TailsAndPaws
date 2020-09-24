@@ -183,7 +183,6 @@ nombreProveedor varchar(45),
 idDireccion int, 
 email varchar(100), 
 telefono varchar(45), 
-idOrganizacion int, 
 habilitado bit 
 ); 
 
@@ -203,7 +202,6 @@ nombre varchar(45),
 descripcion varchar(300), 
 fechaIngreso datetime, 
 cantidad int, 
-idProveedor int, 
 habilitado bit 
 ); 
 
