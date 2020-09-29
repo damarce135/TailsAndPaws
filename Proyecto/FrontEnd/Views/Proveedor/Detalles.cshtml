@@ -1,0 +1,58 @@
+﻿@model FrontEnd.Models.ProveedorViewModel
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>ProveedorViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idDireccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idDireccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.habilitado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idProveedor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FrontEnd.Models.AdopcionViewModel>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idAnimal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idAdoptante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAdopcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaSeguimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAnimal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAdoptante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAdopcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaSeguimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.habilitado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idAdopcion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idAdopcion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idAdopcion })
+        </td>
+    </tr>
+}
+
+</table>

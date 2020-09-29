@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BackEnd.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace BackEnd.DAL
 {
     public interface IProveedorDAL : IDisposable
     {
-
+        List<proveedor> GetProveedores(String name);
     }
 }

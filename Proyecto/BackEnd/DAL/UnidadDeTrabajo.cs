@@ -9,7 +9,7 @@ namespace BackEnd.DAL
 {
     public class UnidadDeTrabajo<T> : IDisposable where T : class
     {
-        private readonly BDContext Context;
+        private BDContext Context;
         public IDALGenerico<T> genericDAL;
 
         public UnidadDeTrabajo(BDContext context)
@@ -39,4 +39,4 @@ namespace BackEnd.DAL
         }
     }
 }
-}
+

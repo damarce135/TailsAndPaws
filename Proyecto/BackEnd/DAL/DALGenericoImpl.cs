@@ -82,7 +82,6 @@ namespace BackEnd.DAL
             }
             catch (Exception)
             {
-
                 return null;
             }
         }
