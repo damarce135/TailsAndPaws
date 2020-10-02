@@ -21,3 +21,14 @@ F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.csprojAssemblyReferenc
 F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.csproj.CopyComplete
 F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.dll
 F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.pdb
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\BackEnd.dll.config
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\BackEnd.dll
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\BackEnd.pdb
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.dll
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.xml
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.csproj.CopyComplete
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.dll
+C:\Users\alear\OneDrive\GitHub\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.pdb

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FrontEnd.Models.AnimalViewModel>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Animales</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idAnimal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.castrado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaIngreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idGSanguineo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idOrganizacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAnimal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.raza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.castrado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grupoSanguineo.nombreGSanguineo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.organizacion.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.habilitado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.idAnimal }) |
+            @Html.ActionLink("Detalles", "Detalles", new { id=item.idAnimal}) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.idAnimal })
+        </td>
+    </tr>
+}
+
+</table>

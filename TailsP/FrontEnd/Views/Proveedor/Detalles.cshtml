@@ -1,0 +1,65 @@
+﻿@model FrontEnd.Models.ProveedorViewModel
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del Proveedor</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idDireccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion.detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.habilitado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.idProveedor }) |
+    @Html.ActionLink("Volver", "Inicio")
+</p>

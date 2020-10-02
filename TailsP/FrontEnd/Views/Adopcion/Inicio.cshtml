@@ -1,0 +1,62 @@
+﻿@model IEnumerable<FrontEnd.Models.AdopcionViewModel>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Adopciones</h2>
+
+<p>
+    @Html.ActionLink("Crear Adopción", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idAdopcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idAnimal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idAdoptante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAdopcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaSeguimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAdopcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animal.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adoptante.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAdopcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaSeguimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.habilitado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.idAdopcion}) |
+            @Html.ActionLink("Detalles", "Detalles", new { id=item.idAdopcion})
+        </td>
+    </tr>
+}
+
+</table>

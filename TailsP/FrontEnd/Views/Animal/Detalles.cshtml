@@ -1,0 +1,97 @@
+﻿@model FrontEnd.Models.AnimalViewModel
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles del Animal</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idAnimal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idAnimal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.castrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.castrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idGSanguineo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grupoSanguineo.nombreGSanguineo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idOrganizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.organizacion.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.habilitado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.idAnimal }) |
+    @Html.ActionLink("Volver", "Inicio")
+</p>

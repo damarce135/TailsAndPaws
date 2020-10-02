@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FrontEnd.Models.ProveedorViewModel>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Proveedores</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idProveedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreProveedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idDireccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreProveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion.detalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.habilitado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.idProveedor }) |
+            @Html.ActionLink("Detalles", "Detalles", new { id = item.idProveedor }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.idProveedor })
+        </td>
+    </tr>
+}
+
+</table>
