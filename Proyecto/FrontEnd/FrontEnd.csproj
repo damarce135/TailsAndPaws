@@ -153,7 +153,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\columna.css" />
     <Content Include="Content\home.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\login.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

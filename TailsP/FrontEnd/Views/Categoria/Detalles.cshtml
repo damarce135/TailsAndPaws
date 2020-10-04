@@ -1,0 +1,33 @@
+﻿@model FrontEnd.Models.CategoriaViewModel
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de la Categoría</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreCategoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.idCategoria}) |
+    @Html.ActionLink("Volver", "Inicio")
+</p>

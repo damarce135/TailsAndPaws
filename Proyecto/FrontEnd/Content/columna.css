@@ -1,0 +1,4 @@
+﻿body {
+    display:grid;
+    grid-template-columns: 300px 500px;
+}

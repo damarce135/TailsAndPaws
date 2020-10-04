@@ -9,7 +9,6 @@ namespace BackEnd.DAL
 {
     public class AnimalDALImpl : IAnimalDAL
     {
-        private BDContext context;
         public void Dispose()
         {
             throw new NotImplementedException();

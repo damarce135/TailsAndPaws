@@ -1,0 +1,13 @@
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\BackEnd.dll.config
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\BackEnd.dll
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\BackEnd.pdb
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\EntityFramework.dll
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\EntityFramework.xml
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\alear\Source\Repos\TailsP\BackEnd\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\alear\Source\Repos\TailsP\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache
+C:\Users\alear\Source\Repos\TailsP\BackEnd\obj\Debug\BackEnd.csproj.CopyComplete
+C:\Users\alear\Source\Repos\TailsP\BackEnd\obj\Debug\BackEnd.dll
+C:\Users\alear\Source\Repos\TailsP\BackEnd\obj\Debug\BackEnd.pdb

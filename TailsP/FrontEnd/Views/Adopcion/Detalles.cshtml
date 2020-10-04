@@ -1,0 +1,65 @@
+﻿@model FrontEnd.Models.AdopcionViewModel
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de la Adopción</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idAdopcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idAdopcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idAnimal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animal.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idAdoptante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adoptante.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaAdopcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaAdopcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaSeguimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaSeguimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.habilitado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.idAdopcion }) |
+    @Html.ActionLink("Volver", "Inicio")
+</p>
