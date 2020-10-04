@@ -21,3 +21,15 @@ F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.csprojAssemblyReferenc
 F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.csproj.CopyComplete
 F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.dll
 F:\TailsAndPaws-master\Proyecto\BackEnd\obj\Debug\BackEnd.pdb
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\BackEnd.dll.config
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\BackEnd.dll
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\BackEnd.pdb
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.dll
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.xml
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.csproj.CopyComplete
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.dll
+C:\Users\damar\OneDrive\Documents\GitHub\TP\TailsAndPaws\Proyecto\BackEnd\obj\Debug\BackEnd.pdb
