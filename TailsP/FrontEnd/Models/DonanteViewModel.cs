@@ -27,6 +27,6 @@ namespace FrontEnd.Models
         public string email { get; set; }
 
         [Display(Name = "Estado")]
-        public Nullable<bool> habilitado { get; set; }
+        public bool habilitado { get; set; }
     }
 }

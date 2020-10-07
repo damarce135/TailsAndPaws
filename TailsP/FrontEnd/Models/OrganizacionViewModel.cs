@@ -33,6 +33,6 @@ namespace FrontEnd.Models
         public string descripcion { get; set; }
 
         [Display(Name = "Estado")]
-        public Nullable<bool> habilitado { get; set; }
+        public bool habilitado { get; set; }
     }
 }

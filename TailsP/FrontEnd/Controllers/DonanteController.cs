@@ -21,7 +21,7 @@ namespace FrontEnd.Controllers
                 apellido2 = donante.apellido2,
                 telefono = donante.telefono,
                 email = donante.email,
-                habilitado = donante.habilitado
+                habilitado = (bool)donante.habilitado
             };
             return donanteViewModel;
         }
@@ -36,7 +36,7 @@ namespace FrontEnd.Controllers
                 apellido2 = donanteViewModel.apellido2,
                 telefono = donanteViewModel.telefono,
                 email = donanteViewModel.email,
-                habilitado = donanteViewModel.habilitado
+                habilitado = (bool)donanteViewModel.habilitado
             };
             return donante;
         }

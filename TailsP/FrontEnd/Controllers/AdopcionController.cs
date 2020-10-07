@@ -20,7 +20,7 @@ namespace FrontEnd.Controllers
                 idAdoptante = (int)adopcion.idAdoptante,
                 fechaAdopcion = adopcion.fechaAdopcion,
                 fechaSeguimiento = adopcion.fechaSeguimiento,
-                habilitado = adopcion.habilitado
+                habilitado = (bool)adopcion.habilitado
             };
             return adopcionViewModel;
         }
@@ -34,7 +34,7 @@ namespace FrontEnd.Controllers
                 idAdoptante = (int)adopcionViewModel.idAdoptante,
                 fechaAdopcion = adopcionViewModel.fechaAdopcion,
                 fechaSeguimiento = adopcionViewModel.fechaSeguimiento,
-                habilitado = adopcionViewModel.habilitado
+                habilitado = (bool)adopcionViewModel.habilitado
             };
             return adopcion;
         }

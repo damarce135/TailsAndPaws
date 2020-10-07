@@ -20,7 +20,7 @@ namespace FrontEnd.Controllers
                 idDireccion = (int)proveedor.idDireccion,
                 email = proveedor.email,
                 telefono = proveedor.telefono,
-                habilitado = proveedor.habilitado
+                habilitado = (bool)proveedor.habilitado
             };
             return proveedorViewModel;
         }
@@ -34,7 +34,7 @@ namespace FrontEnd.Controllers
                 idDireccion = (int)proveedorViewModel.idDireccion,
                 email = proveedorViewModel.email,
                 telefono = proveedorViewModel.telefono,
-                habilitado = proveedorViewModel.habilitado
+                habilitado = (bool)proveedorViewModel.habilitado
             };
             return proveedor;
         }

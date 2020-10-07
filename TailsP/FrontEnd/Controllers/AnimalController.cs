@@ -24,7 +24,7 @@ namespace FrontEnd.Controllers
                 fechaIngreso = animal.fechaIngreso,
                 idGSanguineo = (int)animal.idGSanguineo,
                 idOrganizacion = (int)animal.idOrganizacion,
-                habilitado = animal.habilitado
+                habilitado = (bool)animal.habilitado
             };
             return animalViewModel;
         }
@@ -42,7 +42,7 @@ namespace FrontEnd.Controllers
                 fechaIngreso = animalViewModel.fechaIngreso,
                 idGSanguineo = (int)animalViewModel.idGSanguineo,
                 idOrganizacion = (int)animalViewModel.idOrganizacion,
-                habilitado = animalViewModel.habilitado
+                habilitado = (bool)animalViewModel.habilitado
             };
             return animal;
         }

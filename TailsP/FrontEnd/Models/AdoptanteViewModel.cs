@@ -36,6 +36,6 @@ namespace FrontEnd.Models
         public direccion direccion { get; set; }
 
         [Display(Name = "Estado")]
-        public Nullable<bool> habilitado { get; set; }
+        public bool habilitado { get; set; }
     }
 }

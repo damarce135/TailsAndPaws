@@ -22,7 +22,7 @@ namespace FrontEnd.Controllers
                 email = organizacion.email,
                 idDireccion = (int)organizacion.idDireccion,
                 descripcion = organizacion.descripcion,
-                habilitado = organizacion.habilitado
+                habilitado = (bool)organizacion.habilitado
             };
             return organizacionViewModel;
         }
@@ -38,7 +38,7 @@ namespace FrontEnd.Controllers
                 email = organizacionViewModel.email,
                 idDireccion = (int)organizacionViewModel.idDireccion,
                 descripcion = organizacionViewModel.descripcion,
-                habilitado = organizacionViewModel.habilitado
+                habilitado = (bool)organizacionViewModel.habilitado
             };
             return organizacion;
         }

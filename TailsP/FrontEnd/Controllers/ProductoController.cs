@@ -19,8 +19,8 @@ namespace FrontEnd.Controllers
                 nombre = producto.nombre,
                 descripcion = producto.descripcion,
                 fechaIngreso = producto.fechaIngreso,
-                cantidad = producto.cantidad,
-                habilitado = producto.habilitado
+                cantidad = (int)producto.cantidad,
+                habilitado = (bool)producto.habilitado
             };
             return productoViewModel;
         }
@@ -33,8 +33,8 @@ namespace FrontEnd.Controllers
                 nombre = productoViewModel.nombre,
                 descripcion = productoViewModel.descripcion,
                 fechaIngreso = productoViewModel.fechaIngreso,
-                cantidad = productoViewModel.cantidad,
-                habilitado = productoViewModel.habilitado
+                cantidad = (int)productoViewModel.cantidad,
+                habilitado = (bool)productoViewModel.habilitado
             };
             return producto;
         }

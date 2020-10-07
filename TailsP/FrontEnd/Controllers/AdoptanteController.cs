@@ -23,7 +23,7 @@ namespace FrontEnd.Controllers
                 email = adoptante.email,
                 telefono = adoptante.telefono,
                 idDireccion = (int)adoptante.idDireccion,
-                habilitado = adoptante.habilitado
+                habilitado = (bool)adoptante.habilitado
             };
             return adoptanteViewModel;
         }
@@ -40,7 +40,7 @@ namespace FrontEnd.Controllers
                 email = adoptanteViewModel.email,
                 telefono = adoptanteViewModel.telefono,
                 idDireccion = (int)adoptanteViewModel.idDireccion,
-                habilitado = adoptanteViewModel.habilitado
+                habilitado = (bool)adoptanteViewModel.habilitado
             };
             return adoptante;
         }

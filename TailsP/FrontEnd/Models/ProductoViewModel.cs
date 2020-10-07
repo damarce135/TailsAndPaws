@@ -23,9 +23,9 @@ namespace FrontEnd.Models
         public Nullable<System.DateTime> fechaIngreso { get; set; }
 
         [Display(Name = "Cantidad")]
-        public Nullable<int> cantidad { get; set; }
+        public int cantidad { get; set; }
 
         [Display(Name = "Estado")]
-        public Nullable<bool> habilitado { get; set; }
+        public bool habilitado { get; set; }
     }
 }
