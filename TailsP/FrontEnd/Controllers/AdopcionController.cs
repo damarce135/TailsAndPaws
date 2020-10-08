@@ -44,6 +44,10 @@ namespace FrontEnd.Controllers
             List<adopcion> adopciones;
             using (UnidadDeTrabajo<adopcion> unidad = new UnidadDeTrabajo<adopcion>(new TPEntities()))
             {
+                using (TPEntities dbContext = new TPEntities())
+                {
+                    dbContext.Database.Exists();
+                }
                 adopciones = unidad.genericDAL.GetAll().ToList();
             }
 
