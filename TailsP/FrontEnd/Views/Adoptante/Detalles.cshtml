@@ -1,10 +1,10 @@
 ﻿@model FrontEnd.Models.AdoptanteViewModel
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles Adoptante";
 }
 
-<h2>Detalles</h2>
+<h2>Detalles del Adoptante</h2>
 
 <div>
     <hr />
@@ -66,11 +66,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idDireccion)
+            @Html.DisplayNameFor(model => model.idProvincia)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.direccion.detalle)
+            @Html.DisplayFor(model => model.provincia.nombreProvincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCanton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canton.nombreCanton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idDistrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distrito.nombreDistrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detalleDireccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detalleDireccion)
         </dd>
 
         <dt>

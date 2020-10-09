@@ -17,13 +17,19 @@ namespace BackEnd.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public provincia()
         {
-            this.direccion = new HashSet<direccion>();
+            this.adoptante = new HashSet<adoptante>();
+            this.organizacion = new HashSet<organizacion>();
+            this.proveedor = new HashSet<proveedor>();
         }
     
         public int idProvincia { get; set; }
         public string nombreProvincia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<direccion> direccion { get; set; }
+        public virtual ICollection<adoptante> adoptante { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<organizacion> organizacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<proveedor> proveedor { get; set; }
     }
 }

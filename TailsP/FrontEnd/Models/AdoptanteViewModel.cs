@@ -30,12 +30,25 @@ namespace FrontEnd.Models
         [Display(Name = "Teléfono")]
         public string telefono { get; set; }
 
-        [Display(Name = "Dirección")]
-        public int idDireccion { get; set; }
-        public IEnumerable<direccion> direcciones { get; set; }
-        public direccion direccion { get; set; }
-
         [Display(Name = "Estado")]
         public bool habilitado { get; set; }
+
+        [Display(Name = "Provincia")]
+        public int idProvincia { get; set; }
+        public IEnumerable<provincia> provincias { get; set; }
+        public provincia provincia { get; set; }
+
+        [Display(Name = "Cantón")]
+        public int idCanton { get; set; }
+        public IEnumerable<canton> cantones { get; set; }
+        public canton canton { get; set; }
+
+        [Display(Name = "Distrito")]
+        public int idDistrito { get; set; }
+        public IEnumerable<distrito> distritos { get; set; }
+        public distrito distrito { get; set; }
+
+        [Display(Name = "Detalle de la Dirección")]
+        public string detalleDireccion { get; set; }
     }
 }

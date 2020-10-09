@@ -20,9 +20,12 @@ namespace FrontEnd.Controllers
                 nombre = organizacion.nombre,
                 telefono = organizacion.telefono,
                 email = organizacion.email,
-                idDireccion = (int)organizacion.idDireccion,
                 descripcion = organizacion.descripcion,
-                habilitado = (bool)organizacion.habilitado
+                habilitado = (bool)organizacion.habilitado,
+                idProvincia = (int)organizacion.idProvincia,
+                idCanton = (int)organizacion.idCanton,
+                idDistrito = (int)organizacion.idDistrito,
+                detalleDireccion = organizacion.detalleDireccion
             };
             return organizacionViewModel;
         }
@@ -36,9 +39,12 @@ namespace FrontEnd.Controllers
                 nombre = organizacionViewModel.nombre,
                 telefono = organizacionViewModel.telefono,
                 email = organizacionViewModel.email,
-                idDireccion = (int)organizacionViewModel.idDireccion,
                 descripcion = organizacionViewModel.descripcion,
-                habilitado = (bool)organizacionViewModel.habilitado
+                habilitado = (bool)organizacionViewModel.habilitado,
+                idProvincia = (int)organizacionViewModel.idProvincia,
+                idCanton = (int)organizacionViewModel.idCanton,
+                idDistrito = (int)organizacionViewModel.idDistrito,
+                detalleDireccion = organizacionViewModel.detalleDireccion
             };
             return organizacion;
         }
@@ -58,9 +64,19 @@ namespace FrontEnd.Controllers
             {
                 organizacionViewModel = this.Convertir(item);
 
-                using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+                using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
                 {
-                    organizacionViewModel.direccion = unidad.genericDAL.Get(organizacionViewModel.idDireccion);
+                    organizacionViewModel.provincia = unidad.genericDAL.Get(organizacionViewModel.idProvincia);
+                }
+
+                using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+                {
+                    organizacionViewModel.canton = unidad.genericDAL.Get(organizacionViewModel.idCanton);
+                }
+
+                using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+                {
+                    organizacionViewModel.distrito = unidad.genericDAL.Get(organizacionViewModel.idDistrito);
                 }
                 organizacionesVM.Add(organizacionViewModel);
             }
@@ -72,9 +88,19 @@ namespace FrontEnd.Controllers
         {
             OrganizacionViewModel organizacion = new OrganizacionViewModel { };
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                organizacion.direcciones = unidad.genericDAL.GetAll().ToList();
+                organizacion.provincias = unidad.genericDAL.GetAll().ToList();
+            }
+
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                organizacion.cantones = unidad.genericDAL.GetAll().ToList();
+            }
+
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                organizacion.distritos = unidad.genericDAL.GetAll().ToList();
             }
 
             return View(organizacion);
@@ -102,15 +128,35 @@ namespace FrontEnd.Controllers
 
            OrganizacionViewModel organizacion = this.Convertir(organizacionEntity);
 
-            direccion direccion;
-            List<direccion> direcciones;
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            provincia provincia;
+            List<provincia> provincias;
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                direcciones = unidad.genericDAL.GetAll().ToList();
-                direccion = unidad.genericDAL.Get(organizacion.idDireccion);
+                provincias = unidad.genericDAL.GetAll().ToList();
+                provincia = unidad.genericDAL.Get(organizacion.idProvincia);
             }
-            direcciones.Insert(0, direccion);
-            organizacion.direcciones = direcciones;
+            provincias.Insert(0, provincia);
+            organizacion.provincias = provincias;
+
+            canton canton;
+            List<canton> cantones;
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                cantones = unidad.genericDAL.GetAll().ToList();
+                canton = unidad.genericDAL.Get(organizacion.idCanton);
+            }
+            cantones.Insert(0, canton);
+            organizacion.cantones = cantones;
+
+            distrito distrito;
+            List<distrito> distritos;
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                distritos = unidad.genericDAL.GetAll().ToList();
+                distrito = unidad.genericDAL.Get(organizacion.idDistrito);
+            }
+            distritos.Insert(0, distrito);
+            organizacion.distritos = distritos;
 
             return View(organizacion);
         }
@@ -137,9 +183,19 @@ namespace FrontEnd.Controllers
 
             OrganizacionViewModel organizacion = this.Convertir(organizacionEntity);
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                organizacion.direccion = unidad.genericDAL.Get(organizacion.idDireccion);
+                organizacion.provincia = unidad.genericDAL.Get(organizacion.idProvincia);
+            }
+
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                organizacion.canton = unidad.genericDAL.Get(organizacion.idCanton);
+            }
+
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                organizacion.distrito = unidad.genericDAL.Get(organizacion.idDistrito);
             }
 
             return View(organizacion);

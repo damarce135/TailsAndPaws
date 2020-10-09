@@ -22,8 +22,11 @@ namespace FrontEnd.Controllers
                 apellido2 = adoptante.apellido2,
                 email = adoptante.email,
                 telefono = adoptante.telefono,
-                idDireccion = (int)adoptante.idDireccion,
-                habilitado = (bool)adoptante.habilitado
+                habilitado = (bool)adoptante.habilitado,
+                idProvincia = (int)adoptante.idProvincia,
+                idCanton = (int)adoptante.idCanton,
+                idDistrito = (int)adoptante.idDistrito,
+                detalleDireccion = adoptante.detalleDireccion
             };
             return adoptanteViewModel;
         }
@@ -39,8 +42,11 @@ namespace FrontEnd.Controllers
                 apellido2 = adoptanteViewModel.apellido2,
                 email = adoptanteViewModel.email,
                 telefono = adoptanteViewModel.telefono,
-                idDireccion = (int)adoptanteViewModel.idDireccion,
-                habilitado = (bool)adoptanteViewModel.habilitado
+                habilitado = (bool)adoptanteViewModel.habilitado,
+                idProvincia = (int)adoptanteViewModel.idProvincia,
+                idCanton = (int)adoptanteViewModel.idCanton,
+                idDistrito = (int)adoptanteViewModel.idDistrito,
+                detalleDireccion = adoptanteViewModel.detalleDireccion
             };
             return adoptante;
         }
@@ -60,9 +66,19 @@ namespace FrontEnd.Controllers
             {
                 adoptanteViewModel = this.Convertir(item);
 
-                using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+                using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
                 {
-                    adoptanteViewModel.direccion = unidad.genericDAL.Get(adoptanteViewModel.idDireccion);
+                    adoptanteViewModel.provincia = unidad.genericDAL.Get(adoptanteViewModel.idProvincia);
+                }
+
+                using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+                {
+                    adoptanteViewModel.canton = unidad.genericDAL.Get(adoptanteViewModel.idCanton);
+                }
+
+                using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+                {
+                    adoptanteViewModel.distrito = unidad.genericDAL.Get(adoptanteViewModel.idDistrito);
                 }
                 adoptantesVM.Add(adoptanteViewModel);
             }
@@ -74,9 +90,19 @@ namespace FrontEnd.Controllers
         {
             AdoptanteViewModel adoptante = new AdoptanteViewModel { };
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                adoptante.direcciones = unidad.genericDAL.GetAll().ToList();
+                adoptante.provincias = unidad.genericDAL.GetAll().ToList();
+            }
+
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                adoptante.cantones = unidad.genericDAL.GetAll().ToList();
+            }
+
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                adoptante.distritos = unidad.genericDAL.GetAll().ToList();
             }
 
             return View(adoptante);
@@ -104,15 +130,35 @@ namespace FrontEnd.Controllers
 
             AdoptanteViewModel adoptante = this.Convertir(adoptanteEntity);
 
-            direccion direccion;
-            List<direccion> direcciones;
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            provincia provincia;
+            List<provincia> provincias;
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                direcciones = unidad.genericDAL.GetAll().ToList();
-                direccion = unidad.genericDAL.Get(adoptante.idDireccion);
+                provincias = unidad.genericDAL.GetAll().ToList();
+                provincia = unidad.genericDAL.Get(adoptante.idProvincia);
             }
-            direcciones.Insert(0, direccion);
-            adoptante.direcciones = direcciones;
+            provincias.Insert(0, provincia);
+            adoptante.provincias = provincias;
+
+            canton canton;
+            List<canton> cantones;
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                cantones = unidad.genericDAL.GetAll().ToList();
+                canton = unidad.genericDAL.Get(adoptante.idCanton);
+            }
+            cantones.Insert(0, canton);
+            adoptante.cantones = cantones;
+
+            distrito distrito;
+            List<distrito> distritos;
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                distritos = unidad.genericDAL.GetAll().ToList();
+                distrito = unidad.genericDAL.Get(adoptante.idDistrito);
+            }
+            distritos.Insert(0, distrito);
+            adoptante.distritos = distritos;
 
             return View(adoptante);
         }
@@ -139,9 +185,19 @@ namespace FrontEnd.Controllers
 
             AdoptanteViewModel adoptante = this.Convertir(adoptanteEntity);
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                adoptante.direccion = unidad.genericDAL.Get(adoptante.idDireccion);
+                adoptante.provincia = unidad.genericDAL.Get(adoptante.idProvincia);
+            }
+
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                adoptante.canton = unidad.genericDAL.Get(adoptante.idCanton);
+            }
+
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                adoptante.distrito = unidad.genericDAL.Get(adoptante.idDistrito);
             }
 
             return View(adoptante);

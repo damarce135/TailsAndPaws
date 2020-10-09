@@ -28,13 +28,18 @@ namespace BackEnd.Entities
         public string apellido2 { get; set; }
         public string email { get; set; }
         public string telefono { get; set; }
-        public Nullable<int> idDireccion { get; set; }
         public Nullable<bool> habilitado { get; set; }
+        public Nullable<int> idProvincia { get; set; }
+        public Nullable<int> idCanton { get; set; }
+        public Nullable<int> idDistrito { get; set; }
+        public string detalleDireccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<adopcion> adopcion { get; set; }
-        public virtual direccion direccion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<seguimiento> seguimiento { get; set; }
+        public virtual canton canton { get; set; }
+        public virtual distrito distrito { get; set; }
+        public virtual provincia provincia { get; set; }
     }
 }

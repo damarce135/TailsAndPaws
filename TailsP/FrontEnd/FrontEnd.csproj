@@ -200,10 +200,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="logo.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -259,10 +259,6 @@
     <Content Include="Views\Adopcion\Crear.cshtml" />
     <Content Include="Views\Adopcion\Editar.cshtml" />
     <Content Include="Views\Adopcion\Detalles.cshtml" />
-    <Content Include="Views\Adoptante\Inicio.cshtml" />
-    <Content Include="Views\Adoptante\Crear.cshtml" />
-    <Content Include="Views\Adoptante\Editar.cshtml" />
-    <Content Include="Views\Adoptante\Detalles.cshtml" />
     <Content Include="Views\Animal\Crear.cshtml" />
     <Content Include="Views\Animal\Editar.cshtml" />
     <Content Include="Views\Animal\Detalles.cshtml" />
@@ -271,20 +267,23 @@
     <Content Include="Views\Donante\Crear.cshtml" />
     <Content Include="Views\Donante\Editar.cshtml" />
     <Content Include="Views\Donante\Detalles.cshtml" />
-    <Content Include="Views\Organizacion\Inicio.cshtml" />
-    <Content Include="Views\Organizacion\Crear.cshtml" />
-    <Content Include="Views\Organizacion\Editar.cshtml" />
-    <Content Include="Views\Organizacion\Detalles.cshtml" />
     <Content Include="Views\Producto\Inicio.cshtml" />
     <Content Include="Views\Producto\Crear.cshtml" />
     <Content Include="Views\Producto\Editar.cshtml" />
     <Content Include="Views\Producto\Detalles.cshtml" />
+    <Content Include="Views\Categoria\Eliminar.cshtml" />
+    <Content Include="Views\Adoptante\Inicio.cshtml" />
+    <Content Include="Views\Adoptante\Crear.cshtml" />
+    <Content Include="Views\Adoptante\Editar.cshtml" />
+    <Content Include="Views\Adoptante\Detalles.cshtml" />
+    <Content Include="Views\Organizacion\Inicio.cshtml" />
+    <Content Include="Views\Organizacion\Crear.cshtml" />
+    <Content Include="Views\Organizacion\Editar.cshtml" />
+    <Content Include="Views\Organizacion\Detalles.cshtml" />
     <Content Include="Views\Proveedor\Inicio.cshtml" />
     <Content Include="Views\Proveedor\Crear.cshtml" />
     <Content Include="Views\Proveedor\Editar.cshtml" />
     <Content Include="Views\Proveedor\Detalles.cshtml" />
-    <Content Include="Views\Proveedor\Eliminar.cshtml" />
-    <Content Include="Views\Categoria\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

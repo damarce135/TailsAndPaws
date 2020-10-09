@@ -1,7 +1,7 @@
 ﻿@model FrontEnd.Models.ProveedorViewModel
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles Proveedor";
 }
 
 <h2>Detalles del Proveedor</h2>
@@ -26,14 +26,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idDireccion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.direccion.detalle)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.email)
         </dt>
 
@@ -50,12 +42,45 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.idProvincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.provincia.nombreProvincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCanton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canton.nombreCanton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idDistrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distrito.nombreDistrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detalleDireccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detalleDireccion)
+        </dd
+
+        <dt>
             @Html.DisplayNameFor(model => model.habilitado)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.habilitado)
         </dd>
+
 
     </dl>
 </div>

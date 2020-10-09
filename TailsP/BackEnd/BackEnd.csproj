@@ -73,9 +73,6 @@
     <Compile Include="Entities\cita.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\direccion.cs">
-      <DependentUpon>TPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\distrito.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>

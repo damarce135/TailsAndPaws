@@ -17,10 +17,13 @@ namespace FrontEnd.Controllers
             {
                 idProveedor = proveedor.idProveedor,
                 nombreProveedor = proveedor.nombreProveedor,
-                idDireccion = (int)proveedor.idDireccion,
                 email = proveedor.email,
                 telefono = proveedor.telefono,
-                habilitado = (bool)proveedor.habilitado
+                habilitado = (bool)proveedor.habilitado,
+                idProvincia = (int)proveedor.idProvincia,
+                idCanton = (int)proveedor.idCanton,
+                idDistrito = (int)proveedor.idDistrito,
+                detalleDireccion = proveedor.detalleDireccion
             };
             return proveedorViewModel;
         }
@@ -31,10 +34,13 @@ namespace FrontEnd.Controllers
             {
                 idProveedor = proveedorViewModel.idProveedor,
                 nombreProveedor = proveedorViewModel.nombreProveedor,
-                idDireccion = (int)proveedorViewModel.idDireccion,
                 email = proveedorViewModel.email,
                 telefono = proveedorViewModel.telefono,
-                habilitado = (bool)proveedorViewModel.habilitado
+                habilitado = (bool)proveedorViewModel.habilitado,
+                idProvincia = (int)proveedorViewModel.idProvincia,
+                idCanton = (int)proveedorViewModel.idCanton,
+                idDistrito = (int)proveedorViewModel.idDistrito,
+                detalleDireccion = proveedorViewModel.detalleDireccion
             };
             return proveedor;
         }
@@ -54,9 +60,19 @@ namespace FrontEnd.Controllers
             {
                 proveedorViewModel = this.Convertir(item);
 
-                using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+                using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
                 {
-                    proveedorViewModel.direccion = unidad.genericDAL.Get(proveedorViewModel.idDireccion);
+                    proveedorViewModel.provincia = unidad.genericDAL.Get(proveedorViewModel.idProvincia);
+                }
+
+                using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+                {
+                    proveedorViewModel.canton = unidad.genericDAL.Get(proveedorViewModel.idCanton);
+                }
+
+                using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+                {
+                    proveedorViewModel.distrito = unidad.genericDAL.Get(proveedorViewModel.idDistrito);
                 }
                 proveedoresVM.Add(proveedorViewModel);
             }
@@ -68,9 +84,19 @@ namespace FrontEnd.Controllers
         {
             ProveedorViewModel proveedor = new ProveedorViewModel { };
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                proveedor.direcciones = unidad.genericDAL.GetAll().ToList();
+                proveedor.provincias = unidad.genericDAL.GetAll().ToList();
+            }
+
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                proveedor.cantones = unidad.genericDAL.GetAll().ToList();
+            }
+
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                proveedor.distritos = unidad.genericDAL.GetAll().ToList();
             }
 
             return View(proveedor);
@@ -98,15 +124,35 @@ namespace FrontEnd.Controllers
 
             ProveedorViewModel proveedor = this.Convertir(proveedorEntity);
 
-            direccion direccion;
-            List<direccion> direcciones;
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            provincia provincia;
+            List<provincia> provincias;
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                direcciones = unidad.genericDAL.GetAll().ToList();
-                direccion = unidad.genericDAL.Get(proveedor.idDireccion);
+                provincias = unidad.genericDAL.GetAll().ToList();
+                provincia = unidad.genericDAL.Get(proveedor.idProvincia);
             }
-            direcciones.Insert(0, direccion);
-            proveedor.direcciones = direcciones;
+            provincias.Insert(0, provincia);
+            proveedor.provincias = provincias;
+
+            canton canton;
+            List<canton> cantones;
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                cantones = unidad.genericDAL.GetAll().ToList();
+                canton = unidad.genericDAL.Get(proveedor.idCanton);
+            }
+            cantones.Insert(0, canton);
+            proveedor.cantones = cantones;
+
+            distrito distrito;
+            List<distrito> distritos;
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                distritos = unidad.genericDAL.GetAll().ToList();
+                distrito = unidad.genericDAL.Get(proveedor.idDistrito);
+            }
+            distritos.Insert(0, distrito);
+            proveedor.distritos = distritos;
 
             return View(proveedor);
         }
@@ -133,42 +179,52 @@ namespace FrontEnd.Controllers
 
             ProveedorViewModel proveedor = this.Convertir(proveedorEntity);
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+            using (UnidadDeTrabajo<provincia> unidad = new UnidadDeTrabajo<provincia>(new TPEntities()))
             {
-                proveedor.direccion = unidad.genericDAL.Get(proveedor.idDireccion);
+                proveedor.provincia = unidad.genericDAL.Get(proveedor.idProvincia);
+            }
+
+            using (UnidadDeTrabajo<canton> unidad = new UnidadDeTrabajo<canton>(new TPEntities()))
+            {
+                proveedor.canton = unidad.genericDAL.Get(proveedor.idCanton);
+            }
+
+            using (UnidadDeTrabajo<distrito> unidad = new UnidadDeTrabajo<distrito>(new TPEntities()))
+            {
+                proveedor.distrito = unidad.genericDAL.Get(proveedor.idDistrito);
             }
 
             return View(proveedor);
         }
 
-        public ActionResult Eliminar(int id)
-        {
-            proveedor proveedorEntity;
-            using (UnidadDeTrabajo<proveedor> unidad = new UnidadDeTrabajo<proveedor>(new TPEntities()))
-            {
-                proveedorEntity = unidad.genericDAL.Get(id);
-            }
+        //public ActionResult Eliminar(int id)
+        //{
+        //    proveedor proveedorEntity;
+        //    using (UnidadDeTrabajo<proveedor> unidad = new UnidadDeTrabajo<proveedor>(new TPEntities()))
+        //    {
+        //        proveedorEntity = unidad.genericDAL.Get(id);
+        //    }
 
-            ProveedorViewModel proveedor = this.Convertir(proveedorEntity);
+        //    ProveedorViewModel proveedor = this.Convertir(proveedorEntity);
 
-            using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
-            {
-                proveedor.direccion = unidad.genericDAL.Get(proveedor.idDireccion);
-            }
+        //    using (UnidadDeTrabajo<direccion> unidad = new UnidadDeTrabajo<direccion>(new TPEntities()))
+        //    {
+        //        proveedor.direccion = unidad.genericDAL.Get(proveedor.idDireccion);
+        //    }
 
-            return View(proveedor);
-        }
+        //    return View(proveedor);
+        //}
 
-        [HttpPost]
-        public ActionResult Eliminar(proveedor proveedor)
-        {
-            using (UnidadDeTrabajo<proveedor> unidad = new UnidadDeTrabajo<proveedor>(new TPEntities()))
-            {
-                unidad.genericDAL.Remove(proveedor);
-                unidad.Complete();
-            }
+        //[HttpPost]
+        //public ActionResult Eliminar(proveedor proveedor)
+        //{
+        //    using (UnidadDeTrabajo<proveedor> unidad = new UnidadDeTrabajo<proveedor>(new TPEntities()))
+        //    {
+        //        unidad.genericDAL.Remove(proveedor);
+        //        unidad.Complete();
+        //    }
 
-            return RedirectToAction("Inicio");
-        }
+        //    return RedirectToAction("Inicio");
+        //}
     }
 }

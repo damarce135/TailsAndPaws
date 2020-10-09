@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<FrontEnd.Models.OrganizacionViewModel>
 
 @{
-    ViewBag.Title = "Inicio";
+    ViewBag.Title = "Inicio Organización";
 }
 
 <h2>Organizaciones</h2>
@@ -27,10 +27,19 @@
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idDireccion)
+            @Html.DisplayNameFor(model => model.descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            @Html.DisplayNameFor(model => model.idProvincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCanton)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idDistrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detalleDireccion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.habilitado)
@@ -39,36 +48,46 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idOrganizacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion.detalle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.habilitado)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.idOrganizacion }) |
-            @Html.ActionLink("Detalles", "Detalles", new { id=item.idOrganizacion}) 
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idOrganizacion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tipo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefono)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.provincia.nombreProvincia)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.canton.nombreCanton)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.distrito.nombreDistrito)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.detalleDireccion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.habilitado)
+    </td>
+
+    <td>
+        @Html.ActionLink("Editar", "Editar", new {  id=item.idOrganizacion  }) |
+        @Html.ActionLink("Detalles", "Detalles", new { id=item.idOrganizacion })
+    </td>
+</tr>
 }
 
 </table>

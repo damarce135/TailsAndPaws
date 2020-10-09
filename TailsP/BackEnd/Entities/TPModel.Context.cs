@@ -31,7 +31,6 @@ namespace BackEnd.Entities
         public virtual DbSet<canton> canton { get; set; }
         public virtual DbSet<categoria> categoria { get; set; }
         public virtual DbSet<cita> cita { get; set; }
-        public virtual DbSet<direccion> direccion { get; set; }
         public virtual DbSet<distrito> distrito { get; set; }
         public virtual DbSet<donante> donante { get; set; }
         public virtual DbSet<grupoSanguineo> grupoSanguineo { get; set; }

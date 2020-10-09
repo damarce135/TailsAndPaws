@@ -8,10 +8,9 @@
         <EntityTypeShape EntityType="TPModel.adopcion" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.adoptante" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.animal" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TPModel.canton" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPModel.canton" Width="1.5" PointX="0.5" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.categoria" Width="1.5" PointX="10.25" PointY="34.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.cita" Width="1.5" PointX="9.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TPModel.direccion" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.distrito" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.donante" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TPModel.grupoSanguineo" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
@@ -29,18 +28,12 @@
         <EntityTypeShape EntityType="TPModel.usuarioRol" Width="1.5" PointX="12.75" PointY="21.875" IsExpanded="true" />
         <AssociationConnector Association="TPModel.FK__adopcion__idAdop__6B24EA82" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__adopcion__idAnim__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="TPModel.FK__adoptante__idDir__778AC167" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__seguimien__idAdo__6754599E" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__animal__idGSangu__68487DD7" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__animal__idOrgani__693CA210" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__seguimien__idAni__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="TPModel.FK__direccion__idCan__6E01572D" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__prodCateg__idCat__75A278F5" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__cita__idUsuario__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="TPModel.FK__direccion__idDis__6EF57B66" ManuallyRouted="false" />
-        <AssociationConnector Association="TPModel.FK__direccion__idPro__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="TPModel.FK__organizac__idDir__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="TPModel.FK__proveedor__idDir__6FE99F9F" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__orgProvee__idOrg__70DDC3D8" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__usuario__idOrgan__76969D2E" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__orgProvee__idPro__71D1E811" ManuallyRouted="false" />
@@ -51,6 +44,24 @@
         <AssociationConnector Association="TPModel.FK__usuarioRo__idRol__619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__seguimien__idUsu__656C112C" ManuallyRouted="false" />
         <AssociationConnector Association="TPModel.FK__usuarioRo__idUsu__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="TPModel.FK__adoptante__idCan__0E6E26BF" />
+        <AssociationConnector Association="TPModel.FK__adoptante__idDis__0D7A0286" />
+        <AssociationConnector Association="TPModel.FK__adoptante__idPro__0C85DE4D" />
+        <AssociationConnector Association="TPModel.FK__organizac__idCan__1332DBDC" />
+        <AssociationConnector Association="TPModel.FK__proveedor__idCan__10566F31" />
+        <AssociationConnector Association="TPModel.FK__organizac__idDis__14270015" />
+        <AssociationConnector Association="TPModel.FK__proveedor__idDis__114A936A" />
+        <AssociationConnector Association="TPModel.FK__organizac__idPro__123EB7A3" />
+        <AssociationConnector Association="TPModel.FK__proveedor__idPro__0F624AF8" />
+        <AssociationConnector Association="TPModel.FK__adoptante__idCan__0E6E26BF" />
+        <AssociationConnector Association="TPModel.FK__adoptante__idDis__0D7A0286" />
+        <AssociationConnector Association="TPModel.FK__adoptante__idPro__0C85DE4D" />
+        <AssociationConnector Association="TPModel.FK__organizac__idCan__1332DBDC" />
+        <AssociationConnector Association="TPModel.FK__proveedor__idCan__10566F31" />
+        <AssociationConnector Association="TPModel.FK__organizac__idDis__14270015" />
+        <AssociationConnector Association="TPModel.FK__proveedor__idDis__114A936A" />
+        <AssociationConnector Association="TPModel.FK__organizac__idPro__123EB7A3" />
+        <AssociationConnector Association="TPModel.FK__proveedor__idPro__0F624AF8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
