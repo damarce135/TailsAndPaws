@@ -9,11 +9,13 @@
 
 namespace BackEnd.Entities
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class TPEntities : DbContext
+    using static Identity.Identity;
+
+    public partial class TPEntities : IdentityDbContext<ApplicationUser>
     {
         public TPEntities()
             : base("name=TPEntities")

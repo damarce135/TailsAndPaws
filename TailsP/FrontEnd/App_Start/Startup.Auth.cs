@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using FrontEnd.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FrontEnd
 {

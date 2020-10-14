@@ -21,7 +21,7 @@ namespace FrontEnd.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("IdentityDB", throwIfV1Schema: false)
         {
         }
 

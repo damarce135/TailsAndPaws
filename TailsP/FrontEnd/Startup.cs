@@ -10,5 +10,6 @@ namespace FrontEnd
         {
             ConfigureAuth(app);
         }
+
     }
 }
