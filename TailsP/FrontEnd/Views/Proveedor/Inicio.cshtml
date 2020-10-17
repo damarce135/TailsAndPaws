@@ -1,33 +1,27 @@
-﻿@model IEnumerable<FrontEnd.Models.OrganizacionViewModel>
+﻿@model IEnumerable<FrontEnd.Models.ProveedorViewModel>
 
 @{
-    ViewBag.Title = "Inicio Organización";
+    ViewBag.Title = "Inicio Proveedor";
 }
 
-<h2>Organizaciones</h2>
+<h2>Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Crear Nueva", "Crear")
+    @Html.ActionLink("Crear Nuevo", "Crear")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idOrganizacion)
+            @Html.DisplayNameFor(model => model.idProveedor)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
+            @Html.DisplayNameFor(model => model.nombreProveedor)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            @Html.DisplayNameFor(model => model.telefono)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.idProvincia)
@@ -44,28 +38,23 @@
         <th>
             @Html.DisplayNameFor(model => model.habilitado)
         </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.idOrganizacion)
+        @Html.DisplayFor(modelItem => item.idProveedor)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.tipo)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombre)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.telefono)
+        @Html.DisplayFor(modelItem => item.nombreProveedor)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.email)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.descripcion)
+        @Html.DisplayFor(modelItem => item.telefono)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.provincia.nombreProvincia)
@@ -84,8 +73,8 @@
     </td>
 
     <td>
-        @Html.ActionLink("Editar", "Editar", new {  id=item.idOrganizacion  }) |
-        @Html.ActionLink("Detalles", "Detalles", new { id=item.idOrganizacion })
+        @Html.ActionLink("Editar", "Editar", new { id=item.idProveedor }) |
+        @Html.ActionLink("Detalles", "Detalles", new { id=item.idProveedor })
     </td>
 </tr>
 }

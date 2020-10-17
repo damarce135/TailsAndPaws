@@ -12,24 +12,31 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class provincia
+    public partial class proveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public provincia()
+        public proveedor()
         {
-            this.adoptante = new HashSet<adoptante>();
-            this.organizacion = new HashSet<organizacion>();
-            this.proveedor = new HashSet<proveedor>();
+            this.orgProveedor = new HashSet<orgProveedor>();
+            this.prodProveedor = new HashSet<prodProveedor>();
         }
     
-        public int idProvincia { get; set; }
-        public string nombreProvincia { get; set; }
+        public int idProveedor { get; set; }
+        public string nombreProveedor { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public Nullable<bool> habilitado { get; set; }
+        public Nullable<int> idProvincia { get; set; }
+        public Nullable<int> idCanton { get; set; }
+        public Nullable<int> idDistrito { get; set; }
+        public string detalleDireccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<adoptante> adoptante { get; set; }
+        public virtual ICollection<orgProveedor> orgProveedor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<organizacion> organizacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<proveedor> proveedor { get; set; }
+        public virtual ICollection<prodProveedor> prodProveedor { get; set; }
+        public virtual canton canton { get; set; }
+        public virtual distrito distrito { get; set; }
+        public virtual provincia provincia { get; set; }
     }
 }

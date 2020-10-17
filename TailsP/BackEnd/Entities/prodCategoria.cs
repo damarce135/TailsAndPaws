@@ -15,8 +15,8 @@ namespace BackEnd.Entities
     public partial class prodCategoria
     {
         public int idProdCategoria { get; set; }
-        public int idProducto { get; set; }
-        public int idCategoria { get; set; }
+        public Nullable<int> idProducto { get; set; }
+        public Nullable<int> idCategoria { get; set; }
     
         public virtual categoria categoria { get; set; }
         public virtual producto producto { get; set; }

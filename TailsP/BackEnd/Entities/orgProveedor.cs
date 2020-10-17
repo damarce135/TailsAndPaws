@@ -12,17 +12,13 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class cita
+    public partial class orgProveedor
     {
-        public int idCita { get; set; }
-        public string nombre { get; set; }
-        public string telefono { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
-        public Nullable<System.TimeSpan> hora { get; set; }
-        public string motivo { get; set; }
-        public Nullable<int> idUsuario { get; set; }
-        public Nullable<bool> habilitado { get; set; }
+        public int idOrgProveedor { get; set; }
+        public Nullable<int> idOrganizacion { get; set; }
+        public Nullable<int> idProveedor { get; set; }
     
-        public virtual usuario usuario { get; set; }
+        public virtual organizacion organizacion { get; set; }
+        public virtual proveedor proveedor { get; set; }
     }
 }

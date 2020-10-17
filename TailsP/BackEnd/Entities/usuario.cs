@@ -12,31 +12,36 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class animal
+    public partial class usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public animal()
+        public usuario()
         {
-            this.adopcion = new HashSet<adopcion>();
+            this.cita = new HashSet<cita>();
+            this.recordatorio = new HashSet<recordatorio>();
             this.seguimiento = new HashSet<seguimiento>();
+            this.usuarioRol = new HashSet<usuarioRol>();
         }
     
-        public int idAnimal { get; set; }
+        public int idUsuario { get; set; }
+        public string cedula { get; set; }
         public string nombre { get; set; }
-        public string sexo { get; set; }
-        public string raza { get; set; }
-        public string castrado { get; set; }
-        public string edad { get; set; }
-        public Nullable<System.DateTime> fechaIngreso { get; set; }
-        public Nullable<int> idGSanguineo { get; set; }
+        public string apellido1 { get; set; }
+        public string apellido2 { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public byte[] contrasena { get; set; }
         public Nullable<int> idOrganizacion { get; set; }
         public Nullable<bool> habilitado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<adopcion> adopcion { get; set; }
-        public virtual grupoSanguineo grupoSanguineo { get; set; }
+        public virtual ICollection<cita> cita { get; set; }
         public virtual organizacion organizacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<recordatorio> recordatorio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<seguimiento> seguimiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<usuarioRol> usuarioRol { get; set; }
     }
 }

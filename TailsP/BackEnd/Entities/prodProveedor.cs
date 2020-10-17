@@ -15,10 +15,10 @@ namespace BackEnd.Entities
     public partial class prodProveedor
     {
         public int idProdProveedor { get; set; }
-        public int idProducto { get; set; }
-        public int idOrganizacion { get; set; }
+        public Nullable<int> idProducto { get; set; }
+        public Nullable<int> idProveedor { get; set; }
     
-        public virtual organizacion organizacion { get; set; }
         public virtual producto producto { get; set; }
+        public virtual proveedor proveedor { get; set; }
     }
 }
