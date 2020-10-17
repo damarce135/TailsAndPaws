@@ -19,7 +19,7 @@ namespace FrontEnd.Controllers
                 idAnimal = (int)adopcion.idAnimal,
                 idAdoptante = (int)adopcion.idAdoptante,
                 fechaAdopcion = adopcion.fechaAdopcion,
-                fechaSeguimiento = adopcion.fechaSeguimiento,
+                fechaSeguimiento = (DateTime)adopcion.fechaSeguimiento,
                 habilitado = (bool)adopcion.habilitado
             };
             return adopcionViewModel;
@@ -33,7 +33,7 @@ namespace FrontEnd.Controllers
                 idAnimal = (int)adopcionViewModel.idAnimal,
                 idAdoptante = (int)adopcionViewModel.idAdoptante,
                 fechaAdopcion = adopcionViewModel.fechaAdopcion,
-                fechaSeguimiento = adopcionViewModel.fechaSeguimiento,
+                fechaSeguimiento = (DateTime)adopcionViewModel.fechaSeguimiento,
                 habilitado = (bool)adopcionViewModel.habilitado
             };
             return adopcion;

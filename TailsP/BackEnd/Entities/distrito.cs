@@ -19,7 +19,6 @@ namespace BackEnd.Entities
         {
             this.adoptante = new HashSet<adoptante>();
             this.organizacion = new HashSet<organizacion>();
-            this.proveedor = new HashSet<proveedor>();
         }
     
         public int idDistrito { get; set; }
@@ -29,7 +28,5 @@ namespace BackEnd.Entities
         public virtual ICollection<adoptante> adoptante { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<organizacion> organizacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<proveedor> proveedor { get; set; }
     }
 }

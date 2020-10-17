@@ -11,16 +11,18 @@ namespace FrontEnd.Models
         [Display(Name="Identificador")]
         public int idProducto { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar el nombre del producto.")]
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
         [Display(Name = "Descripción")]
         public string descripcion { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar la fecha de ingreso.")]
         [Display(Name = "Fecha de Ingreso")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyy}", ApplyFormatInEditMode = true)]
-        public Nullable<System.DateTime> fechaIngreso { get; set; }
+        public System.DateTime fechaIngreso { get; set; }
 
         [Display(Name = "Cantidad")]
         public int cantidad { get; set; }
