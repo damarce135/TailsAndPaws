@@ -18,30 +18,29 @@ namespace BackEnd.Entities
         public organizacion()
         {
             this.animal = new HashSet<animal>();
-            this.orgProveedor = new HashSet<orgProveedor>();
-            this.usuario = new HashSet<usuario>();
+            this.prodProveedor = new HashSet<prodProveedor>();
         }
     
         public int idOrganizacion { get; set; }
         public string tipo { get; set; }
         public string nombre { get; set; }
+        public string apellido1 { get; set; }
+        public string apellido2 { get; set; }
         public string telefono { get; set; }
         public string email { get; set; }
         public string descripcion { get; set; }
-        public Nullable<bool> habilitado { get; set; }
-        public Nullable<int> idProvincia { get; set; }
-        public Nullable<int> idCanton { get; set; }
-        public Nullable<int> idDistrito { get; set; }
+        public int idProvincia { get; set; }
+        public int idCanton { get; set; }
+        public int idDistrito { get; set; }
         public string detalleDireccion { get; set; }
+        public bool habilitado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<animal> animal { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orgProveedor> orgProveedor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuario> usuario { get; set; }
         public virtual canton canton { get; set; }
         public virtual distrito distrito { get; set; }
         public virtual provincia provincia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<prodProveedor> prodProveedor { get; set; }
     }
 }

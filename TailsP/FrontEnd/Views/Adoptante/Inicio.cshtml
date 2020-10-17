@@ -12,12 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idAdoptante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cedula)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th>
@@ -33,18 +27,6 @@
             @Html.DisplayNameFor(model => model.telefono)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idProvincia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idCanton)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idDistrito)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.detalleDireccion)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.habilitado)
         </th>
         <th></th>
@@ -52,12 +34,6 @@
 
 @foreach (var item in Model) {
 <tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.idAdoptante)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.cedula)
-    </td>
     <td>
         @Html.DisplayFor(modelItem => item.nombre)
     </td>
@@ -72,18 +48,6 @@
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.telefono)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.provincia.nombreProvincia)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.canton.nombreCanton)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.distrito.nombreDistrito)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.detalleDireccion)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.habilitado)

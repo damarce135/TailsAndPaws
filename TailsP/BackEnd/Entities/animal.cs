@@ -25,12 +25,14 @@ namespace BackEnd.Entities
         public string nombre { get; set; }
         public string sexo { get; set; }
         public string raza { get; set; }
-        public string castrado { get; set; }
+        public bool castrado { get; set; }
         public string edad { get; set; }
-        public Nullable<System.DateTime> fechaIngreso { get; set; }
-        public Nullable<int> idGSanguineo { get; set; }
-        public Nullable<int> idOrganizacion { get; set; }
-        public Nullable<bool> habilitado { get; set; }
+        public System.DateTime fechaIngreso { get; set; }
+        public int idGSanguineo { get; set; }
+        public int idOrganizacion { get; set; }
+        public bool habilitado { get; set; }
+        public string especie { get; set; }
+        public bool adoptado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<adopcion> adopcion { get; set; }

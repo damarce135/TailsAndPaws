@@ -9,71 +9,72 @@
           <Key>
             <PropertyRef Name="idAdopcion" />
           </Key>
-          <Property Name="idAdopcion" Type="int" Nullable="false" />
-          <Property Name="idAnimal" Type="int" />
-          <Property Name="idAdoptante" Type="int" />
-          <Property Name="fechaAdopcion" Type="datetime" />
+          <Property Name="idAdopcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAnimal" Type="int" Nullable="false" />
+          <Property Name="idAdoptante" Type="int" Nullable="false" />
+          <Property Name="fechaAdopcion" Type="datetime" Nullable="false" />
           <Property Name="fechaSeguimiento" Type="datetime" />
-          <Property Name="habilitado" Type="bit" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="adoptante">
           <Key>
             <PropertyRef Name="idAdoptante" />
           </Key>
-          <Property Name="idAdoptante" Type="int" Nullable="false" />
-          <Property Name="cedula" Type="varchar" MaxLength="45" />
-          <Property Name="nombre" Type="varchar" MaxLength="45" />
-          <Property Name="apellido1" Type="varchar" MaxLength="45" />
-          <Property Name="apellido2" Type="varchar" MaxLength="45" />
-          <Property Name="email" Type="varchar" MaxLength="100" />
-          <Property Name="telefono" Type="varchar" MaxLength="45" />
-          <Property Name="idProvincia" Type="int" />
-          <Property Name="idCanton" Type="int" />
-          <Property Name="idDistrito" Type="int" />
-          <Property Name="detalleDireccion" Type="varchar" MaxLength="300" />
-          <Property Name="habilitado" Type="bit" />
+          <Property Name="idAdoptante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedula" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellido1" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellido2" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="idProvincia" Type="int" Nullable="false" />
+          <Property Name="idCanton" Type="int" Nullable="false" />
+          <Property Name="idDistrito" Type="int" Nullable="false" />
+          <Property Name="detalleDireccion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="animal">
           <Key>
             <PropertyRef Name="idAnimal" />
           </Key>
-          <Property Name="idAnimal" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="45" />
-          <Property Name="sexo" Type="varchar" MaxLength="45" />
-          <Property Name="raza" Type="varchar" MaxLength="45" />
-          <Property Name="castrado" Type="varchar" MaxLength="45" />
-          <Property Name="edad" Type="varchar" MaxLength="45" />
-          <Property Name="fechaIngreso" Type="datetime" />
-          <Property Name="idGSanguineo" Type="int" />
-          <Property Name="idOrganizacion" Type="int" />
-          <Property Name="habilitado" Type="bit" />
+          <Property Name="idAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="sexo" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="raza" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="castrado" Type="bit" Nullable="false" />
+          <Property Name="edad" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaIngreso" Type="datetime" Nullable="false" />
+          <Property Name="idGSanguineo" Type="int" Nullable="false" />
+          <Property Name="idOrganizacion" Type="int" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="especie" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="adoptado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="canton">
           <Key>
             <PropertyRef Name="idCanton" />
           </Key>
           <Property Name="idCanton" Type="int" Nullable="false" />
-          <Property Name="nombreCanton" Type="varchar" MaxLength="45" />
+          <Property Name="nombreCanton" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="categoria">
           <Key>
             <PropertyRef Name="idCategoria" />
           </Key>
-          <Property Name="idCategoria" Type="int" Nullable="false" />
-          <Property Name="nombreCategoria" Type="varchar" MaxLength="45" />
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCategoria" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="cita">
           <Key>
             <PropertyRef Name="idCita" />
           </Key>
-          <Property Name="idCita" Type="int" Nullable="false" />
+          <Property Name="idCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" />
           <Property Name="telefono" Type="varchar" MaxLength="45" />
-          <Property Name="fecha" Type="datetime" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="hora" Type="time" Precision="7" />
           <Property Name="motivo" Type="varchar" MaxLength="300" />
-          <Property Name="idUsuario" Type="int" />
-          <Property Name="habilitado" Type="bit" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="distrito">
           <Key>
@@ -86,7 +87,7 @@
           <Key>
             <PropertyRef Name="idDonante" />
           </Key>
-          <Property Name="idDonante" Type="int" Nullable="false" />
+          <Property Name="idDonante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="45" />
           <Property Name="apellido1" Type="varchar" MaxLength="45" />
           <Property Name="apellido2" Type="varchar" MaxLength="45" />
@@ -98,138 +99,85 @@
           <Key>
             <PropertyRef Name="idGSanguineo" />
           </Key>
-          <Property Name="idGSanguineo" Type="int" Nullable="false" />
-          <Property Name="nombreGSanguineo" Type="varchar" MaxLength="45" />
+          <Property Name="idGSanguineo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreGSanguineo" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="organizacion">
           <Key>
             <PropertyRef Name="idOrganizacion" />
           </Key>
-          <Property Name="idOrganizacion" Type="int" Nullable="false" />
-          <Property Name="tipo" Type="varchar" MaxLength="45" />
-          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="idOrganizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido1" Type="varchar" MaxLength="100" />
+          <Property Name="apellido2" Type="varchar" MaxLength="100" />
           <Property Name="telefono" Type="varchar" MaxLength="45" />
           <Property Name="email" Type="varchar" MaxLength="45" />
-          <Property Name="idDireccion" Type="int" />
-          <Property Name="descripcion" Type="varchar" MaxLength="300" />
-          <Property Name="idProvincia" Type="int" />
-          <Property Name="idCanton" Type="int" />
-          <Property Name="idDistrito" Type="int" />
-          <Property Name="detalleDireccion" Type="varchar" MaxLength="300" />
-          <Property Name="habilitado" Type="bit" />
-        </EntityType>
-        <EntityType Name="orgProveedor">
-          <Key>
-            <PropertyRef Name="idOrgProveedor" />
-          </Key>
-          <Property Name="idOrgProveedor" Type="int" Nullable="false" />
-          <Property Name="idOrganizacion" Type="int" />
-          <Property Name="idProveedor" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="idProvincia" Type="int" Nullable="false" />
+          <Property Name="idCanton" Type="int" Nullable="false" />
+          <Property Name="idDistrito" Type="int" Nullable="false" />
+          <Property Name="detalleDireccion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="prodCategoria">
           <Key>
             <PropertyRef Name="idProdCategoria" />
           </Key>
-          <Property Name="idProdCategoria" Type="int" Nullable="false" />
-          <Property Name="idProducto" Type="int" />
-          <Property Name="idCategoria" Type="int" />
+          <Property Name="idProdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="idCategoria" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="prodProveedor">
           <Key>
             <PropertyRef Name="idProdProveedor" />
           </Key>
-          <Property Name="idProdProveedor" Type="int" Nullable="false" />
-          <Property Name="idProducto" Type="int" />
-          <Property Name="idProveedor" Type="int" />
+          <Property Name="idProdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProducto" Type="int" Nullable="false" />
+          <Property Name="idOrganizacion" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="producto">
           <Key>
             <PropertyRef Name="idProducto" />
           </Key>
-          <Property Name="idProducto" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="45" />
-          <Property Name="descripcion" Type="varchar" MaxLength="300" />
-          <Property Name="fechaIngreso" Type="datetime" />
-          <Property Name="cantidad" Type="int" />
-          <Property Name="habilitado" Type="bit" />
-        </EntityType>
-        <EntityType Name="proveedor">
-          <Key>
-            <PropertyRef Name="idProveedor" />
-          </Key>
-          <Property Name="idProveedor" Type="int" Nullable="false" />
-          <Property Name="nombreProveedor" Type="varchar" MaxLength="45" />
-          <Property Name="email" Type="varchar" MaxLength="100" />
-          <Property Name="telefono" Type="varchar" MaxLength="45" />
-          <Property Name="idProvincia" Type="int" />
-          <Property Name="idCanton" Type="int" />
-          <Property Name="idDistrito" Type="int" />
-          <Property Name="detalleDireccion" Type="varchar" MaxLength="300" />
-          <Property Name="habilitado" Type="bit" />
+          <Property Name="idProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="fechaIngreso" Type="datetime" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="provincia">
           <Key>
             <PropertyRef Name="idProvincia" />
           </Key>
-          <Property Name="idProvincia" Type="int" Nullable="false" />
+          <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreProvincia" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="recordatorio">
           <Key>
             <PropertyRef Name="idRecordatorio" />
           </Key>
-          <Property Name="idRecordatorio" Type="int" Nullable="false" />
+          <Property Name="idRecordatorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="creado" Type="datetime" Nullable="false" />
-          <Property Name="titulo" Type="varchar" MaxLength="100" />
+          <Property Name="titulo" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="300" />
-          <Property Name="urgencia" Type="varchar" MaxLength="45" />
+          <Property Name="urgencia" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="alertaEstado" Type="int" />
-          <Property Name="idUsuario" Type="int" />
           <Property Name="habilitado" Type="bit" />
-        </EntityType>
-        <EntityType Name="rol">
-          <Key>
-            <PropertyRef Name="idRol" />
-          </Key>
-          <Property Name="idRol" Type="int" Nullable="false" />
-          <Property Name="nombreRol" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="seguimiento">
           <Key>
             <PropertyRef Name="idSeguimiento" />
           </Key>
-          <Property Name="idSeguimiento" Type="int" Nullable="false" />
-          <Property Name="idAnimal" Type="int" />
-          <Property Name="idAdoptante" Type="int" />
-          <Property Name="idUsuario" Type="int" />
+          <Property Name="idSeguimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAnimal" Type="int" Nullable="false" />
+          <Property Name="idAdoptante" Type="int" Nullable="false" />
           <Property Name="estado" Type="varchar" MaxLength="45" />
           <Property Name="habilitado" Type="bit" />
         </EntityType>
-        <EntityType Name="usuario">
-          <Key>
-            <PropertyRef Name="idUsuario" />
-          </Key>
-          <Property Name="idUsuario" Type="int" Nullable="false" />
-          <Property Name="cedula" Type="varchar" MaxLength="45" />
-          <Property Name="nombre" Type="varchar" MaxLength="45" />
-          <Property Name="apellido1" Type="varchar" MaxLength="45" />
-          <Property Name="apellido2" Type="varchar" MaxLength="45" />
-          <Property Name="email" Type="varchar" MaxLength="100" />
-          <Property Name="telefono" Type="varchar" MaxLength="45" />
-          <Property Name="contrasena" Type="varbinary" MaxLength="1" />
-          <Property Name="idOrganizacion" Type="int" />
-          <Property Name="habilitado" Type="bit" />
-        </EntityType>
-        <EntityType Name="usuarioRol">
-          <Key>
-            <PropertyRef Name="idUsuarioRol" />
-          </Key>
-          <Property Name="idUsuarioRol" Type="int" Nullable="false" />
-          <Property Name="idRol" Type="int" />
-          <Property Name="idUsuario" Type="int" />
-        </EntityType>
-        <Association Name="FK__adopcion__idAdop__07C12930">
-          <End Role="adoptante" Type="Self.adoptante" Multiplicity="0..1" />
+        <Association Name="FK__adopcion__idAdop__7C4F7684">
+          <End Role="adoptante" Type="Self.adoptante" Multiplicity="1" />
           <End Role="adopcion" Type="Self.adopcion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="adoptante">
@@ -240,8 +188,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__adopcion__idAnim__08B54D69">
-          <End Role="animal" Type="Self.animal" Multiplicity="0..1" />
+        <Association Name="FK__adopcion__idAnim__7D439ABD">
+          <End Role="animal" Type="Self.animal" Multiplicity="1" />
           <End Role="adopcion" Type="Self.adopcion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animal">
@@ -252,8 +200,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__adoptante__idCan__0E6E26BF">
-          <End Role="canton" Type="Self.canton" Multiplicity="0..1" />
+        <Association Name="FK__adoptante__idCan__7E37BEF6">
+          <End Role="canton" Type="Self.canton" Multiplicity="1" />
           <End Role="adoptante" Type="Self.adoptante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="canton">
@@ -264,8 +212,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__adoptante__idDis__0D7A0286">
-          <End Role="distrito" Type="Self.distrito" Multiplicity="0..1" />
+        <Association Name="FK__adoptante__idDis__7F2BE32F">
+          <End Role="distrito" Type="Self.distrito" Multiplicity="1" />
           <End Role="adoptante" Type="Self.adoptante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="distrito">
@@ -276,8 +224,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__adoptante__idPro__0C85DE4D">
-          <End Role="provincia" Type="Self.provincia" Multiplicity="0..1" />
+        <Association Name="FK__adoptante__idPro__00200768">
+          <End Role="provincia" Type="Self.provincia" Multiplicity="1" />
           <End Role="adoptante" Type="Self.adoptante" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="provincia">
@@ -288,8 +236,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__animal__idGSangu__09A971A2">
-          <End Role="grupoSanguineo" Type="Self.grupoSanguineo" Multiplicity="0..1" />
+        <Association Name="FK__animal__idGSangu__01142BA1">
+          <End Role="grupoSanguineo" Type="Self.grupoSanguineo" Multiplicity="1" />
           <End Role="animal" Type="Self.animal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grupoSanguineo">
@@ -300,8 +248,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__animal__idOrgani__0A9D95DB">
-          <End Role="organizacion" Type="Self.organizacion" Multiplicity="0..1" />
+        <Association Name="FK__animal__idOrgani__02084FDA">
+          <End Role="organizacion" Type="Self.organizacion" Multiplicity="1" />
           <End Role="animal" Type="Self.animal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="organizacion">
@@ -312,20 +260,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cita__idUsuario__0B91BA14">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="cita" Type="Self.cita" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="cita">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__organizac__idCan__1332DBDC">
-          <End Role="canton" Type="Self.canton" Multiplicity="0..1" />
+        <Association Name="FK__organizac__idCan__02FC7413">
+          <End Role="canton" Type="Self.canton" Multiplicity="1" />
           <End Role="organizacion" Type="Self.organizacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="canton">
@@ -336,8 +272,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__organizac__idDis__14270015">
-          <End Role="distrito" Type="Self.distrito" Multiplicity="0..1" />
+        <Association Name="FK__organizac__idDis__03F0984C">
+          <End Role="distrito" Type="Self.distrito" Multiplicity="1" />
           <End Role="organizacion" Type="Self.organizacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="distrito">
@@ -348,8 +284,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__organizac__idPro__123EB7A3">
-          <End Role="provincia" Type="Self.provincia" Multiplicity="0..1" />
+        <Association Name="FK__organizac__idPro__04E4BC85">
+          <End Role="provincia" Type="Self.provincia" Multiplicity="1" />
           <End Role="organizacion" Type="Self.organizacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="provincia">
@@ -360,32 +296,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orgProvee__idOrg__151B244E">
-          <End Role="organizacion" Type="Self.organizacion" Multiplicity="0..1" />
-          <End Role="orgProveedor" Type="Self.orgProveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="organizacion">
-              <PropertyRef Name="idOrganizacion" />
-            </Principal>
-            <Dependent Role="orgProveedor">
-              <PropertyRef Name="idOrganizacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__orgProvee__idPro__160F4887">
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
-          <End Role="orgProveedor" Type="Self.orgProveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="proveedor">
-              <PropertyRef Name="idProveedor" />
-            </Principal>
-            <Dependent Role="orgProveedor">
-              <PropertyRef Name="idProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__prodCateg__idCat__17036CC0">
-          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+        <Association Name="FK__prodCateg__idCat__05D8E0BE">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
           <End Role="prodCategoria" Type="Self.prodCategoria" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="categoria">
@@ -396,8 +308,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__prodCateg__idPro__17F790F9">
-          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+        <Association Name="FK__prodCateg__idPro__06CD04F7">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
           <End Role="prodCategoria" Type="Self.prodCategoria" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="producto">
@@ -408,8 +320,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__prodProve__idPro__18EBB532">
-          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+        <Association Name="FK__prodProve__idOrg__08B54D69">
+          <End Role="organizacion" Type="Self.organizacion" Multiplicity="1" />
+          <End Role="prodProveedor" Type="Self.prodProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizacion">
+              <PropertyRef Name="idOrganizacion" />
+            </Principal>
+            <Dependent Role="prodProveedor">
+              <PropertyRef Name="idOrganizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prodProve__idPro__07C12930">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
           <End Role="prodProveedor" Type="Self.prodProveedor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="producto">
@@ -420,68 +344,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__prodProve__idPro__19DFD96B">
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
-          <End Role="prodProveedor" Type="Self.prodProveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="proveedor">
-              <PropertyRef Name="idProveedor" />
-            </Principal>
-            <Dependent Role="prodProveedor">
-              <PropertyRef Name="idProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proveedor__idCan__10566F31">
-          <End Role="canton" Type="Self.canton" Multiplicity="0..1" />
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="canton">
-              <PropertyRef Name="idCanton" />
-            </Principal>
-            <Dependent Role="proveedor">
-              <PropertyRef Name="idCanton" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proveedor__idDis__114A936A">
-          <End Role="distrito" Type="Self.distrito" Multiplicity="0..1" />
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="distrito">
-              <PropertyRef Name="idDistrito" />
-            </Principal>
-            <Dependent Role="proveedor">
-              <PropertyRef Name="idDistrito" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proveedor__idPro__0F624AF8">
-          <End Role="provincia" Type="Self.provincia" Multiplicity="0..1" />
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="provincia">
-              <PropertyRef Name="idProvincia" />
-            </Principal>
-            <Dependent Role="proveedor">
-              <PropertyRef Name="idProvincia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__recordato__idUsu__1AD3FDA4">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="recordatorio" Type="Self.recordatorio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="recordatorio">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__seguimien__idAdo__1BC821DD">
-          <End Role="adoptante" Type="Self.adoptante" Multiplicity="0..1" />
+        <Association Name="FK__seguimien__idAdo__09A971A2">
+          <End Role="adoptante" Type="Self.adoptante" Multiplicity="1" />
           <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="adoptante">
@@ -492,8 +356,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__seguimien__idAni__1CBC4616">
-          <End Role="animal" Type="Self.animal" Multiplicity="0..1" />
+        <Association Name="FK__seguimien__idAni__0A9D95DB">
+          <End Role="animal" Type="Self.animal" Multiplicity="1" />
           <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animal">
@@ -501,42 +365,6 @@
             </Principal>
             <Dependent Role="seguimiento">
               <PropertyRef Name="idAnimal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__seguimien__idUsu__1DB06A4F">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="seguimiento">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__usuarioRo__idRol__1EA48E88">
-          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
-          <End Role="usuarioRol" Type="Self.usuarioRol" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="rol">
-              <PropertyRef Name="idRol" />
-            </Principal>
-            <Dependent Role="usuarioRol">
-              <PropertyRef Name="idRol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__usuarioRo__idUsu__1F98B2C1">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="usuarioRol" Type="Self.usuarioRol" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="usuarioRol">
-              <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -551,211 +379,247 @@
           <EntitySet Name="donante" EntityType="Self.donante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="grupoSanguineo" EntityType="Self.grupoSanguineo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="organizacion" EntityType="Self.organizacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="orgProveedor" EntityType="Self.orgProveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="prodCategoria" EntityType="Self.prodCategoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="prodProveedor" EntityType="Self.prodProveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="provincia" EntityType="Self.provincia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="recordatorio" EntityType="Self.recordatorio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="seguimiento" EntityType="Self.seguimiento" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="usuarioRol" EntityType="Self.usuarioRol" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__adopcion__idAdop__07C12930" Association="Self.FK__adopcion__idAdop__07C12930">
+          <AssociationSet Name="FK__adopcion__idAdop__7C4F7684" Association="Self.FK__adopcion__idAdop__7C4F7684">
             <End Role="adoptante" EntitySet="adoptante" />
             <End Role="adopcion" EntitySet="adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__adopcion__idAnim__08B54D69" Association="Self.FK__adopcion__idAnim__08B54D69">
+          <AssociationSet Name="FK__adopcion__idAnim__7D439ABD" Association="Self.FK__adopcion__idAnim__7D439ABD">
             <End Role="animal" EntitySet="animal" />
             <End Role="adopcion" EntitySet="adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__adoptante__idCan__0E6E26BF" Association="Self.FK__adoptante__idCan__0E6E26BF">
+          <AssociationSet Name="FK__adoptante__idCan__7E37BEF6" Association="Self.FK__adoptante__idCan__7E37BEF6">
             <End Role="canton" EntitySet="canton" />
             <End Role="adoptante" EntitySet="adoptante" />
           </AssociationSet>
-          <AssociationSet Name="FK__adoptante__idDis__0D7A0286" Association="Self.FK__adoptante__idDis__0D7A0286">
+          <AssociationSet Name="FK__adoptante__idDis__7F2BE32F" Association="Self.FK__adoptante__idDis__7F2BE32F">
             <End Role="distrito" EntitySet="distrito" />
             <End Role="adoptante" EntitySet="adoptante" />
           </AssociationSet>
-          <AssociationSet Name="FK__adoptante__idPro__0C85DE4D" Association="Self.FK__adoptante__idPro__0C85DE4D">
+          <AssociationSet Name="FK__adoptante__idPro__00200768" Association="Self.FK__adoptante__idPro__00200768">
             <End Role="provincia" EntitySet="provincia" />
             <End Role="adoptante" EntitySet="adoptante" />
           </AssociationSet>
-          <AssociationSet Name="FK__animal__idGSangu__09A971A2" Association="Self.FK__animal__idGSangu__09A971A2">
+          <AssociationSet Name="FK__animal__idGSangu__01142BA1" Association="Self.FK__animal__idGSangu__01142BA1">
             <End Role="grupoSanguineo" EntitySet="grupoSanguineo" />
             <End Role="animal" EntitySet="animal" />
           </AssociationSet>
-          <AssociationSet Name="FK__animal__idOrgani__0A9D95DB" Association="Self.FK__animal__idOrgani__0A9D95DB">
+          <AssociationSet Name="FK__animal__idOrgani__02084FDA" Association="Self.FK__animal__idOrgani__02084FDA">
             <End Role="organizacion" EntitySet="organizacion" />
             <End Role="animal" EntitySet="animal" />
           </AssociationSet>
-          <AssociationSet Name="FK__cita__idUsuario__0B91BA14" Association="Self.FK__cita__idUsuario__0B91BA14">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="cita" EntitySet="cita" />
-          </AssociationSet>
-          <AssociationSet Name="FK__organizac__idCan__1332DBDC" Association="Self.FK__organizac__idCan__1332DBDC">
+          <AssociationSet Name="FK__organizac__idCan__02FC7413" Association="Self.FK__organizac__idCan__02FC7413">
             <End Role="canton" EntitySet="canton" />
             <End Role="organizacion" EntitySet="organizacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__organizac__idDis__14270015" Association="Self.FK__organizac__idDis__14270015">
+          <AssociationSet Name="FK__organizac__idDis__03F0984C" Association="Self.FK__organizac__idDis__03F0984C">
             <End Role="distrito" EntitySet="distrito" />
             <End Role="organizacion" EntitySet="organizacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__organizac__idPro__123EB7A3" Association="Self.FK__organizac__idPro__123EB7A3">
+          <AssociationSet Name="FK__organizac__idPro__04E4BC85" Association="Self.FK__organizac__idPro__04E4BC85">
             <End Role="provincia" EntitySet="provincia" />
             <End Role="organizacion" EntitySet="organizacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__orgProvee__idOrg__151B244E" Association="Self.FK__orgProvee__idOrg__151B244E">
-            <End Role="organizacion" EntitySet="organizacion" />
-            <End Role="orgProveedor" EntitySet="orgProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__orgProvee__idPro__160F4887" Association="Self.FK__orgProvee__idPro__160F4887">
-            <End Role="proveedor" EntitySet="proveedor" />
-            <End Role="orgProveedor" EntitySet="orgProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__prodCateg__idCat__17036CC0" Association="Self.FK__prodCateg__idCat__17036CC0">
+          <AssociationSet Name="FK__prodCateg__idCat__05D8E0BE" Association="Self.FK__prodCateg__idCat__05D8E0BE">
             <End Role="categoria" EntitySet="categoria" />
             <End Role="prodCategoria" EntitySet="prodCategoria" />
           </AssociationSet>
-          <AssociationSet Name="FK__prodCateg__idPro__17F790F9" Association="Self.FK__prodCateg__idPro__17F790F9">
+          <AssociationSet Name="FK__prodCateg__idPro__06CD04F7" Association="Self.FK__prodCateg__idPro__06CD04F7">
             <End Role="producto" EntitySet="producto" />
             <End Role="prodCategoria" EntitySet="prodCategoria" />
           </AssociationSet>
-          <AssociationSet Name="FK__prodProve__idPro__18EBB532" Association="Self.FK__prodProve__idPro__18EBB532">
+          <AssociationSet Name="FK__prodProve__idOrg__08B54D69" Association="Self.FK__prodProve__idOrg__08B54D69">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="prodProveedor" EntitySet="prodProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prodProve__idPro__07C12930" Association="Self.FK__prodProve__idPro__07C12930">
             <End Role="producto" EntitySet="producto" />
             <End Role="prodProveedor" EntitySet="prodProveedor" />
           </AssociationSet>
-          <AssociationSet Name="FK__prodProve__idPro__19DFD96B" Association="Self.FK__prodProve__idPro__19DFD96B">
-            <End Role="proveedor" EntitySet="proveedor" />
-            <End Role="prodProveedor" EntitySet="prodProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proveedor__idCan__10566F31" Association="Self.FK__proveedor__idCan__10566F31">
-            <End Role="canton" EntitySet="canton" />
-            <End Role="proveedor" EntitySet="proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proveedor__idDis__114A936A" Association="Self.FK__proveedor__idDis__114A936A">
-            <End Role="distrito" EntitySet="distrito" />
-            <End Role="proveedor" EntitySet="proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proveedor__idPro__0F624AF8" Association="Self.FK__proveedor__idPro__0F624AF8">
-            <End Role="provincia" EntitySet="provincia" />
-            <End Role="proveedor" EntitySet="proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__recordato__idUsu__1AD3FDA4" Association="Self.FK__recordato__idUsu__1AD3FDA4">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="recordatorio" EntitySet="recordatorio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idAdo__1BC821DD" Association="Self.FK__seguimien__idAdo__1BC821DD">
+          <AssociationSet Name="FK__seguimien__idAdo__09A971A2" Association="Self.FK__seguimien__idAdo__09A971A2">
             <End Role="adoptante" EntitySet="adoptante" />
             <End Role="seguimiento" EntitySet="seguimiento" />
           </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idAni__1CBC4616" Association="Self.FK__seguimien__idAni__1CBC4616">
+          <AssociationSet Name="FK__seguimien__idAni__0A9D95DB" Association="Self.FK__seguimien__idAni__0A9D95DB">
             <End Role="animal" EntitySet="animal" />
             <End Role="seguimiento" EntitySet="seguimiento" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idUsu__1DB06A4F" Association="Self.FK__seguimien__idUsu__1DB06A4F">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="seguimiento" EntitySet="seguimiento" />
-          </AssociationSet>
-          <AssociationSet Name="FK__usuarioRo__idRol__1EA48E88" Association="Self.FK__usuarioRo__idRol__1EA48E88">
-            <End Role="rol" EntitySet="rol" />
-            <End Role="usuarioRol" EntitySet="usuarioRol" />
-          </AssociationSet>
-          <AssociationSet Name="FK__usuarioRo__idUsu__1F98B2C1" Association="Self.FK__usuarioRo__idUsu__1F98B2C1">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="usuarioRol" EntitySet="usuarioRol" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adopcion" EntityType="TPModel.adopcion" />
+          <EntitySet Name="adoptante" EntityType="TPModel.adoptante" />
+          <EntitySet Name="animal" EntityType="TPModel.animal" />
+          <EntitySet Name="canton" EntityType="TPModel.canton" />
+          <EntitySet Name="categoria" EntityType="TPModel.categoria" />
+          <EntitySet Name="cita" EntityType="TPModel.cita" />
+          <EntitySet Name="distrito" EntityType="TPModel.distrito" />
+          <EntitySet Name="donante" EntityType="TPModel.donante" />
+          <EntitySet Name="grupoSanguineo" EntityType="TPModel.grupoSanguineo" />
+          <EntitySet Name="organizacion" EntityType="TPModel.organizacion" />
+          <EntitySet Name="prodCategoria" EntityType="TPModel.prodCategoria" />
+          <EntitySet Name="prodProveedor" EntityType="TPModel.prodProveedor" />
+          <EntitySet Name="producto" EntityType="TPModel.producto" />
+          <EntitySet Name="provincia" EntityType="TPModel.provincia" />
+          <EntitySet Name="recordatorio" EntityType="TPModel.recordatorio" />
+          <EntitySet Name="seguimiento" EntityType="TPModel.seguimiento" />
+          <AssociationSet Name="FK__adopcion__idAdop__7C4F7684" Association="TPModel.FK__adopcion__idAdop__7C4F7684">
+            <End Role="adoptante" EntitySet="adoptante" />
+            <End Role="adopcion" EntitySet="adopcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__adopcion__idAnim__7D439ABD" Association="TPModel.FK__adopcion__idAnim__7D439ABD">
+            <End Role="animal" EntitySet="animal" />
+            <End Role="adopcion" EntitySet="adopcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__adoptante__idCan__7E37BEF6" Association="TPModel.FK__adoptante__idCan__7E37BEF6">
+            <End Role="canton" EntitySet="canton" />
+            <End Role="adoptante" EntitySet="adoptante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__adoptante__idDis__7F2BE32F" Association="TPModel.FK__adoptante__idDis__7F2BE32F">
+            <End Role="distrito" EntitySet="distrito" />
+            <End Role="adoptante" EntitySet="adoptante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__adoptante__idPro__00200768" Association="TPModel.FK__adoptante__idPro__00200768">
+            <End Role="provincia" EntitySet="provincia" />
+            <End Role="adoptante" EntitySet="adoptante" />
+          </AssociationSet>
+          <AssociationSet Name="FK__seguimien__idAdo__09A971A2" Association="TPModel.FK__seguimien__idAdo__09A971A2">
+            <End Role="adoptante" EntitySet="adoptante" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__animal__idGSangu__01142BA1" Association="TPModel.FK__animal__idGSangu__01142BA1">
+            <End Role="grupoSanguineo" EntitySet="grupoSanguineo" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__animal__idOrgani__02084FDA" Association="TPModel.FK__animal__idOrgani__02084FDA">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__seguimien__idAni__0A9D95DB" Association="TPModel.FK__seguimien__idAni__0A9D95DB">
+            <End Role="animal" EntitySet="animal" />
+            <End Role="seguimiento" EntitySet="seguimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__organizac__idCan__02FC7413" Association="TPModel.FK__organizac__idCan__02FC7413">
+            <End Role="canton" EntitySet="canton" />
+            <End Role="organizacion" EntitySet="organizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prodCateg__idCat__05D8E0BE" Association="TPModel.FK__prodCateg__idCat__05D8E0BE">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="prodCategoria" EntitySet="prodCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__organizac__idDis__03F0984C" Association="TPModel.FK__organizac__idDis__03F0984C">
+            <End Role="distrito" EntitySet="distrito" />
+            <End Role="organizacion" EntitySet="organizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__organizac__idPro__04E4BC85" Association="TPModel.FK__organizac__idPro__04E4BC85">
+            <End Role="provincia" EntitySet="provincia" />
+            <End Role="organizacion" EntitySet="organizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prodProve__idOrg__08B54D69" Association="TPModel.FK__prodProve__idOrg__08B54D69">
+            <End Role="organizacion" EntitySet="organizacion" />
+            <End Role="prodProveedor" EntitySet="prodProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prodCateg__idPro__06CD04F7" Association="TPModel.FK__prodCateg__idPro__06CD04F7">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="prodCategoria" EntitySet="prodCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prodProve__idPro__07C12930" Association="TPModel.FK__prodProve__idPro__07C12930">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="prodProveedor" EntitySet="prodProveedor" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="adopcion">
           <Key>
             <PropertyRef Name="idAdopcion" />
           </Key>
-          <Property Name="idAdopcion" Type="Int32" Nullable="false" />
-          <Property Name="idAnimal" Type="Int32" />
-          <Property Name="idAdoptante" Type="Int32" />
-          <Property Name="fechaAdopcion" Type="DateTime" Precision="3" />
+          <Property Name="idAdopcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAnimal" Type="Int32" Nullable="false" />
+          <Property Name="idAdoptante" Type="Int32" Nullable="false" />
+          <Property Name="fechaAdopcion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="fechaSeguimiento" Type="DateTime" Precision="3" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="adoptante" Relationship="Self.FK__adopcion__idAdop__6B24EA82" FromRole="adopcion" ToRole="adoptante" />
-          <NavigationProperty Name="animal" Relationship="Self.FK__adopcion__idAnim__6A30C649" FromRole="adopcion" ToRole="animal" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adopcion__idAdop__7C4F7684" FromRole="adopcion" ToRole="adoptante" />
+          <NavigationProperty Name="animal" Relationship="TPModel.FK__adopcion__idAnim__7D439ABD" FromRole="adopcion" ToRole="animal" />
         </EntityType>
         <EntityType Name="adoptante">
           <Key>
             <PropertyRef Name="idAdoptante" />
           </Key>
-          <Property Name="idAdoptante" Type="Int32" Nullable="false" />
-          <Property Name="cedula" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="apellido1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="apellido2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="adopcion" Relationship="Self.FK__adopcion__idAdop__6B24EA82" FromRole="adoptante" ToRole="adopcion" />
-          <NavigationProperty Name="seguimiento" Relationship="Self.FK__seguimien__idAdo__6754599E" FromRole="adoptante" ToRole="seguimiento" />
-          <Property Name="idProvincia" Type="Int32" />
-          <Property Name="idCanton" Type="Int32" />
-          <Property Name="idDistrito" Type="Int32" />
-          <Property Name="detalleDireccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="canton" Relationship="TPModel.FK__adoptante__idCan__0E6E26BF" FromRole="adoptante" ToRole="canton" />
-          <NavigationProperty Name="distrito" Relationship="TPModel.FK__adoptante__idDis__0D7A0286" FromRole="adoptante" ToRole="distrito" />
-          <NavigationProperty Name="provincia" Relationship="TPModel.FK__adoptante__idPro__0C85DE4D" FromRole="adoptante" ToRole="provincia" />
+          <Property Name="idAdoptante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="idProvincia" Type="Int32" Nullable="false" />
+          <Property Name="idCanton" Type="Int32" Nullable="false" />
+          <Property Name="idDistrito" Type="Int32" Nullable="false" />
+          <Property Name="detalleDireccion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="adopcion" Relationship="TPModel.FK__adopcion__idAdop__7C4F7684" FromRole="adoptante" ToRole="adopcion" />
+          <NavigationProperty Name="canton" Relationship="TPModel.FK__adoptante__idCan__7E37BEF6" FromRole="adoptante" ToRole="canton" />
+          <NavigationProperty Name="distrito" Relationship="TPModel.FK__adoptante__idDis__7F2BE32F" FromRole="adoptante" ToRole="distrito" />
+          <NavigationProperty Name="provincia" Relationship="TPModel.FK__adoptante__idPro__00200768" FromRole="adoptante" ToRole="provincia" />
+          <NavigationProperty Name="seguimiento" Relationship="TPModel.FK__seguimien__idAdo__09A971A2" FromRole="adoptante" ToRole="seguimiento" />
         </EntityType>
         <EntityType Name="animal">
           <Key>
             <PropertyRef Name="idAnimal" />
           </Key>
-          <Property Name="idAnimal" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="sexo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="raza" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="castrado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="edad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="fechaIngreso" Type="DateTime" Precision="3" />
-          <Property Name="idGSanguineo" Type="Int32" />
-          <Property Name="idOrganizacion" Type="Int32" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="adopcion" Relationship="Self.FK__adopcion__idAnim__6A30C649" FromRole="animal" ToRole="adopcion" />
-          <NavigationProperty Name="grupoSanguineo" Relationship="Self.FK__animal__idGSangu__68487DD7" FromRole="animal" ToRole="grupoSanguineo" />
-          <NavigationProperty Name="organizacion" Relationship="Self.FK__animal__idOrgani__693CA210" FromRole="animal" ToRole="organizacion" />
-          <NavigationProperty Name="seguimiento" Relationship="Self.FK__seguimien__idAni__66603565" FromRole="animal" ToRole="seguimiento" />
+          <Property Name="idAnimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="raza" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="castrado" Type="Boolean" Nullable="false" />
+          <Property Name="edad" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idGSanguineo" Type="Int32" Nullable="false" />
+          <Property Name="idOrganizacion" Type="Int32" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="especie" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="adoptado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="adopcion" Relationship="TPModel.FK__adopcion__idAnim__7D439ABD" FromRole="animal" ToRole="adopcion" />
+          <NavigationProperty Name="grupoSanguineo" Relationship="TPModel.FK__animal__idGSangu__01142BA1" FromRole="animal" ToRole="grupoSanguineo" />
+          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__animal__idOrgani__02084FDA" FromRole="animal" ToRole="organizacion" />
+          <NavigationProperty Name="seguimiento" Relationship="TPModel.FK__seguimien__idAni__0A9D95DB" FromRole="animal" ToRole="seguimiento" />
         </EntityType>
         <EntityType Name="canton">
           <Key>
             <PropertyRef Name="idCanton" />
           </Key>
           <Property Name="idCanton" Type="Int32" Nullable="false" />
-          <Property Name="nombreCanton" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adoptante__idCan__0E6E26BF" FromRole="canton" ToRole="adoptante" />
-          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__organizac__idCan__1332DBDC" FromRole="canton" ToRole="organizacion" />
-          <NavigationProperty Name="proveedor" Relationship="TPModel.FK__proveedor__idCan__10566F31" FromRole="canton" ToRole="proveedor" />
+          <Property Name="nombreCanton" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adoptante__idCan__7E37BEF6" FromRole="canton" ToRole="adoptante" />
+          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__organizac__idCan__02FC7413" FromRole="canton" ToRole="organizacion" />
         </EntityType>
         <EntityType Name="categoria">
           <Key>
             <PropertyRef Name="idCategoria" />
           </Key>
-          <Property Name="idCategoria" Type="Int32" Nullable="false" />
-          <Property Name="nombreCategoria" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="prodCategoria" Relationship="Self.FK__prodCateg__idCat__75A278F5" FromRole="categoria" ToRole="prodCategoria" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCategoria" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="prodCategoria" Relationship="TPModel.FK__prodCateg__idCat__05D8E0BE" FromRole="categoria" ToRole="prodCategoria" />
         </EntityType>
         <EntityType Name="cita">
           <Key>
             <PropertyRef Name="idCita" />
           </Key>
-          <Property Name="idCita" Type="Int32" Nullable="false" />
+          <Property Name="idCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="hora" Type="Time" Precision="7" />
           <Property Name="motivo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="idUsuario" Type="Int32" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__cita__idUsuario__6477ECF3" FromRole="cita" ToRole="usuario" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="distrito">
           <Key>
@@ -763,15 +627,14 @@
           </Key>
           <Property Name="idDistrito" Type="Int32" Nullable="false" />
           <Property Name="nombreDistrito" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adoptante__idDis__0D7A0286" FromRole="distrito" ToRole="adoptante" />
-          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__organizac__idDis__14270015" FromRole="distrito" ToRole="organizacion" />
-          <NavigationProperty Name="proveedor" Relationship="TPModel.FK__proveedor__idDis__114A936A" FromRole="distrito" ToRole="proveedor" />
+          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adoptante__idDis__7F2BE32F" FromRole="distrito" ToRole="adoptante" />
+          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__organizac__idDis__03F0984C" FromRole="distrito" ToRole="organizacion" />
         </EntityType>
         <EntityType Name="donante">
           <Key>
             <PropertyRef Name="idDonante" />
           </Key>
-          <Property Name="idDonante" Type="Int32" Nullable="false" />
+          <Property Name="idDonante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="apellido1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="apellido2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -783,173 +646,102 @@
           <Key>
             <PropertyRef Name="idGSanguineo" />
           </Key>
-          <Property Name="idGSanguineo" Type="Int32" Nullable="false" />
-          <Property Name="nombreGSanguineo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="animal" Relationship="Self.FK__animal__idGSangu__68487DD7" FromRole="grupoSanguineo" ToRole="animal" />
+          <Property Name="idGSanguineo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreGSanguineo" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="animal" Relationship="TPModel.FK__animal__idGSangu__01142BA1" FromRole="grupoSanguineo" ToRole="animal" />
         </EntityType>
         <EntityType Name="organizacion">
           <Key>
             <PropertyRef Name="idOrganizacion" />
           </Key>
-          <Property Name="idOrganizacion" Type="Int32" Nullable="false" />
-          <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idOrganizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellido1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellido2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="animal" Relationship="Self.FK__animal__idOrgani__693CA210" FromRole="organizacion" ToRole="animal" />
-          <NavigationProperty Name="orgProveedor" Relationship="Self.FK__orgProvee__idOrg__70DDC3D8" FromRole="organizacion" ToRole="orgProveedor" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__usuario__idOrgan__76969D2E" FromRole="organizacion" ToRole="usuario" />
-          <Property Name="idProvincia" Type="Int32" />
-          <Property Name="idCanton" Type="Int32" />
-          <Property Name="idDistrito" Type="Int32" />
-          <Property Name="detalleDireccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="canton" Relationship="TPModel.FK__organizac__idCan__1332DBDC" FromRole="organizacion" ToRole="canton" />
-          <NavigationProperty Name="distrito" Relationship="TPModel.FK__organizac__idDis__14270015" FromRole="organizacion" ToRole="distrito" />
-          <NavigationProperty Name="provincia" Relationship="TPModel.FK__organizac__idPro__123EB7A3" FromRole="organizacion" ToRole="provincia" />
-        </EntityType>
-        <EntityType Name="orgProveedor">
-          <Key>
-            <PropertyRef Name="idOrgProveedor" />
-          </Key>
-          <Property Name="idOrgProveedor" Type="Int32" Nullable="false" />
-          <Property Name="idOrganizacion" Type="Int32" />
-          <Property Name="idProveedor" Type="Int32" />
-          <NavigationProperty Name="organizacion" Relationship="Self.FK__orgProvee__idOrg__70DDC3D8" FromRole="orgProveedor" ToRole="organizacion" />
-          <NavigationProperty Name="proveedor" Relationship="Self.FK__orgProvee__idPro__71D1E811" FromRole="orgProveedor" ToRole="proveedor" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idProvincia" Type="Int32" Nullable="false" />
+          <Property Name="idCanton" Type="Int32" Nullable="false" />
+          <Property Name="idDistrito" Type="Int32" Nullable="false" />
+          <Property Name="detalleDireccion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="animal" Relationship="TPModel.FK__animal__idOrgani__02084FDA" FromRole="organizacion" ToRole="animal" />
+          <NavigationProperty Name="canton" Relationship="TPModel.FK__organizac__idCan__02FC7413" FromRole="organizacion" ToRole="canton" />
+          <NavigationProperty Name="distrito" Relationship="TPModel.FK__organizac__idDis__03F0984C" FromRole="organizacion" ToRole="distrito" />
+          <NavigationProperty Name="provincia" Relationship="TPModel.FK__organizac__idPro__04E4BC85" FromRole="organizacion" ToRole="provincia" />
+          <NavigationProperty Name="prodProveedor" Relationship="TPModel.FK__prodProve__idOrg__08B54D69" FromRole="organizacion" ToRole="prodProveedor" />
         </EntityType>
         <EntityType Name="prodCategoria">
           <Key>
             <PropertyRef Name="idProdCategoria" />
           </Key>
-          <Property Name="idProdCategoria" Type="Int32" Nullable="false" />
-          <Property Name="idProducto" Type="Int32" />
-          <Property Name="idCategoria" Type="Int32" />
-          <NavigationProperty Name="categoria" Relationship="Self.FK__prodCateg__idCat__75A278F5" FromRole="prodCategoria" ToRole="categoria" />
-          <NavigationProperty Name="producto" Relationship="Self.FK__prodCateg__idPro__74AE54BC" FromRole="prodCategoria" ToRole="producto" />
+          <Property Name="idProdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categoria" Relationship="TPModel.FK__prodCateg__idCat__05D8E0BE" FromRole="prodCategoria" ToRole="categoria" />
+          <NavigationProperty Name="producto" Relationship="TPModel.FK__prodCateg__idPro__06CD04F7" FromRole="prodCategoria" ToRole="producto" />
         </EntityType>
         <EntityType Name="prodProveedor">
           <Key>
             <PropertyRef Name="idProdProveedor" />
           </Key>
-          <Property Name="idProdProveedor" Type="Int32" Nullable="false" />
-          <Property Name="idProducto" Type="Int32" />
-          <Property Name="idProveedor" Type="Int32" />
-          <NavigationProperty Name="producto" Relationship="Self.FK__prodProve__idPro__72C60C4A" FromRole="prodProveedor" ToRole="producto" />
-          <NavigationProperty Name="proveedor" Relationship="Self.FK__prodProve__idPro__73BA3083" FromRole="prodProveedor" ToRole="proveedor" />
+          <Property Name="idProdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" />
+          <Property Name="idOrganizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__prodProve__idOrg__08B54D69" FromRole="prodProveedor" ToRole="organizacion" />
+          <NavigationProperty Name="producto" Relationship="TPModel.FK__prodProve__idPro__07C12930" FromRole="prodProveedor" ToRole="producto" />
         </EntityType>
         <EntityType Name="producto">
           <Key>
             <PropertyRef Name="idProducto" />
           </Key>
-          <Property Name="idProducto" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="fechaIngreso" Type="DateTime" Precision="3" />
-          <Property Name="cantidad" Type="Int32" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="prodCategoria" Relationship="Self.FK__prodCateg__idPro__74AE54BC" FromRole="producto" ToRole="prodCategoria" />
-          <NavigationProperty Name="prodProveedor" Relationship="Self.FK__prodProve__idPro__72C60C4A" FromRole="producto" ToRole="prodProveedor" />
-        </EntityType>
-        <EntityType Name="proveedor">
-          <Key>
-            <PropertyRef Name="idProveedor" />
-          </Key>
-          <Property Name="idProveedor" Type="Int32" Nullable="false" />
-          <Property Name="nombreProveedor" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="orgProveedor" Relationship="Self.FK__orgProvee__idPro__71D1E811" FromRole="proveedor" ToRole="orgProveedor" />
-          <NavigationProperty Name="prodProveedor" Relationship="Self.FK__prodProve__idPro__73BA3083" FromRole="proveedor" ToRole="prodProveedor" />
-          <Property Name="idProvincia" Type="Int32" />
-          <Property Name="idCanton" Type="Int32" />
-          <Property Name="idDistrito" Type="Int32" />
-          <Property Name="detalleDireccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="canton" Relationship="TPModel.FK__proveedor__idCan__10566F31" FromRole="proveedor" ToRole="canton" />
-          <NavigationProperty Name="distrito" Relationship="TPModel.FK__proveedor__idDis__114A936A" FromRole="proveedor" ToRole="distrito" />
-          <NavigationProperty Name="provincia" Relationship="TPModel.FK__proveedor__idPro__0F624AF8" FromRole="proveedor" ToRole="provincia" />
+          <Property Name="idProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="prodCategoria" Relationship="TPModel.FK__prodCateg__idPro__06CD04F7" FromRole="producto" ToRole="prodCategoria" />
+          <NavigationProperty Name="prodProveedor" Relationship="TPModel.FK__prodProve__idPro__07C12930" FromRole="producto" ToRole="prodProveedor" />
         </EntityType>
         <EntityType Name="provincia">
           <Key>
             <PropertyRef Name="idProvincia" />
           </Key>
-          <Property Name="idProvincia" Type="Int32" Nullable="false" />
+          <Property Name="idProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombreProvincia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adoptante__idPro__0C85DE4D" FromRole="provincia" ToRole="adoptante" />
-          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__organizac__idPro__123EB7A3" FromRole="provincia" ToRole="organizacion" />
-          <NavigationProperty Name="proveedor" Relationship="TPModel.FK__proveedor__idPro__0F624AF8" FromRole="provincia" ToRole="proveedor" />
+          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__adoptante__idPro__00200768" FromRole="provincia" ToRole="adoptante" />
+          <NavigationProperty Name="organizacion" Relationship="TPModel.FK__organizac__idPro__04E4BC85" FromRole="provincia" ToRole="organizacion" />
         </EntityType>
         <EntityType Name="recordatorio">
           <Key>
             <PropertyRef Name="idRecordatorio" />
           </Key>
-          <Property Name="idRecordatorio" Type="Int32" Nullable="false" />
+          <Property Name="idRecordatorio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="creado" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="urgencia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="urgencia" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="alertaEstado" Type="Int32" />
-          <Property Name="idUsuario" Type="Int32" />
           <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__recordato__idUsu__6383C8BA" FromRole="recordatorio" ToRole="usuario" />
-        </EntityType>
-        <EntityType Name="rol">
-          <Key>
-            <PropertyRef Name="idRol" />
-          </Key>
-          <Property Name="idRol" Type="Int32" Nullable="false" />
-          <Property Name="nombreRol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="usuarioRol" Relationship="Self.FK__usuarioRo__idRol__619B8048" FromRole="rol" ToRole="usuarioRol" />
         </EntityType>
         <EntityType Name="seguimiento">
           <Key>
             <PropertyRef Name="idSeguimiento" />
           </Key>
-          <Property Name="idSeguimiento" Type="Int32" Nullable="false" />
-          <Property Name="idAnimal" Type="Int32" />
-          <Property Name="idAdoptante" Type="Int32" />
-          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idSeguimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAnimal" Type="Int32" Nullable="false" />
+          <Property Name="idAdoptante" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="adoptante" Relationship="Self.FK__seguimien__idAdo__6754599E" FromRole="seguimiento" ToRole="adoptante" />
-          <NavigationProperty Name="animal" Relationship="Self.FK__seguimien__idAni__66603565" FromRole="seguimiento" ToRole="animal" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__seguimien__idUsu__656C112C" FromRole="seguimiento" ToRole="usuario" />
+          <NavigationProperty Name="adoptante" Relationship="TPModel.FK__seguimien__idAdo__09A971A2" FromRole="seguimiento" ToRole="adoptante" />
+          <NavigationProperty Name="animal" Relationship="TPModel.FK__seguimien__idAni__0A9D95DB" FromRole="seguimiento" ToRole="animal" />
         </EntityType>
-        <EntityType Name="usuario">
-          <Key>
-            <PropertyRef Name="idUsuario" />
-          </Key>
-          <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <Property Name="cedula" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="apellido1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="apellido2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="contrasena" Type="Binary" MaxLength="1" FixedLength="false" />
-          <Property Name="idOrganizacion" Type="Int32" />
-          <Property Name="habilitado" Type="Boolean" />
-          <NavigationProperty Name="cita" Relationship="Self.FK__cita__idUsuario__6477ECF3" FromRole="usuario" ToRole="cita" />
-          <NavigationProperty Name="organizacion" Relationship="Self.FK__usuario__idOrgan__76969D2E" FromRole="usuario" ToRole="organizacion" />
-          <NavigationProperty Name="recordatorio" Relationship="Self.FK__recordato__idUsu__6383C8BA" FromRole="usuario" ToRole="recordatorio" />
-          <NavigationProperty Name="seguimiento" Relationship="Self.FK__seguimien__idUsu__656C112C" FromRole="usuario" ToRole="seguimiento" />
-          <NavigationProperty Name="usuarioRol" Relationship="Self.FK__usuarioRo__idUsu__628FA481" FromRole="usuario" ToRole="usuarioRol" />
-        </EntityType>
-        <EntityType Name="usuarioRol">
-          <Key>
-            <PropertyRef Name="idUsuarioRol" />
-          </Key>
-          <Property Name="idUsuarioRol" Type="Int32" Nullable="false" />
-          <Property Name="idRol" Type="Int32" />
-          <Property Name="idUsuario" Type="Int32" />
-          <NavigationProperty Name="rol" Relationship="Self.FK__usuarioRo__idRol__619B8048" FromRole="usuarioRol" ToRole="rol" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__usuarioRo__idUsu__628FA481" FromRole="usuarioRol" ToRole="usuario" />
-        </EntityType>
-        <Association Name="FK__adopcion__idAdop__6B24EA82">
-          <End Role="adoptante" Type="Self.adoptante" Multiplicity="0..1" />
-          <End Role="adopcion" Type="Self.adopcion" Multiplicity="*" />
+        <Association Name="FK__adopcion__idAdop__7C4F7684">
+          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="1" />
+          <End Type="TPModel.adopcion" Role="adopcion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="adoptante">
               <PropertyRef Name="idAdoptante" />
@@ -959,9 +751,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__adopcion__idAnim__6A30C649">
-          <End Role="animal" Type="Self.animal" Multiplicity="0..1" />
-          <End Role="adopcion" Type="Self.adopcion" Multiplicity="*" />
+        <Association Name="FK__adopcion__idAnim__7D439ABD">
+          <End Type="TPModel.animal" Role="animal" Multiplicity="1" />
+          <End Type="TPModel.adopcion" Role="adopcion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animal">
               <PropertyRef Name="idAnimal" />
@@ -971,9 +763,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__seguimien__idAdo__6754599E">
-          <End Role="adoptante" Type="Self.adoptante" Multiplicity="0..1" />
-          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+        <Association Name="FK__adoptante__idCan__7E37BEF6">
+          <End Type="TPModel.canton" Role="canton" Multiplicity="1" />
+          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canton">
+              <PropertyRef Name="idCanton" />
+            </Principal>
+            <Dependent Role="adoptante">
+              <PropertyRef Name="idCanton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__adoptante__idDis__7F2BE32F">
+          <End Type="TPModel.distrito" Role="distrito" Multiplicity="1" />
+          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="adoptante">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__adoptante__idPro__00200768">
+          <End Type="TPModel.provincia" Role="provincia" Multiplicity="1" />
+          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provincia">
+              <PropertyRef Name="idProvincia" />
+            </Principal>
+            <Dependent Role="adoptante">
+              <PropertyRef Name="idProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__seguimien__idAdo__09A971A2">
+          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="1" />
+          <End Type="TPModel.seguimiento" Role="seguimiento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="adoptante">
               <PropertyRef Name="idAdoptante" />
@@ -983,9 +811,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__animal__idGSangu__68487DD7">
-          <End Role="grupoSanguineo" Type="Self.grupoSanguineo" Multiplicity="0..1" />
-          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+        <Association Name="FK__animal__idGSangu__01142BA1">
+          <End Type="TPModel.grupoSanguineo" Role="grupoSanguineo" Multiplicity="1" />
+          <End Type="TPModel.animal" Role="animal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grupoSanguineo">
               <PropertyRef Name="idGSanguineo" />
@@ -995,9 +823,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__animal__idOrgani__693CA210">
-          <End Role="organizacion" Type="Self.organizacion" Multiplicity="0..1" />
-          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+        <Association Name="FK__animal__idOrgani__02084FDA">
+          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="1" />
+          <End Type="TPModel.animal" Role="animal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="organizacion">
               <PropertyRef Name="idOrganizacion" />
@@ -1007,9 +835,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__seguimien__idAni__66603565">
-          <End Role="animal" Type="Self.animal" Multiplicity="0..1" />
-          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
+        <Association Name="FK__seguimien__idAni__0A9D95DB">
+          <End Type="TPModel.animal" Role="animal" Multiplicity="1" />
+          <End Type="TPModel.seguimiento" Role="seguimiento" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animal">
               <PropertyRef Name="idAnimal" />
@@ -1019,9 +847,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__prodCateg__idCat__75A278F5">
-          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
-          <End Role="prodCategoria" Type="Self.prodCategoria" Multiplicity="*" />
+        <Association Name="FK__organizac__idCan__02FC7413">
+          <End Type="TPModel.canton" Role="canton" Multiplicity="1" />
+          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canton">
+              <PropertyRef Name="idCanton" />
+            </Principal>
+            <Dependent Role="organizacion">
+              <PropertyRef Name="idCanton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prodCateg__idCat__05D8E0BE">
+          <End Type="TPModel.categoria" Role="categoria" Multiplicity="1" />
+          <End Type="TPModel.prodCategoria" Role="prodCategoria" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="categoria">
               <PropertyRef Name="idCategoria" />
@@ -1031,57 +871,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__cita__idUsuario__6477ECF3">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="cita" Type="Self.cita" Multiplicity="*" />
+        <Association Name="FK__organizac__idDis__03F0984C">
+          <End Type="TPModel.distrito" Role="distrito" Multiplicity="1" />
+          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
+            <Principal Role="distrito">
+              <PropertyRef Name="idDistrito" />
             </Principal>
-            <Dependent Role="cita">
-              <PropertyRef Name="idUsuario" />
+            <Dependent Role="organizacion">
+              <PropertyRef Name="idDistrito" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orgProvee__idOrg__70DDC3D8">
-          <End Role="organizacion" Type="Self.organizacion" Multiplicity="0..1" />
-          <End Role="orgProveedor" Type="Self.orgProveedor" Multiplicity="*" />
+        <Association Name="FK__organizac__idPro__04E4BC85">
+          <End Type="TPModel.provincia" Role="provincia" Multiplicity="1" />
+          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provincia">
+              <PropertyRef Name="idProvincia" />
+            </Principal>
+            <Dependent Role="organizacion">
+              <PropertyRef Name="idProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prodProve__idOrg__08B54D69">
+          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="1" />
+          <End Type="TPModel.prodProveedor" Role="prodProveedor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="organizacion">
               <PropertyRef Name="idOrganizacion" />
             </Principal>
-            <Dependent Role="orgProveedor">
+            <Dependent Role="prodProveedor">
               <PropertyRef Name="idOrganizacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__usuario__idOrgan__76969D2E">
-          <End Role="organizacion" Type="Self.organizacion" Multiplicity="0..1" />
-          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="organizacion">
-              <PropertyRef Name="idOrganizacion" />
-            </Principal>
-            <Dependent Role="usuario">
-              <PropertyRef Name="idOrganizacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__orgProvee__idPro__71D1E811">
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
-          <End Role="orgProveedor" Type="Self.orgProveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="proveedor">
-              <PropertyRef Name="idProveedor" />
-            </Principal>
-            <Dependent Role="orgProveedor">
-              <PropertyRef Name="idProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__prodCateg__idPro__74AE54BC">
-          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
-          <End Role="prodCategoria" Type="Self.prodCategoria" Multiplicity="*" />
+        <Association Name="FK__prodCateg__idPro__06CD04F7">
+          <End Type="TPModel.producto" Role="producto" Multiplicity="1" />
+          <End Type="TPModel.prodCategoria" Role="prodCategoria" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="producto">
               <PropertyRef Name="idProducto" />
@@ -1091,9 +919,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__prodProve__idPro__72C60C4A">
-          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
-          <End Role="prodProveedor" Type="Self.prodProveedor" Multiplicity="*" />
+        <Association Name="FK__prodProve__idPro__07C12930">
+          <End Type="TPModel.producto" Role="producto" Multiplicity="1" />
+          <End Type="TPModel.prodProveedor" Role="prodProveedor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="producto">
               <PropertyRef Name="idProducto" />
@@ -1103,306 +931,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__prodProve__idPro__73BA3083">
-          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
-          <End Role="prodProveedor" Type="Self.prodProveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="proveedor">
-              <PropertyRef Name="idProveedor" />
-            </Principal>
-            <Dependent Role="prodProveedor">
-              <PropertyRef Name="idProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__recordato__idUsu__6383C8BA">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="recordatorio" Type="Self.recordatorio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="recordatorio">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__usuarioRo__idRol__619B8048">
-          <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
-          <End Role="usuarioRol" Type="Self.usuarioRol" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="rol">
-              <PropertyRef Name="idRol" />
-            </Principal>
-            <Dependent Role="usuarioRol">
-              <PropertyRef Name="idRol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__seguimien__idUsu__656C112C">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="seguimiento">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__usuarioRo__idUsu__628FA481">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="usuarioRol" Type="Self.usuarioRol" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="usuarioRol">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="TPEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="adopcion" EntityType="Self.adopcion" />
-          <EntitySet Name="adoptante" EntityType="Self.adoptante" />
-          <EntitySet Name="animal" EntityType="Self.animal" />
-          <EntitySet Name="canton" EntityType="Self.canton" />
-          <EntitySet Name="categoria" EntityType="Self.categoria" />
-          <EntitySet Name="cita" EntityType="Self.cita" />
-          <EntitySet Name="distrito" EntityType="Self.distrito" />
-          <EntitySet Name="donante" EntityType="Self.donante" />
-          <EntitySet Name="grupoSanguineo" EntityType="Self.grupoSanguineo" />
-          <EntitySet Name="organizacion" EntityType="Self.organizacion" />
-          <EntitySet Name="orgProveedor" EntityType="Self.orgProveedor" />
-          <EntitySet Name="prodCategoria" EntityType="Self.prodCategoria" />
-          <EntitySet Name="prodProveedor" EntityType="Self.prodProveedor" />
-          <EntitySet Name="producto" EntityType="Self.producto" />
-          <EntitySet Name="proveedor" EntityType="Self.proveedor" />
-          <EntitySet Name="provincia" EntityType="Self.provincia" />
-          <EntitySet Name="recordatorio" EntityType="Self.recordatorio" />
-          <EntitySet Name="rol" EntityType="Self.rol" />
-          <EntitySet Name="seguimiento" EntityType="Self.seguimiento" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" />
-          <EntitySet Name="usuarioRol" EntityType="Self.usuarioRol" />
-          <AssociationSet Name="FK__adopcion__idAdop__6B24EA82" Association="Self.FK__adopcion__idAdop__6B24EA82">
-            <End Role="adoptante" EntitySet="adoptante" />
-            <End Role="adopcion" EntitySet="adopcion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__adopcion__idAnim__6A30C649" Association="Self.FK__adopcion__idAnim__6A30C649">
-            <End Role="animal" EntitySet="animal" />
-            <End Role="adopcion" EntitySet="adopcion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idAdo__6754599E" Association="Self.FK__seguimien__idAdo__6754599E">
-            <End Role="adoptante" EntitySet="adoptante" />
-            <End Role="seguimiento" EntitySet="seguimiento" />
-          </AssociationSet>
-          <AssociationSet Name="FK__animal__idGSangu__68487DD7" Association="Self.FK__animal__idGSangu__68487DD7">
-            <End Role="grupoSanguineo" EntitySet="grupoSanguineo" />
-            <End Role="animal" EntitySet="animal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__animal__idOrgani__693CA210" Association="Self.FK__animal__idOrgani__693CA210">
-            <End Role="organizacion" EntitySet="organizacion" />
-            <End Role="animal" EntitySet="animal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idAni__66603565" Association="Self.FK__seguimien__idAni__66603565">
-            <End Role="animal" EntitySet="animal" />
-            <End Role="seguimiento" EntitySet="seguimiento" />
-          </AssociationSet>
-          <AssociationSet Name="FK__prodCateg__idCat__75A278F5" Association="Self.FK__prodCateg__idCat__75A278F5">
-            <End Role="categoria" EntitySet="categoria" />
-            <End Role="prodCategoria" EntitySet="prodCategoria" />
-          </AssociationSet>
-          <AssociationSet Name="FK__cita__idUsuario__6477ECF3" Association="Self.FK__cita__idUsuario__6477ECF3">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="cita" EntitySet="cita" />
-          </AssociationSet>
-          <AssociationSet Name="FK__orgProvee__idOrg__70DDC3D8" Association="Self.FK__orgProvee__idOrg__70DDC3D8">
-            <End Role="organizacion" EntitySet="organizacion" />
-            <End Role="orgProveedor" EntitySet="orgProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__usuario__idOrgan__76969D2E" Association="Self.FK__usuario__idOrgan__76969D2E">
-            <End Role="organizacion" EntitySet="organizacion" />
-            <End Role="usuario" EntitySet="usuario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__orgProvee__idPro__71D1E811" Association="Self.FK__orgProvee__idPro__71D1E811">
-            <End Role="proveedor" EntitySet="proveedor" />
-            <End Role="orgProveedor" EntitySet="orgProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__prodCateg__idPro__74AE54BC" Association="Self.FK__prodCateg__idPro__74AE54BC">
-            <End Role="producto" EntitySet="producto" />
-            <End Role="prodCategoria" EntitySet="prodCategoria" />
-          </AssociationSet>
-          <AssociationSet Name="FK__prodProve__idPro__72C60C4A" Association="Self.FK__prodProve__idPro__72C60C4A">
-            <End Role="producto" EntitySet="producto" />
-            <End Role="prodProveedor" EntitySet="prodProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__prodProve__idPro__73BA3083" Association="Self.FK__prodProve__idPro__73BA3083">
-            <End Role="proveedor" EntitySet="proveedor" />
-            <End Role="prodProveedor" EntitySet="prodProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__recordato__idUsu__6383C8BA" Association="Self.FK__recordato__idUsu__6383C8BA">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="recordatorio" EntitySet="recordatorio" />
-          </AssociationSet>
-          <AssociationSet Name="FK__usuarioRo__idRol__619B8048" Association="Self.FK__usuarioRo__idRol__619B8048">
-            <End Role="rol" EntitySet="rol" />
-            <End Role="usuarioRol" EntitySet="usuarioRol" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idUsu__656C112C" Association="Self.FK__seguimien__idUsu__656C112C">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="seguimiento" EntitySet="seguimiento" />
-          </AssociationSet>
-          <AssociationSet Name="FK__usuarioRo__idUsu__628FA481" Association="Self.FK__usuarioRo__idUsu__628FA481">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="usuarioRol" EntitySet="usuarioRol" />
-          </AssociationSet>
-          <AssociationSet Name="FK__adoptante__idCan__0E6E26BF" Association="TPModel.FK__adoptante__idCan__0E6E26BF">
-            <End Role="canton" EntitySet="canton" />
-            <End Role="adoptante" EntitySet="adoptante" />
-          </AssociationSet>
-          <AssociationSet Name="FK__adoptante__idDis__0D7A0286" Association="TPModel.FK__adoptante__idDis__0D7A0286">
-            <End Role="distrito" EntitySet="distrito" />
-            <End Role="adoptante" EntitySet="adoptante" />
-          </AssociationSet>
-          <AssociationSet Name="FK__adoptante__idPro__0C85DE4D" Association="TPModel.FK__adoptante__idPro__0C85DE4D">
-            <End Role="provincia" EntitySet="provincia" />
-            <End Role="adoptante" EntitySet="adoptante" />
-          </AssociationSet>
-          <AssociationSet Name="FK__organizac__idCan__1332DBDC" Association="TPModel.FK__organizac__idCan__1332DBDC">
-            <End Role="canton" EntitySet="canton" />
-            <End Role="organizacion" EntitySet="organizacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proveedor__idCan__10566F31" Association="TPModel.FK__proveedor__idCan__10566F31">
-            <End Role="canton" EntitySet="canton" />
-            <End Role="proveedor" EntitySet="proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__organizac__idDis__14270015" Association="TPModel.FK__organizac__idDis__14270015">
-            <End Role="distrito" EntitySet="distrito" />
-            <End Role="organizacion" EntitySet="organizacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proveedor__idDis__114A936A" Association="TPModel.FK__proveedor__idDis__114A936A">
-            <End Role="distrito" EntitySet="distrito" />
-            <End Role="proveedor" EntitySet="proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__organizac__idPro__123EB7A3" Association="TPModel.FK__organizac__idPro__123EB7A3">
-            <End Role="provincia" EntitySet="provincia" />
-            <End Role="organizacion" EntitySet="organizacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proveedor__idPro__0F624AF8" Association="TPModel.FK__proveedor__idPro__0F624AF8">
-            <End Role="provincia" EntitySet="provincia" />
-            <End Role="proveedor" EntitySet="proveedor" />
-          </AssociationSet>
-        </EntityContainer>
-        <Association Name="FK__adoptante__idCan__0E6E26BF">
-          <End Type="TPModel.canton" Role="canton" Multiplicity="0..1" />
-          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="canton">
-              <PropertyRef Name="idCanton" />
-            </Principal>
-            <Dependent Role="adoptante">
-              <PropertyRef Name="idCanton" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__adoptante__idDis__0D7A0286">
-          <End Type="TPModel.distrito" Role="distrito" Multiplicity="0..1" />
-          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="distrito">
-              <PropertyRef Name="idDistrito" />
-            </Principal>
-            <Dependent Role="adoptante">
-              <PropertyRef Name="idDistrito" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__adoptante__idPro__0C85DE4D">
-          <End Type="TPModel.provincia" Role="provincia" Multiplicity="0..1" />
-          <End Type="TPModel.adoptante" Role="adoptante" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="provincia">
-              <PropertyRef Name="idProvincia" />
-            </Principal>
-            <Dependent Role="adoptante">
-              <PropertyRef Name="idProvincia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__organizac__idCan__1332DBDC">
-          <End Type="TPModel.canton" Role="canton" Multiplicity="0..1" />
-          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="canton">
-              <PropertyRef Name="idCanton" />
-            </Principal>
-            <Dependent Role="organizacion">
-              <PropertyRef Name="idCanton" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proveedor__idCan__10566F31">
-          <End Type="TPModel.canton" Role="canton" Multiplicity="0..1" />
-          <End Type="TPModel.proveedor" Role="proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="canton">
-              <PropertyRef Name="idCanton" />
-            </Principal>
-            <Dependent Role="proveedor">
-              <PropertyRef Name="idCanton" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__organizac__idDis__14270015">
-          <End Type="TPModel.distrito" Role="distrito" Multiplicity="0..1" />
-          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="distrito">
-              <PropertyRef Name="idDistrito" />
-            </Principal>
-            <Dependent Role="organizacion">
-              <PropertyRef Name="idDistrito" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proveedor__idDis__114A936A">
-          <End Type="TPModel.distrito" Role="distrito" Multiplicity="0..1" />
-          <End Type="TPModel.proveedor" Role="proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="distrito">
-              <PropertyRef Name="idDistrito" />
-            </Principal>
-            <Dependent Role="proveedor">
-              <PropertyRef Name="idDistrito" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__organizac__idPro__123EB7A3">
-          <End Type="TPModel.provincia" Role="provincia" Multiplicity="0..1" />
-          <End Type="TPModel.organizacion" Role="organizacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="provincia">
-              <PropertyRef Name="idProvincia" />
-            </Principal>
-            <Dependent Role="organizacion">
-              <PropertyRef Name="idProvincia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proveedor__idPro__0F624AF8">
-          <End Type="TPModel.provincia" Role="provincia" Multiplicity="0..1" />
-          <End Type="TPModel.proveedor" Role="proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="provincia">
-              <PropertyRef Name="idProvincia" />
-            </Principal>
-            <Dependent Role="proveedor">
-              <PropertyRef Name="idProvincia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1411,243 +940,187 @@
           <EntitySetMapping Name="adopcion">
             <EntityTypeMapping TypeName="TPModel.adopcion">
               <MappingFragment StoreEntitySet="adopcion">
-                <ScalarProperty Name="idAdopcion" ColumnName="idAdopcion" />
-                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
-                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
-                <ScalarProperty Name="fechaAdopcion" ColumnName="fechaAdopcion" />
-                <ScalarProperty Name="fechaSeguimiento" ColumnName="fechaSeguimiento" />
                 <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="fechaSeguimiento" ColumnName="fechaSeguimiento" />
+                <ScalarProperty Name="fechaAdopcion" ColumnName="fechaAdopcion" />
+                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
+                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+                <ScalarProperty Name="idAdopcion" ColumnName="idAdopcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="adoptante">
             <EntityTypeMapping TypeName="TPModel.adoptante">
               <MappingFragment StoreEntitySet="adoptante">
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
                 <ScalarProperty Name="detalleDireccion" ColumnName="detalleDireccion" />
                 <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="idCanton" ColumnName="idCanton" />
                 <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
-                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="animal">
             <EntityTypeMapping TypeName="TPModel.animal">
               <MappingFragment StoreEntitySet="animal">
-                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="sexo" ColumnName="sexo" />
-                <ScalarProperty Name="raza" ColumnName="raza" />
-                <ScalarProperty Name="castrado" ColumnName="castrado" />
-                <ScalarProperty Name="edad" ColumnName="edad" />
-                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
-                <ScalarProperty Name="idGSanguineo" ColumnName="idGSanguineo" />
-                <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
+                <ScalarProperty Name="adoptado" ColumnName="adoptado" />
+                <ScalarProperty Name="especie" ColumnName="especie" />
                 <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
+                <ScalarProperty Name="idGSanguineo" ColumnName="idGSanguineo" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="castrado" ColumnName="castrado" />
+                <ScalarProperty Name="raza" ColumnName="raza" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="canton">
             <EntityTypeMapping TypeName="TPModel.canton">
               <MappingFragment StoreEntitySet="canton">
-                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
                 <ScalarProperty Name="nombreCanton" ColumnName="nombreCanton" />
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="categoria">
             <EntityTypeMapping TypeName="TPModel.categoria">
               <MappingFragment StoreEntitySet="categoria">
-                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
                 <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cita">
             <EntityTypeMapping TypeName="TPModel.cita">
               <MappingFragment StoreEntitySet="cita">
-                <ScalarProperty Name="idCita" ColumnName="idCita" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="hora" ColumnName="hora" />
-                <ScalarProperty Name="motivo" ColumnName="motivo" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idCita" ColumnName="idCita" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="distrito">
             <EntityTypeMapping TypeName="TPModel.distrito">
               <MappingFragment StoreEntitySet="distrito">
-                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="nombreDistrito" ColumnName="nombreDistrito" />
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="donante">
             <EntityTypeMapping TypeName="TPModel.donante">
               <MappingFragment StoreEntitySet="donante">
-                <ScalarProperty Name="idDonante" ColumnName="idDonante" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idDonante" ColumnName="idDonante" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="grupoSanguineo">
             <EntityTypeMapping TypeName="TPModel.grupoSanguineo">
               <MappingFragment StoreEntitySet="grupoSanguineo">
-                <ScalarProperty Name="idGSanguineo" ColumnName="idGSanguineo" />
                 <ScalarProperty Name="nombreGSanguineo" ColumnName="nombreGSanguineo" />
+                <ScalarProperty Name="idGSanguineo" ColumnName="idGSanguineo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="organizacion">
             <EntityTypeMapping TypeName="TPModel.organizacion">
               <MappingFragment StoreEntitySet="organizacion">
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
                 <ScalarProperty Name="detalleDireccion" ColumnName="detalleDireccion" />
                 <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="idCanton" ColumnName="idCanton" />
                 <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
-                <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="orgProveedor">
-            <EntityTypeMapping TypeName="TPModel.orgProveedor">
-              <MappingFragment StoreEntitySet="orgProveedor">
-                <ScalarProperty Name="idOrgProveedor" ColumnName="idOrgProveedor" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
-                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="prodCategoria">
             <EntityTypeMapping TypeName="TPModel.prodCategoria">
               <MappingFragment StoreEntitySet="prodCategoria">
-                <ScalarProperty Name="idProdCategoria" ColumnName="idProdCategoria" />
-                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
                 <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idProdCategoria" ColumnName="idProdCategoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="prodProveedor">
             <EntityTypeMapping TypeName="TPModel.prodProveedor">
               <MappingFragment StoreEntitySet="prodProveedor">
-                <ScalarProperty Name="idProdProveedor" ColumnName="idProdProveedor" />
+                <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
                 <ScalarProperty Name="idProducto" ColumnName="idProducto" />
-                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+                <ScalarProperty Name="idProdProveedor" ColumnName="idProdProveedor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="producto">
             <EntityTypeMapping TypeName="TPModel.producto">
               <MappingFragment StoreEntitySet="producto">
-                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="proveedor">
-            <EntityTypeMapping TypeName="TPModel.proveedor">
-              <MappingFragment StoreEntitySet="proveedor">
-                <ScalarProperty Name="detalleDireccion" ColumnName="detalleDireccion" />
-                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
-                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
-                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
-                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
-                <ScalarProperty Name="nombreProveedor" ColumnName="nombreProveedor" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="provincia">
             <EntityTypeMapping TypeName="TPModel.provincia">
               <MappingFragment StoreEntitySet="provincia">
-                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
                 <ScalarProperty Name="nombreProvincia" ColumnName="nombreProvincia" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="recordatorio">
             <EntityTypeMapping TypeName="TPModel.recordatorio">
               <MappingFragment StoreEntitySet="recordatorio">
-                <ScalarProperty Name="idRecordatorio" ColumnName="idRecordatorio" />
-                <ScalarProperty Name="creado" ColumnName="creado" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="urgencia" ColumnName="urgencia" />
-                <ScalarProperty Name="alertaEstado" ColumnName="alertaEstado" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="rol">
-            <EntityTypeMapping TypeName="TPModel.rol">
-              <MappingFragment StoreEntitySet="rol">
-                <ScalarProperty Name="idRol" ColumnName="idRol" />
-                <ScalarProperty Name="nombreRol" ColumnName="nombreRol" />
+                <ScalarProperty Name="alertaEstado" ColumnName="alertaEstado" />
+                <ScalarProperty Name="urgencia" ColumnName="urgencia" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="creado" ColumnName="creado" />
+                <ScalarProperty Name="idRecordatorio" ColumnName="idRecordatorio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="seguimiento">
             <EntityTypeMapping TypeName="TPModel.seguimiento">
               <MappingFragment StoreEntitySet="seguimiento">
-                <ScalarProperty Name="idSeguimiento" ColumnName="idSeguimiento" />
-                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
-                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="TPModel.usuario">
-              <MappingFragment StoreEntitySet="usuario">
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-                <ScalarProperty Name="idOrganizacion" ColumnName="idOrganizacion" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuarioRol">
-            <EntityTypeMapping TypeName="TPModel.usuarioRol">
-              <MappingFragment StoreEntitySet="usuarioRol">
-                <ScalarProperty Name="idUsuarioRol" ColumnName="idUsuarioRol" />
-                <ScalarProperty Name="idRol" ColumnName="idRol" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
+                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+                <ScalarProperty Name="idSeguimiento" ColumnName="idSeguimiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

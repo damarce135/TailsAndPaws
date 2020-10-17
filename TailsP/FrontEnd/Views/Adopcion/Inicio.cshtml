@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idAdopcion)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.idAnimal)
         </th>
         <th>
@@ -22,9 +19,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.fechaAdopcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaSeguimiento)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.habilitado)
@@ -35,9 +29,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.idAdopcion)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.animal.nombre)
         </td>
         <td>
@@ -45,9 +36,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.fechaAdopcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaSeguimiento)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.habilitado)

@@ -20,9 +20,6 @@ namespace BackEnd.Entities
         public string descripcion { get; set; }
         public string urgencia { get; set; }
         public Nullable<int> alertaEstado { get; set; }
-        public Nullable<int> idUsuario { get; set; }
         public Nullable<bool> habilitado { get; set; }
-    
-        public virtual usuario usuario { get; set; }
     }
 }

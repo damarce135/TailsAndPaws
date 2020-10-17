@@ -11,6 +11,7 @@ namespace FrontEnd.Models
         [Display(Name = "Identificador")]
         public int idDonante { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar un Nombre.")]
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
