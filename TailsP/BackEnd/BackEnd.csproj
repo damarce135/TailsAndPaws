@@ -85,6 +85,9 @@
     <Compile Include="Entities\organizacion.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\orgProveedor.cs">
+      <DependentUpon>TPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\prodCategoria.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
@@ -94,10 +97,16 @@
     <Compile Include="Entities\producto.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\proveedor.cs">
+      <DependentUpon>TPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\provincia.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\recordatorio.cs">
+      <DependentUpon>TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\rol.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\seguimiento.cs">
@@ -117,6 +126,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\usuario.cs">
+      <DependentUpon>TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\usuarioRol.cs">
+      <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

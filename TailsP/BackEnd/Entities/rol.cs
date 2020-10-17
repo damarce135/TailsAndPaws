@@ -12,24 +12,18 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class provincia
+    public partial class rol
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public provincia()
+        public rol()
         {
-            this.adoptante = new HashSet<adoptante>();
-            this.organizacion = new HashSet<organizacion>();
-            this.proveedor = new HashSet<proveedor>();
+            this.usuarioRol = new HashSet<usuarioRol>();
         }
     
-        public int idProvincia { get; set; }
-        public string nombreProvincia { get; set; }
+        public int idRol { get; set; }
+        public string nombreRol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<adoptante> adoptante { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<organizacion> organizacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<proveedor> proveedor { get; set; }
+        public virtual ICollection<usuarioRol> usuarioRol { get; set; }
     }
 }

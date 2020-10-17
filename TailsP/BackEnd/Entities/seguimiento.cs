@@ -15,12 +15,14 @@ namespace BackEnd.Entities
     public partial class seguimiento
     {
         public int idSeguimiento { get; set; }
-        public int idAnimal { get; set; }
-        public int idAdoptante { get; set; }
+        public Nullable<int> idAnimal { get; set; }
+        public Nullable<int> idAdoptante { get; set; }
+        public Nullable<int> idUsuario { get; set; }
         public string estado { get; set; }
         public Nullable<bool> habilitado { get; set; }
     
         public virtual adoptante adoptante { get; set; }
         public virtual animal animal { get; set; }
+        public virtual usuario usuario { get; set; }
     }
 }
