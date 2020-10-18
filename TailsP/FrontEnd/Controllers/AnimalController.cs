@@ -21,7 +21,7 @@ namespace FrontEnd.Controllers
                 raza = animal.raza,
                 castrado = animal.castrado,
                 edad = animal.edad,
-                fechaIngreso = animal.fechaIngreso,
+                fechaIngreso = (DateTime)animal.fechaIngreso,
                 idGSanguineo = (int)animal.idGSanguineo,
                 idOrganizacion = (int)animal.idOrganizacion,
                 habilitado = (bool)animal.habilitado
@@ -39,7 +39,7 @@ namespace FrontEnd.Controllers
                 raza = animalViewModel.raza,
                 castrado = animalViewModel.castrado,
                 edad = animalViewModel.edad,
-                fechaIngreso = animalViewModel.fechaIngreso,
+                fechaIngreso = (DateTime)animalViewModel.fechaIngreso,
                 idGSanguineo = (int)animalViewModel.idGSanguineo,
                 idOrganizacion = (int)animalViewModel.idOrganizacion,
                 habilitado = (bool)animalViewModel.habilitado

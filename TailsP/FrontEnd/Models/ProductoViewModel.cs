@@ -20,7 +20,7 @@ namespace FrontEnd.Models
         [Display(Name = "Fecha de Ingreso")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyy}", ApplyFormatInEditMode = true)]
-        public Nullable<System.DateTime> fechaIngreso { get; set; }
+        public System.DateTime fechaIngreso { get; set; }
 
         [Display(Name = "Cantidad")]
         public int cantidad { get; set; }

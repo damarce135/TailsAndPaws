@@ -15,11 +15,11 @@ namespace BackEnd.Entities
     public partial class adopcion
     {
         public int idAdopcion { get; set; }
-        public Nullable<int> idAnimal { get; set; }
-        public Nullable<int> idAdoptante { get; set; }
-        public Nullable<System.DateTime> fechaAdopcion { get; set; }
+        public int idAnimal { get; set; }
+        public int idAdoptante { get; set; }
+        public System.DateTime fechaAdopcion { get; set; }
         public Nullable<System.DateTime> fechaSeguimiento { get; set; }
-        public Nullable<bool> habilitado { get; set; }
+        public bool habilitado { get; set; }
     
         public virtual adoptante adoptante { get; set; }
         public virtual animal animal { get; set; }

@@ -12,6 +12,7 @@ namespace FrontEnd.Models
         [Display(Name ="Identificador")]
         public int idCategoria { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar un Nombre para la Categoría.")]
         [Display(Name ="Categoría")]
         public string nombreCategoria { get; set; }
     }

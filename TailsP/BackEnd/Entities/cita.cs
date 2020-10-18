@@ -17,12 +17,9 @@ namespace BackEnd.Entities
         public int idCita { get; set; }
         public string nombre { get; set; }
         public string telefono { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
+        public System.DateTime fecha { get; set; }
         public Nullable<System.TimeSpan> hora { get; set; }
         public string motivo { get; set; }
-        public Nullable<int> idUsuario { get; set; }
-        public Nullable<bool> habilitado { get; set; }
-    
-        public virtual usuario usuario { get; set; }
+        public bool habilitado { get; set; }
     }
 }

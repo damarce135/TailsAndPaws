@@ -24,19 +24,7 @@
             @Html.DisplayNameFor(model => model.raza)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.castrado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.edad)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.fechaIngreso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idGSanguineo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idOrganizacion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.habilitado)
@@ -59,27 +47,14 @@
             @Html.DisplayFor(modelItem => item.raza)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.castrado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.edad)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.fechaIngreso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.grupoSanguineo.nombreGSanguineo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.organizacion.nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.habilitado)
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.idAnimal }) |
-            @Html.ActionLink("Detalles", "Detalles", new { id=item.idAnimal}) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.idAnimal })
+            @Html.ActionLink("Detalles", "Detalles", new { id=item.idAnimal})
         </td>
     </tr>
 }

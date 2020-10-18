@@ -177,7 +177,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganizacionController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
-    <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,7 +190,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrganizacionViewModel.cs" />
     <Compile Include="Models\ProductoViewModel.cs" />
-    <Compile Include="Models\ProveedorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -280,10 +278,6 @@
     <Content Include="Views\Organizacion\Crear.cshtml" />
     <Content Include="Views\Organizacion\Editar.cshtml" />
     <Content Include="Views\Organizacion\Detalles.cshtml" />
-    <Content Include="Views\Proveedor\Inicio.cshtml" />
-    <Content Include="Views\Proveedor\Crear.cshtml" />
-    <Content Include="Views\Proveedor\Editar.cshtml" />
-    <Content Include="Views\Proveedor\Detalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

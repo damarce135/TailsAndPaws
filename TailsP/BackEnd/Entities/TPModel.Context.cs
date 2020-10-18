@@ -9,13 +9,11 @@
 
 namespace BackEnd.Entities
 {
-    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using static Identity.Identity;
-
-    public partial class TPEntities : IdentityDbContext<ApplicationUser>
+    
+    public partial class TPEntities : DbContext
     {
         public TPEntities()
             : base("name=TPEntities")
@@ -37,16 +35,11 @@ namespace BackEnd.Entities
         public virtual DbSet<donante> donante { get; set; }
         public virtual DbSet<grupoSanguineo> grupoSanguineo { get; set; }
         public virtual DbSet<organizacion> organizacion { get; set; }
-        public virtual DbSet<orgProveedor> orgProveedor { get; set; }
         public virtual DbSet<prodCategoria> prodCategoria { get; set; }
         public virtual DbSet<prodProveedor> prodProveedor { get; set; }
         public virtual DbSet<producto> producto { get; set; }
-        public virtual DbSet<proveedor> proveedor { get; set; }
         public virtual DbSet<provincia> provincia { get; set; }
         public virtual DbSet<recordatorio> recordatorio { get; set; }
-        public virtual DbSet<rol> rol { get; set; }
         public virtual DbSet<seguimiento> seguimiento { get; set; }
-        public virtual DbSet<usuario> usuario { get; set; }
-        public virtual DbSet<usuarioRol> usuarioRol { get; set; }
     }
 }

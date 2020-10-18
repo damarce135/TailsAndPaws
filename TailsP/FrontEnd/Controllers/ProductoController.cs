@@ -18,7 +18,7 @@ namespace FrontEnd.Controllers
                 idProducto = producto.idProducto,
                 nombre = producto.nombre,
                 descripcion = producto.descripcion,
-                fechaIngreso = producto.fechaIngreso,
+                fechaIngreso = (DateTime)producto.fechaIngreso,
                 cantidad = (int)producto.cantidad,
                 habilitado = (bool)producto.habilitado
             };
@@ -32,7 +32,7 @@ namespace FrontEnd.Controllers
                 idProducto = productoViewModel.idProducto,
                 nombre = productoViewModel.nombre,
                 descripcion = productoViewModel.descripcion,
-                fechaIngreso = productoViewModel.fechaIngreso,
+                fechaIngreso = (DateTime)productoViewModel.fechaIngreso,
                 cantidad = (int)productoViewModel.cantidad,
                 habilitado = (bool)productoViewModel.habilitado
             };

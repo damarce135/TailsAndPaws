@@ -12,36 +12,45 @@ namespace FrontEnd.Models
         [Display(Name = "Identificador")]
         public int idAnimal { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar el Nombre del Animal.")]
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar el Sexo del Animal. H: Hembra, M: Macho")]
         [Display(Name = "Sexo")]
         public string sexo { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar la Raza del Animal.")]
         [Display(Name = "Raza")]
         public string raza { get; set; }
 
+        [Required(ErrorMessage = "Debe indicar si el Animal está castrado.")]
         [Display(Name = "Castrado")]
-        public string castrado { get; set; }
+        public bool castrado { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar la Edad del Animal.")]
         [Display(Name = "Edad")]
         public string edad { get; set; }
 
+        [Required(ErrorMessage = "Debe digitar la Fecha de Ingreso del Animal.")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Fecha de Ingreso")]
-        public Nullable<System.DateTime> fechaIngreso { get; set; }
+        public System.DateTime fechaIngreso { get; set; }
 
+        [Required(ErrorMessage = "Debe seleccionar el Grupo Sanguíneo del Animal.")]
         [Display(Name = "Grupo Sanguíneo")]
         public int idGSanguineo { get; set; }
         public IEnumerable<grupoSanguineo> grupoSanguineos { get; set; }
         public grupoSanguineo grupoSanguineo { get; set; }
 
+        [Required(ErrorMessage = "Debe seleccionar la Organización del Animal.")]
         [Display(Name = "Organización")]
         public int idOrganizacion { get; set; }
         public IEnumerable<organizacion> organizaciones { get; set; }
         public organizacion organizacion { get; set; }
 
+        [Required(ErrorMessage = "Debe indicar si el Animal está habilitado o no.")]
         [Display(Name = "Estado")]
         public bool habilitado { get; set; }
     }
