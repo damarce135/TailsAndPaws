@@ -11,6 +11,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FrontEnd.Models;
+using SendGrid.Helpers.Mail;
+using System.Net;
+using System.Configuration;
+using System.Net.Http;
+using System.Net.Mail;
+using SendGrid;
 
 namespace FrontEnd
 {
@@ -18,8 +24,41 @@ namespace FrontEnd
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Conecte su servicio de correo electrónico aquí para enviar correo electrónico.
-            return Task.FromResult(0);
+            return configSendGridasync(message);
+        }
+
+        private Task configSendGridasync(IdentityMessage message)
+        {
+            var myMessage = new SendGridMessage();
+            myMessage.AddTo(message.Destination);
+            //myMessage.From = new System.Net.Mail.MailAddress(
+            //                    "mortega10982@ufide.ac.cr", "Tails&Paws");
+            //myMessage.Subject = message.Subject;
+            //myMessage.Text = message.Body;
+            //myMessage.Html = message.Body;
+            myMessage.From = new EmailAddress("mortega10982@ufide.ac.cr", "Tails And Paws");
+            myMessage.Subject = message.Subject;
+            myMessage.PlainTextContent = message.Body;
+
+
+
+            //var credentials = new NetworkCredential(
+            //           ConfigurationManager.AppSettings["mailAccount"],
+            //           ConfigurationManager.AppSettings["mailPassword"]
+            //           );
+
+            // Create a Web transport for sending email.
+            var transportWeb = new SendGridClient("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");
+
+            // Send the email.
+            if (transportWeb != null)
+            {
+                return transportWeb.SendEmailAsync(myMessage);
+            }
+            else
+            {
+                return Task.FromResult(0);
+            }
         }
     }
 
@@ -48,6 +87,7 @@ namespace FrontEnd
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
+               
             };
 
             // Configure la lógica de validación de contraseñas
@@ -82,7 +122,10 @@ namespace FrontEnd
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"))
+                    {
+                        TokenLifespan = TimeSpan.FromHours(3)
+                    }; ;
             }
             return manager;
         }
@@ -106,4 +149,6 @@ namespace FrontEnd
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
+
 }

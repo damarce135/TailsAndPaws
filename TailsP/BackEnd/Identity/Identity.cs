@@ -26,7 +26,7 @@ namespace BackEnd.Identity
         public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         {
             public ApplicationDbContext()
-                : base("TPEntities", throwIfV1Schema: false)
+                : base("IdentityDB", throwIfV1Schema: false)
             {
             }
 
