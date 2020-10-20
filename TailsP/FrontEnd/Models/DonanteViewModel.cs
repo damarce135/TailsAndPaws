@@ -21,9 +21,11 @@ namespace FrontEnd.Models
         public string apellido2 { get; set; }
 
         [Display(Name = "Teléfono")]
+        [Phone]
         public string telefono { get; set; }
 
         [Display(Name = "Correo Electrónico")]
+        [EmailAddress]
         public string email { get; set; }
 
         [Display(Name = "Estado")]

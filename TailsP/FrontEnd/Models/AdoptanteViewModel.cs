@@ -13,6 +13,7 @@ namespace FrontEnd.Models
         public int idAdoptante { get; set; }
 
         [Required(ErrorMessage = "Debe digitar el Número de Cédula del Adoptante.")]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 9)]
         [Display(Name = "Cédula")]
         public string cedula { get; set; }
 
@@ -29,10 +30,12 @@ namespace FrontEnd.Models
         public string apellido2 { get; set; }
 
         [Required(ErrorMessage = "Debe digitar el Correo Electrónico del Adoptante.")]
+        [EmailAddress]
         [Display(Name = "Correo electrónico")]
         public string email { get; set; }
 
         [Required(ErrorMessage = "Debe digitar el Número Telefónico del Adoptante.")]
+        [Phone]
         [Display(Name = "Teléfono")]
         public string telefono { get; set; }
 
@@ -58,7 +61,7 @@ namespace FrontEnd.Models
         public IEnumerable<distrito> distritos { get; set; }
         public distrito distrito { get; set; }
 
-        [Required(ErrorMessage = "Debe digitar el Detalle de la Dirección.")]
+        [Required(ErrorMessage = "Debe digitar el Detalle de la Dirección del Adoptante.")]
         [Display(Name = "Detalle de la Dirección")]
         public string detalleDireccion { get; set; }
     }
