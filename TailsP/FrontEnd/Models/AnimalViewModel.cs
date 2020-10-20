@@ -38,7 +38,6 @@ namespace FrontEnd.Models
         [Display(Name = "Fecha de Ingreso")]
         public System.DateTime fechaIngreso { get; set; }
 
-        [Required(ErrorMessage = "Debe seleccionar el Grupo Sanguíneo del Animal.")]
         [Display(Name = "Grupo Sanguíneo")]
         public int idGSanguineo { get; set; }
         public IEnumerable<grupoSanguineo> grupoSanguineos { get; set; }
@@ -49,6 +48,14 @@ namespace FrontEnd.Models
         public int idOrganizacion { get; set; }
         public IEnumerable<organizacion> organizaciones { get; set; }
         public organizacion organizacion { get; set; }
+
+        [Required(ErrorMessage ="Debe digitar una Especie")]
+        [Display(Name ="Especie")]
+        public string especie { get; set; }
+
+        [Required(ErrorMessage ="Debe digitar si el Animal está Adoptado (Sí) o no (No).")]
+        [Display(Name="Adoptado")]
+        public bool adoptado { get; set; }
 
         [Required(ErrorMessage = "Debe indicar si el Animal está habilitado o no.")]
         [Display(Name = "Estado")]

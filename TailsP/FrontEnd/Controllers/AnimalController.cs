@@ -24,6 +24,8 @@ namespace FrontEnd.Controllers
                 fechaIngreso = (DateTime)animal.fechaIngreso,
                 idGSanguineo = (int)animal.idGSanguineo,
                 idOrganizacion = (int)animal.idOrganizacion,
+                especie = animal.especie,
+                adoptado = (bool)animal.adoptado,
                 habilitado = (bool)animal.habilitado
             };
             return animalViewModel;
@@ -42,6 +44,8 @@ namespace FrontEnd.Controllers
                 fechaIngreso = (DateTime)animalViewModel.fechaIngreso,
                 idGSanguineo = (int)animalViewModel.idGSanguineo,
                 idOrganizacion = (int)animalViewModel.idOrganizacion,
+                especie = animalViewModel.especie,
+                adoptado = (bool)animalViewModel.adoptado,
                 habilitado = (bool)animalViewModel.habilitado
             };
             return animal;

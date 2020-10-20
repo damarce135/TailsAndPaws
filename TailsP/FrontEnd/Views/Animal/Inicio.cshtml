@@ -4,15 +4,16 @@
     ViewBag.Title = "Inicio Animal";
 }
 
-<h2>Animales</h2>
+<h3>Animales</h3>
 
 <p>
     @Html.ActionLink("Crear Nuevo", "Crear")
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idAnimal)
+            @Html.DisplayNameFor(model => model.especie)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -27,36 +28,42 @@
             @Html.DisplayNameFor(model => model.fechaIngreso)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.adoptado)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.habilitado)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idAnimal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.raza)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaIngreso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.habilitado)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.idAnimal }) |
-            @Html.ActionLink("Detalles", "Detalles", new { id=item.idAnimal})
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.especie)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.sexo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.raza)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fechaIngreso)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.adoptado)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.habilitado)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Editar", new { id = item.idAnimal }) |
+        @Html.ActionLink("Detalles", "Detalles", new { id = item.idAnimal })
+    </td>
+</tr>
 }
 
 </table>
