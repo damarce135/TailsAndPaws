@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FrontEnd.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class AnimalController : Controller
     {
         private AnimalViewModel Convertir(animal animal)
