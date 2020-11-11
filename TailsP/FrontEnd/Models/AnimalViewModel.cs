@@ -20,6 +20,12 @@ namespace FrontEnd.Models
         [Display(Name = "Sexo")]
         public string sexo { get; set; }
 
+        public enum Sexo
+        {
+            Hembra,
+            Macho
+        }
+
         [Required(ErrorMessage = "Debe digitar la Raza del Animal.")]
         [Display(Name = "Raza")]
         public string raza { get; set; }
@@ -44,7 +50,7 @@ namespace FrontEnd.Models
         public grupoSanguineo grupoSanguineo { get; set; }
 
         [Required(ErrorMessage = "Debe seleccionar la Organización del Animal.")]
-        [Display(Name = "Organización")]
+        [Display(Name = "Casa Cuna")]
         public int idOrganizacion { get; set; }
         public IEnumerable<organizacion> organizaciones { get; set; }
         public organizacion organizacion { get; set; }

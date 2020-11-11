@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FrontEnd.Controllers
 {
+    [Authorize(Roles = "Seller")]
     public class AdopcionController : Controller
     {
         private AdopcionViewModel Convertir(adopcion adopcion)
