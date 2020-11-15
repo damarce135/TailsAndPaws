@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FrontEnd.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class CategoriaController : Controller
     {
         private CategoriaViewModel Convertir(categoria categoria)

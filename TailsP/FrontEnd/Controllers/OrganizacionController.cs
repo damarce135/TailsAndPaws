@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FrontEnd.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class OrganizacionController : Controller
     {
         private OrganizacionViewModel Convertir(organizacion organizacion)

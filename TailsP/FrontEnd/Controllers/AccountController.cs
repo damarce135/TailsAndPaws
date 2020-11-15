@@ -13,7 +13,8 @@ using System.Web.Http.Results;
 
 namespace FrontEnd.Controllers
 {
-    [Authorize]
+
+    [Authorize(Roles = "Administrador")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

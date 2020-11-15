@@ -10,7 +10,7 @@ using FrontEnd.Models;
 
 namespace FrontEnd.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrador")]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

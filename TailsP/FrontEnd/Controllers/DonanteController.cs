@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FrontEnd.Controllers
 {
+    [Authorize(Roles = "Administrador,Encargado")]
     public class DonanteController : Controller
     {
         private DonanteViewModel Convertir(donante donante)
