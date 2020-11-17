@@ -50,6 +50,18 @@
           <Property Name="especie" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="adoptado" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="calendario">
+          <Key>
+            <PropertyRef Name="idCalendario" />
+          </Key>
+          <Property Name="idCalendario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="asunto" Type="nvarchar" MaxLength="100" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFinal" Type="datetime" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="300" />
+          <Property Name="diaCompleto" Type="bit" />
+          <Property Name="temaColor" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="canton">
           <Key>
             <PropertyRef Name="idCanton" />
@@ -63,18 +75,6 @@
           </Key>
           <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreCategoria" Type="varchar" MaxLength="45" Nullable="false" />
-        </EntityType>
-        <EntityType Name="cita">
-          <Key>
-            <PropertyRef Name="idCita" />
-          </Key>
-          <Property Name="idCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="100" />
-          <Property Name="telefono" Type="varchar" MaxLength="45" />
-          <Property Name="fecha" Type="datetime" Nullable="false" />
-          <Property Name="hora" Type="time" Precision="7" />
-          <Property Name="motivo" Type="varchar" MaxLength="300" />
-          <Property Name="habilitado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="distrito">
           <Key>
@@ -153,28 +153,6 @@
           </Key>
           <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombreProvincia" Type="varchar" MaxLength="45" />
-        </EntityType>
-        <EntityType Name="recordatorio">
-          <Key>
-            <PropertyRef Name="idRecordatorio" />
-          </Key>
-          <Property Name="idRecordatorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="creado" Type="datetime" Nullable="false" />
-          <Property Name="titulo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="descripcion" Type="varchar" MaxLength="300" />
-          <Property Name="urgencia" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="alertaEstado" Type="int" />
-          <Property Name="habilitado" Type="bit" />
-        </EntityType>
-        <EntityType Name="seguimiento">
-          <Key>
-            <PropertyRef Name="idSeguimiento" />
-          </Key>
-          <Property Name="idSeguimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idAnimal" Type="int" Nullable="false" />
-          <Property Name="idAdoptante" Type="int" Nullable="false" />
-          <Property Name="estado" Type="varchar" MaxLength="45" />
-          <Property Name="habilitado" Type="bit" />
         </EntityType>
         <Association Name="FK__adopcion__idAdop__7C4F7684">
           <End Role="adoptante" Type="Self.adoptante" Multiplicity="1" />
@@ -344,37 +322,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__seguimien__idAdo__09A971A2">
-          <End Role="adoptante" Type="Self.adoptante" Multiplicity="1" />
-          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="adoptante">
-              <PropertyRef Name="idAdoptante" />
-            </Principal>
-            <Dependent Role="seguimiento">
-              <PropertyRef Name="idAdoptante" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__seguimien__idAni__0A9D95DB">
-          <End Role="animal" Type="Self.animal" Multiplicity="1" />
-          <End Role="seguimiento" Type="Self.seguimiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="animal">
-              <PropertyRef Name="idAnimal" />
-            </Principal>
-            <Dependent Role="seguimiento">
-              <PropertyRef Name="idAnimal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="TPModelStoreContainer">
           <EntitySet Name="adopcion" EntityType="Self.adopcion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="adoptante" EntityType="Self.adoptante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="animal" EntityType="Self.animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="calendario" EntityType="Self.calendario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="canton" EntityType="Self.canton" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cita" EntityType="Self.cita" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="distrito" EntityType="Self.distrito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="donante" EntityType="Self.donante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="grupoSanguineo" EntityType="Self.grupoSanguineo" Schema="dbo" store:Type="Tables" />
@@ -383,8 +337,6 @@
           <EntitySet Name="prodProveedor" EntityType="Self.prodProveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="provincia" EntityType="Self.provincia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="recordatorio" EntityType="Self.recordatorio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="seguimiento" EntityType="Self.seguimiento" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__adopcion__idAdop__7C4F7684" Association="Self.FK__adopcion__idAdop__7C4F7684">
             <End Role="adoptante" EntitySet="adoptante" />
             <End Role="adopcion" EntitySet="adopcion" />
@@ -440,14 +392,6 @@
           <AssociationSet Name="FK__prodProve__idPro__07C12930" Association="Self.FK__prodProve__idPro__07C12930">
             <End Role="producto" EntitySet="producto" />
             <End Role="prodProveedor" EntitySet="prodProveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idAdo__09A971A2" Association="Self.FK__seguimien__idAdo__09A971A2">
-            <End Role="adoptante" EntitySet="adoptante" />
-            <End Role="seguimiento" EntitySet="seguimiento" />
-          </AssociationSet>
-          <AssociationSet Name="FK__seguimien__idAni__0A9D95DB" Association="Self.FK__seguimien__idAni__0A9D95DB">
-            <End Role="animal" EntitySet="animal" />
-            <End Role="seguimiento" EntitySet="seguimiento" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -535,6 +479,7 @@
             <End Role="producto" EntitySet="producto" />
             <End Role="prodProveedor" EntitySet="prodProveedor" />
           </AssociationSet>
+          <EntitySet Name="calendario" EntityType="TPModel.calendario" />
         </EntityContainer>
         <EntityType Name="adopcion">
           <Key>
@@ -931,6 +876,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="calendario">
+          <Key>
+            <PropertyRef Name="idCalendario" />
+          </Key>
+          <Property Name="idCalendario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="asunto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFinal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="diaCompleto" Type="Boolean" />
+          <Property Name="temaColor" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -998,19 +955,6 @@
               <MappingFragment StoreEntitySet="categoria">
                 <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
                 <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cita">
-            <EntityTypeMapping TypeName="TPModel.cita">
-              <MappingFragment StoreEntitySet="cita">
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-                <ScalarProperty Name="motivo" ColumnName="motivo" />
-                <ScalarProperty Name="hora" ColumnName="hora" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idCita" ColumnName="idCita" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1100,31 +1044,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="recordatorio">
-            <EntityTypeMapping TypeName="TPModel.recordatorio">
-              <MappingFragment StoreEntitySet="recordatorio">
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-                <ScalarProperty Name="alertaEstado" ColumnName="alertaEstado" />
-                <ScalarProperty Name="urgencia" ColumnName="urgencia" />
+          <EntitySetMapping Name="calendario">
+            <EntityTypeMapping TypeName="TPModel.calendario">
+              <MappingFragment StoreEntitySet="calendario">
+                <ScalarProperty Name="temaColor" ColumnName="temaColor" />
+                <ScalarProperty Name="diaCompleto" ColumnName="diaCompleto" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="creado" ColumnName="creado" />
-                <ScalarProperty Name="idRecordatorio" ColumnName="idRecordatorio" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="idCalendario" ColumnName="idCalendario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="seguimiento">
-            <EntityTypeMapping TypeName="TPModel.seguimiento">
-              <MappingFragment StoreEntitySet="seguimiento">
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="idAdoptante" ColumnName="idAdoptante" />
-                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
-                <ScalarProperty Name="idSeguimiento" ColumnName="idSeguimiento" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

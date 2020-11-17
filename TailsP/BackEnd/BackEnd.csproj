@@ -79,6 +79,9 @@
     <Compile Include="Entities\animal.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\calendario.cs">
+      <DependentUpon>TPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\canton.cs">
       <DependentUpon>TPModel.tt</DependentUpon>
     </Compile>

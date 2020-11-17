@@ -37,6 +37,7 @@
         <AssociationConnector Association="TPModel.FK__prodProve__idOrg__08B54D69" />
         <AssociationConnector Association="TPModel.FK__prodCateg__idPro__06CD04F7" />
         <AssociationConnector Association="TPModel.FK__prodProve__idPro__07C12930" />
+        <EntityTypeShape EntityType="TPModel.calendario" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

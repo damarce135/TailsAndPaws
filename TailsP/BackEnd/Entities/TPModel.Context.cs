@@ -12,10 +12,8 @@ namespace BackEnd.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using static BackEnd.Identity.Identity;
-
-    public partial class TPEntities : IdentityDbContext<ApplicationUser>
+    
+    public partial class TPEntities : DbContext
     {
         public TPEntities()
             : base("name=TPEntities")
@@ -43,5 +41,6 @@ namespace BackEnd.Entities
         public virtual DbSet<provincia> provincia { get; set; }
         public virtual DbSet<recordatorio> recordatorio { get; set; }
         public virtual DbSet<seguimiento> seguimiento { get; set; }
+        public virtual DbSet<calendario> calendario { get; set; }
     }
 }
