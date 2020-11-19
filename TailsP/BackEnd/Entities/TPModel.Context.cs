@@ -12,19 +12,17 @@ namespace BackEnd.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class TPEntities : DbContext
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using static BackEnd.Identity.Identity;
+
+    public partial class TPEntities : IdentityDbContext<ApplicationUser>
     {
-        public TPEntities()
-            : base("name=TPEntities")
-        {
-        }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<adopcion> adopcion { get; set; }
         public virtual DbSet<adoptante> adoptante { get; set; }
         public virtual DbSet<animal> animal { get; set; }

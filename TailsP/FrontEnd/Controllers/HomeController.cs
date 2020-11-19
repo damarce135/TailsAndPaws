@@ -1,9 +1,11 @@
-﻿using System;
+﻿using BackEnd.DAL;
+using BackEnd.Entities;
+using FrontEnd.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BackEnd.Entities;
 
 namespace FrontEnd.Controllers
 {
@@ -13,8 +15,8 @@ namespace FrontEnd.Controllers
     {
         public ActionResult Index()
         {
-           
-            return View(TPEntities.Calendario.ToList());
+          
+            return View() ;
         }
 
         public ActionResult About()
@@ -33,55 +35,184 @@ namespace FrontEnd.Controllers
 
         public JsonResult GetEvents()
         {
-            
-                var events = Calendario.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            
+            List<calendario> calendarios;
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                calendarios = unidad.genericDAL.GetAll().ToList();
+                return new JsonResult { Data = calendarios, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            //using (TPEntities tPEntities = new TPEntities()){
+            //    var events = calendario.ToList();
+
         }
 
+
+
         [HttpPost]
-        public JsonResult SaveEvent(Calendario e)
+        public JsonResult SaveEvent(calendario e)
         {
             var status = false;
+            calendario calendario;
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                calendario = unidad.genericDAL.Get(e.idCalendario);
+
                 if (e.idCalendario > 0)
                 {
                     //Update the event
-                    var v = Calendario.Where(a => a.idCalendario == e.idCalendario).FirstOrDefault();
+                    var v = calendario;
                     if (v != null)
                     {
-                        v.Subject = e.asunto;
-                        v.Start = e.fechaInicio;
-                        v.End = e.fechaFinal;
-                        v.Description = e.descripcion;
-                        v.IsFullDay = e.diaCompleto;
-                        v.ThemeColor = e.temaColor;
+                        
+                        v.asunto = e.asunto;
+                        v.fechaInicio = e.fechaInicio;
+                        v.fechaFinal = e.fechaFinal;
+                        v.descripcion = e.descripcion;
+                        v.diaCompleto = e.diaCompleto;
+                        v.temaColor = e.temaColor;
                     }
                 }
                 else
                 {
-                    Calendario.Add(e);
+                    unidad.genericDAL.Add(calendario);
                 }
-                SaveChanges();
+                unidad.Complete();
                 status = true;
-            
+            }
             return new JsonResult { Data = new { status = status } };
         }
+
+
+
+        private CalendarioViewModel Convertir(calendario calendario)
+        {
+            CalendarioViewModel calendarioViewModel = new CalendarioViewModel
+            {
+                idCalendario = calendario.idCalendario,
+                asunto = calendario.asunto,
+                fechaInicio = calendario.fechaInicio,
+                fechaFinal = calendario.fechaFinal,
+                descripcion = calendario.descripcion,
+                diaCompleto = (bool)calendario.diaCompleto,
+                temaColor = calendario.temaColor
+            };
+            return calendarioViewModel;
+        }
+
+        private calendario Convertir(CalendarioViewModel calendarioViewModel)
+        {
+            calendario calendario = new calendario
+            {
+                idCalendario = calendarioViewModel.idCalendario,
+                asunto = calendarioViewModel.asunto,
+                fechaInicio = calendarioViewModel.fechaInicio,
+                fechaFinal = calendarioViewModel.fechaFinal,
+                descripcion = calendarioViewModel.descripcion,
+                diaCompleto = (bool)calendarioViewModel.diaCompleto,
+                temaColor = calendarioViewModel.temaColor
+            };
+            return calendario;
+        }
+
+        //public ActionResult Inicio()
+        //{
+        //    List<calendario> calendarios;
+        //    using (UnidadDeTrabajo<calendario> Unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+        //    {
+        //        calendarios = Unidad.genericDAL.GetAll().ToList();
+        //    }
+
+        //    List<CalendarioViewModel> lista = new List<CalendarioViewModel>();
+
+        //    foreach (var item in calendarios)
+        //    {
+        //        lista.Add(this.Convertir(item));
+        //    }
+
+        //    return View(lista);
+        //}
+
+        public ActionResult Crear()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Crear(CalendarioViewModel calendarioViewModel)
+        {
+            calendario calendario = this.Convertir(calendarioViewModel);
+
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                unidad.genericDAL.Add(calendario);
+                unidad.Complete();
+            }
+
+            return RedirectToAction("Inicio");
+        }
+
+        public ActionResult Editar(int id)
+        {
+            calendario calendario;
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                calendario = unidad.genericDAL.Get(id);
+            }
+
+            return View(this.Convertir(calendario));
+        }
+
+        [HttpPost]
+        public ActionResult Editar(CalendarioViewModel calendarioViewModel)
+        {
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                unidad.genericDAL.Update(this.Convertir(calendarioViewModel));
+                unidad.Complete();
+            }
+
+            return RedirectToAction("Inicio");
+        }
+
+        public ActionResult Detalles(int id)
+        {
+            calendario calendario;
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                calendario = unidad.genericDAL.Get(id);
+            }
+
+            return View(this.Convertir(calendario));
+        }
+
+        //[HttpPost] 
+        //public ActionResult Delete(CalendarioViewModel calendarioViewModel)
+        //{
+        //    using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+        //    {
+        //        unidad.genericDAL.Remove(this.Convertir(calendarioViewModel));
+        //        unidad.Complete();
+        //    }
+        //}
 
         [HttpPost]
         public JsonResult DeleteEvent(int eventID)
         {
             var status = false;
-      
-                var v = Calendario.Where(a => a.idCalendario == eventID).FirstOrDefault();
-                if (v != null)
-                {
-                    Calendario.Remove(v);
-                    SaveChanges();
-                    status = true;
-                }
-            
-            return new JsonResult { Data = new { status = status } };
-        } 
+            calendario calendario;
 
+            using (UnidadDeTrabajo<calendario> unidad = new UnidadDeTrabajo<calendario>(new TPEntities()))
+            {
+                calendario = unidad.genericDAL.Get(eventID);
+                status = true;
+                Convertir(calendario);
+                unidad.genericDAL.Remove(calendario);
+                unidad.Complete();
+            }
+
+            //return RedirectToAction("Inicio");
+               
+            return new JsonResult { Data = new { status = status } };
+        }
     }
 }

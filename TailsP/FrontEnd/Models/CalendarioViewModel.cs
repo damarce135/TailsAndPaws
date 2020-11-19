@@ -9,7 +9,7 @@ namespace FrontEnd.Models
     {
         public int idCalendario { get; set; }
         public string asunto { get; set; }
-        public System.DateTime fechaInicio { get; set; }
+        public System.DateTime? fechaInicio { get; set; }
         public System.DateTime fechaFinal { get; set; }
         public string descripcion { get; set; }
         public bool diaCompleto { get; set; }
