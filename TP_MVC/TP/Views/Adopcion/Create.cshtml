@@ -1,0 +1,53 @@
+﻿@model TP.Models.Adopcion
+
+@{
+    ViewData["Title"] = "Crear - Adopción";
+}
+
+<h1>Crear</h1>
+
+<h4>Adopcion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdAnimal" class="control-label"></label>
+                <input asp-for="IdAnimal" class="form-control" />
+                <span asp-validation-for="IdAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdAdoptante" class="control-label"></label>
+                <input asp-for="IdAdoptante" class="form-control" />
+                <span asp-validation-for="IdAdoptante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaAdopcion" class="control-label"></label>
+                <input asp-for="FechaAdopcion" class="form-control" />
+                <span asp-validation-for="FechaAdopcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaSeguimiento" class="control-label"></label>
+                <input asp-for="FechaSeguimiento" class="form-control" />
+                <span asp-validation-for="FechaSeguimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TP.Models.Adopcion>
+
+@{
+    ViewData["Title"] = "Inicio - Adopciones";
+}
+
+<h1>Adopciones</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAnimal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAdoptante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAdopcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaSeguimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Habilitado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAnimal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAdoptante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAdopcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaSeguimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habilitado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAdopcion">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAdopcion">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAdopcion">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

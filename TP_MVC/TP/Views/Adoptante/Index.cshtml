@@ -1,0 +1,95 @@
+﻿@model IEnumerable<TP.Models.Adoptante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProvincia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCanton)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDistrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetalleDireccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Habilitado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProvincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCanton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDistrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetalleDireccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habilitado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAdoptante">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAdoptante">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAdoptante">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
