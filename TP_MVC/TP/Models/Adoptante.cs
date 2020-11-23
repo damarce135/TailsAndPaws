@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -27,8 +28,13 @@ namespace TP.Models
         public string DetalleDireccion { get; set; }
         public bool Habilitado { get; set; }
 
+        [ForeignKey("IdCanton")]
         public virtual Canton IdCantonNavigation { get; set; }
+
+        [ForeignKey("IdDistrito")]
         public virtual Distrito IdDistritoNavigation { get; set; }
+
+        [ForeignKey("IdProvincia")]
         public virtual Provincium IdProvinciaNavigation { get; set; }
         public virtual ICollection<Adopcion> Adopcions { get; set; }
     }
