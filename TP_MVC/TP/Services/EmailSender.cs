@@ -21,7 +21,7 @@ namespace TP.Services
 
             public Task SendEmailAsync(string email, string subject, string message)
             {
-                return Execute(Options.SendGridKey, subject, message, email);
+                return Execute("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", subject, message, email);
             }
 
             public Task Execute(string apiKey, string subject, string message, string email)
@@ -29,7 +29,7 @@ namespace TP.Services
                 var client = new SendGridClient(apiKey);
                 var msg = new SendGridMessage()
                 {
-                    From = new EmailAddress("mortega10982@ufide.ac.cr", Options.SendGridUser),
+                    From = new EmailAddress("mortega10982@ufide.ac.cr", "mortega10982@ufide.ac.cr"),
                     Subject = subject,
                     PlainTextContent = message,
                     HtmlContent = message

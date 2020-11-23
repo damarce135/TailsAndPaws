@@ -19,5 +19,6 @@ namespace TP.Data
         public DbSet<TP.Models.Animal> Animal { get; set; }
         public DbSet<TP.Models.Organizacion> Organizacion { get; set; }
         public DbSet<TP.Models.Producto> Producto { get; set; }
+        public DbSet<TP.Models.Calendario> Calendario { get; set; }
     }
 }
