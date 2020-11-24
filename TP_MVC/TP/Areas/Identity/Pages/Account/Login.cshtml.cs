@@ -90,7 +90,8 @@ namespace TP.Areas.Identity.Pages.Account
                         {
                             await _signInManager.SignOutAsync();
                             //HttpContext.Server.TransferRequest("~/Account/LogOff");
-                            return RedirectToAction("Login");
+                            //return RedirectToAction("Login");
+                            return LocalRedirect("~/Home");
                         }
                     }
                     _logger.LogInformation("User logged in.");

@@ -1,0 +1,4 @@
+Scaffold-DbContext "Server=tailsandpaws.database.windows.net;Database=TP;User Id=tailsandpaws;Password=fidelitas123!;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+API Key 
+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
