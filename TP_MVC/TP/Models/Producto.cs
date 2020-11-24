@@ -15,11 +15,22 @@ namespace TP.Models
         }
 
         [Key]
+        [Display(Name ="Identificador")]
+        [Required]
         public int IdProducto { get; set; }
+
+        [Required]
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+
+        [Required]
+        [Display(Name ="Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
+
+        [Required]
         public int Cantidad { get; set; }
+
+        [Display(Name = "Estado")]
         public bool Habilitado { get; set; }
 
         public virtual ICollection<ProdCategorium> ProdCategoria { get; set; }
