@@ -15,21 +15,47 @@ namespace TP.Models
         }
 
         [Key]
+        [Required]
+        [Display(Name ="Identificador")]
         public int IdAnimal { get; set; }
+
+        [Required]
         public string Nombre { get; set; }
+
+        [Required]
         public string Sexo { get; set; }
+
+        [Required]
         public string Raza { get; set; }
+
+        [Required]
         public bool Castrado { get; set; }
+
+        [Required]
         public string Edad { get; set; }
+
+        [Required]
+        [Display(Name = "Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
+
+        [Required]
+        [Display(Name = "Grupo Sanguíneo")]
         public int IdGsanguineo { get; set; }
         //public IEnumerable<GrupoSanguineo> GrupoSanguineos { get; set; }
         //public GrupoSanguineo GrupoSanguineo { get; set; }
+
+        [Display(Name = "Organización")]
         public int IdOrganizacion { get; set; }
         //public IEnumerable<Organizacion> Organizacions { get; set; }
         //public Organizacion Organizacion { get; set; }
+
+        [Display(Name = "Estado")]
         public bool Habilitado { get; set; }
+
+        [Required]
         public string Especie { get; set; }
+
+        [Required]
         public bool Adoptado { get; set; }
 
         [ForeignKey("IdGsanguineo")]

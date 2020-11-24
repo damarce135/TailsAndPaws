@@ -15,17 +15,49 @@ namespace TP.Models
         }
 
         [Key]
+        [Required]
+        [Display(Name ="Identificador")]
         public int IdAdoptante { get; set; }
+
+        [Range(1,9)]
+        [Display(Name = "Cédula")]
         public string Cedula { get; set; }
+
+        [Required]
         public string Nombre { get; set; }
+
+        [Required]
+        [Display(Name = "Primer Apellido")]
         public string Apellido1 { get; set; }
+
+        [Required]
+        [Display(Name = "Segundo Apellido")]
         public string Apellido2 { get; set; }
+
+        [Required]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Teléfono")]
         public string Telefono { get; set; }
+
+        [Required]
+        [Display(Name = "Provincia")]
         public int IdProvincia { get; set; }
+
+        [Required]
+        [Display(Name = "Cantón")]
         public int IdCanton { get; set; }
+
+        [Required]
+        [Display(Name = "Distrito")]
         public int IdDistrito { get; set; }
+
+        [Required]
+        [Display(Name = "Dirección")]
         public string DetalleDireccion { get; set; }
+
+        [Display(Name = "Estado")]
         public bool Habilitado { get; set; }
 
         [ForeignKey("IdCanton")]
