@@ -11,7 +11,7 @@ using TP.Models;
 
 namespace TP.Controllers
 {
-    [Authorize(Roles = "Voluntario")]
+    [Authorize(Roles = "Admin,Voluntario")]
     public class AdopcionController : Controller
     {
         private readonly ApplicationDbContext _context;

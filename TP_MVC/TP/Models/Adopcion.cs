@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -16,7 +17,10 @@ namespace TP.Models
         public DateTime? FechaSeguimiento { get; set; }
         public bool Habilitado { get; set; }
 
+        [ForeignKey("IdAdoptante")]
         public virtual Adoptante IdAdoptanteNavigation { get; set; }
+
+        [ForeignKey("IdAnimal")]
         public virtual Animal IdAnimalNavigation { get; set; }
     }
 }
