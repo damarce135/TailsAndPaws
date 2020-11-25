@@ -27,6 +27,11 @@ namespace TP.Controllers
             return View(await _context.Adoptante.ToListAsync());
         }
 
+        public async Task<IActionResult> CreateAdopcion()
+        {
+            return RedirectToAction("Create", "Adopcion");
+        }
+
         // GET: Adoptante/Details/5
         public async Task<IActionResult> Details(int? id)
         {
