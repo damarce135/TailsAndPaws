@@ -8,6 +8,7 @@
 
 <p>
     <a asp-action="Create">Create New</a>
+    <a asp-action="CreateAdoptante" class="float-right">Registrar Adoptante</a>
 </p>
 <table class="table">
     <thead>
@@ -43,10 +44,10 @@
                 @Html.DisplayFor(modelItem => item.Habilitado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdAdoptanteNavigation.Apellido1)
+                @Html.DisplayFor(modelItem => item.IdAdoptanteNavigation.Cedula)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdAnimalNavigation.Edad)
+                @Html.DisplayFor(modelItem => item.IdAnimalNavigation.Nombre)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdAdopcion">Edit</a> |

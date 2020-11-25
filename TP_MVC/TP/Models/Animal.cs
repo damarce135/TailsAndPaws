@@ -64,5 +64,8 @@ namespace TP.Models
         [ForeignKey("IdOrganizacion")]
         public virtual Organizacion IdOrganizacionNavigation { get; set; }
         public virtual ICollection<Adopcion> Adopcions { get; set; }
+
+        [NotMapped]
+        public string Fullname => string.Format("{0} {1} {2}", Raza, Sexo, Nombre);
     }
 }

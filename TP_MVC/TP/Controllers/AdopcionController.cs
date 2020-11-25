@@ -19,6 +19,11 @@ namespace TP.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> CreateAdoptante()
+        {
+            return RedirectToAction("Create", "Adoptante");
+        }
+
         // GET: Adopcion
         public async Task<IActionResult> Index()
         {
@@ -49,8 +54,8 @@ namespace TP.Controllers
         // GET: Adopcion/Create
         public IActionResult Create()
         {
-            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre");
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Nombre");
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname");
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname");
             return View();
         }
 
@@ -67,8 +72,8 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre", adopcion.IdAdoptante);
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Nombre", adopcion.IdAnimal);
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -85,8 +90,8 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre", adopcion.IdAdoptante);
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal","Nombre", adopcion.IdAnimal);
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -122,8 +127,8 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre", adopcion.IdAdoptante);
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Nombre", adopcion.IdAnimal);
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname", adopcion.IdAnimal);
             return View(adopcion);
         }
 

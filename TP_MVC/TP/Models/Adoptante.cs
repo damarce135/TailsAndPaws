@@ -69,5 +69,8 @@ namespace TP.Models
         [ForeignKey("IdProvincia")]
         public virtual Provincium IdProvinciaNavigation { get; set; }
         public virtual ICollection<Adopcion> Adopcions { get; set; }
+
+        [NotMapped]
+        public string Fullname => string.Format("{0} {1} {2}", Cedula, Nombre, Apellido1);
     }
 }
