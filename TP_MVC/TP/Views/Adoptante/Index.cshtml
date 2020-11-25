@@ -1,95 +1,112 @@
 ﻿@model IEnumerable<TP.Models.Adoptante>
 
-@{
-    ViewData["Title"] = "Index";
-}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<h1>Index</h1>
+    @{
+        ViewData["Title"] = "Inicio - Adoptante";
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cedula)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DetalleDireccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Habilitado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCantonNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdDistritoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cedula)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetalleDireccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Habilitado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCantonNavigation.NombreCanton)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDistritoNavigation.IdDistrito)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.IdProvincia)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAdoptante">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAdoptante">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAdoptante">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Adoptantes</h1>
+
+    <p>
+        <a asp-action="Create">Crear Nuevo</a>
+    </p>
+    <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Adoptante">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cedula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DetalleDireccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Habilitado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCantonNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdDistritoNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="miTabla">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cedula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DetalleDireccion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Habilitado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCantonNavigation.NombreCanton)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdDistritoNavigation.IdDistrito)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.IdProvincia)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdAdoptante">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdAdoptante">Detalles</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdAdoptante">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $("#miBusqueda").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#miTabla tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
