@@ -48,7 +48,20 @@ namespace TP.Controllers
         // GET: Adopcion/Create
         public IActionResult Create()
         {
-            return View();
+            var vm = new Adopcion();
+            vm.Adoptantes = _context.Adoptante
+                          .Select(a => new SelectListItem() {
+                              Value = a.IdAdoptante.ToString(),
+                              Text = a.Cedula +" "+ a.Nombre +" "+ a.Apellido1 +" "+ a.Apellido2
+                          }).ToList();
+            vm.Animales = _context.Animal
+                          .Select(a => new SelectListItem()
+                          {
+                              Value = a.IdAnimal.ToString(),
+                              Text = a.Especie +" Sexo:"+ a.Sexo + " Nombre:" + a.Nombre
+                          }).ToList();
+            return View(vm);
+            //return View();
         }
 
         // POST: Adopcion/Create

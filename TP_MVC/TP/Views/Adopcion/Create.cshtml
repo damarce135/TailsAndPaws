@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdAnimal" class="control-label"></label>
-                <input asp-for="IdAnimal" class="form-control" />
+                <select asp-for="IdAdoptante" asp-items="@Model.Animales" class="form-control"><option>--Seleccione</option></select>
                 <span asp-validation-for="IdAnimal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdAdoptante" class="control-label"></label>
-                <input asp-for="IdAdoptante" class="form-control" />
+                <select asp-for="IdAdoptante" asp-items="@Model.Adoptantes" class="form-control"><option>--Seleccione</option></select>
                 <span asp-validation-for="IdAdoptante" class="text-danger"></span>
             </div>
             <div class="form-group">
