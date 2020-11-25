@@ -47,18 +47,6 @@
             @Html.DisplayFor(model => model.FechaIngreso)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdGsanguineo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdGsanguineo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdOrganizacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdOrganizacion)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Habilitado)
         </dt>
         <dd class = "col-sm-10">
@@ -75,6 +63,18 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Adoptado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdGsanguineoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdGsanguineoNavigation.NombreGsanguineo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdOrganizacionNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdOrganizacionNavigation.Descripcion)
         </dd>
     </dl>
 </div>

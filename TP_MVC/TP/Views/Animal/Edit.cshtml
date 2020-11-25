@@ -45,12 +45,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdGsanguineo" class="control-label"></label>
-                <input asp-for="IdGsanguineo" class="form-control" />
+                <select asp-for="IdGsanguineo" class="form-control" asp-items="ViewBag.IdGsanguineo"></select>
                 <span asp-validation-for="IdGsanguineo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdOrganizacion" class="control-label"></label>
-                <input asp-for="IdOrganizacion" class="form-control" />
+                <select asp-for="IdOrganizacion" class="form-control" asp-items="ViewBag.IdOrganizacion"></select>
                 <span asp-validation-for="IdOrganizacion" class="text-danger"></span>
             </div>
             <div class="form-group form-check">

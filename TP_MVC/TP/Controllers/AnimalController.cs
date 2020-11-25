@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using TP.Models;
 
 namespace TP.Controllers
 {
-    [Authorize(Roles = "Admin,Voluntario")]
     public class AnimalController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +22,8 @@ namespace TP.Controllers
         // GET: Animal
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Animal.ToListAsync());
+            var tPContext = _context.Animal.Include(a => a.IdGsanguineoNavigation).Include(a => a.IdOrganizacionNavigation);
+            return View(await tPContext.ToListAsync());
         }
 
         // GET: Animal/Details/5
@@ -36,6 +35,8 @@ namespace TP.Controllers
             }
 
             var animal = await _context.Animal
+                .Include(a => a.IdGsanguineoNavigation)
+                .Include(a => a.IdOrganizacionNavigation)
                 .FirstOrDefaultAsync(m => m.IdAnimal == id);
             if (animal == null)
             {
@@ -48,6 +49,8 @@ namespace TP.Controllers
         // GET: Animal/Create
         public IActionResult Create()
         {
+            ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo");
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Descripcion");
             return View();
         }
 
@@ -64,6 +67,8 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo", animal.IdGsanguineo);
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Descripcion", animal.IdOrganizacion);
             return View(animal);
         }
 
@@ -80,6 +85,8 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo", animal.IdGsanguineo);
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Descripcion", animal.IdOrganizacion);
             return View(animal);
         }
 
@@ -115,6 +122,8 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo", animal.IdGsanguineo);
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Descripcion", animal.IdOrganizacion);
             return View(animal);
         }
 
@@ -127,6 +136,8 @@ namespace TP.Controllers
             }
 
             var animal = await _context.Animal
+                .Include(a => a.IdGsanguineoNavigation)
+                .Include(a => a.IdOrganizacionNavigation)
                 .FirstOrDefaultAsync(m => m.IdAnimal == id);
             if (animal == null)
             {

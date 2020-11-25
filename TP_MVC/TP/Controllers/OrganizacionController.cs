@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using TP.Models;
 
 namespace TP.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class OrganizacionController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +22,8 @@ namespace TP.Controllers
         // GET: Organizacion
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Organizacion.ToListAsync());
+            var tPContext = _context.Organizacion.Include(o => o.IdCantonNavigation).Include(o => o.IdDistritoNavigation).Include(o => o.IdProvinciaNavigation);
+            return View(await tPContext.ToListAsync());
         }
 
         // GET: Organizacion/Details/5
@@ -36,6 +35,9 @@ namespace TP.Controllers
             }
 
             var organizacion = await _context.Organizacion
+                .Include(o => o.IdCantonNavigation)
+                .Include(o => o.IdDistritoNavigation)
+                .Include(o => o.IdProvinciaNavigation)
                 .FirstOrDefaultAsync(m => m.IdOrganizacion == id);
             if (organizacion == null)
             {
@@ -48,6 +50,9 @@ namespace TP.Controllers
         // GET: Organizacion/Create
         public IActionResult Create()
         {
+            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito");
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia");
             return View();
         }
 
@@ -64,6 +69,9 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", organizacion.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
 
@@ -80,6 +88,9 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", organizacion.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
 
@@ -115,6 +126,9 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", organizacion.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
 
@@ -127,6 +141,9 @@ namespace TP.Controllers
             }
 
             var organizacion = await _context.Organizacion
+                .Include(o => o.IdCantonNavigation)
+                .Include(o => o.IdDistritoNavigation)
+                .Include(o => o.IdProvinciaNavigation)
                 .FirstOrDefaultAsync(m => m.IdOrganizacion == id);
             if (organizacion == null)
             {

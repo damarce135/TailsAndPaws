@@ -23,6 +23,6 @@ namespace TP.Models
         public string Email { get; set; }
 
         [Display(Name = "Estado")]
-        public bool? Habilitado { get; set; }
+        public bool Habilitado { get; set; }
     }
 }

@@ -1,112 +1,95 @@
 ﻿@model IEnumerable<TP.Models.Animal>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+@{
+    ViewData["Title"] = "Index";
+}
 
-    @{
-        ViewData["Title"] = "Inicio - Animales";
-    }
+<h1>Index</h1>
 
-    <h1>Animales</h1>
-
-    <p>
-        <a asp-action="Create">Crear Nuevo</a>
-    </p>
-    <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Animal...">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Sexo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Raza)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Castrado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Edad)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FechaIngreso)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdGsanguineo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdOrganizacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Habilitado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Especie)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adoptado)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="miTabla">
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sexo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Raza)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Castrado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Edad)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaIngreso)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdGsanguineo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdOrganizacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Habilitado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Especie)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Adoptado)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdAnimal">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdAnimal">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdAnimal">Eliminar</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    <script>
-        $(document).ready(function () {
-            $("#miBusqueda").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#miTabla tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Raza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Castrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Habilitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adoptado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGsanguineoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrganizacionNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Raza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Castrado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habilitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adoptado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGsanguineoNavigation.NombreGsanguineo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOrganizacionNavigation.Descripcion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAnimal">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAnimal">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAnimal">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

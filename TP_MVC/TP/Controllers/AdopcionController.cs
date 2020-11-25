@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using TP.Models;
 
 namespace TP.Controllers
 {
-    [Authorize(Roles = "Admin,Voluntario")]
     public class AdopcionController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +22,8 @@ namespace TP.Controllers
         // GET: Adopcion
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Adopcion.ToListAsync());
+            var tPContext = _context.Adopcion.Include(a => a.IdAdoptanteNavigation).Include(a => a.IdAnimalNavigation);
+            return View(await tPContext.ToListAsync());
         }
 
         // GET: Adopcion/Details/5
@@ -36,6 +35,8 @@ namespace TP.Controllers
             }
 
             var adopcion = await _context.Adopcion
+                .Include(a => a.IdAdoptanteNavigation)
+                .Include(a => a.IdAnimalNavigation)
                 .FirstOrDefaultAsync(m => m.IdAdopcion == id);
             if (adopcion == null)
             {
@@ -48,20 +49,9 @@ namespace TP.Controllers
         // GET: Adopcion/Create
         public IActionResult Create()
         {
-            var vm = new Adopcion();
-            vm.Adoptantes = _context.Adoptante
-                          .Select(a => new SelectListItem() {
-                              Value = a.IdAdoptante.ToString(),
-                              Text = a.Cedula +" "+ a.Nombre +" "+ a.Apellido1 +" "+ a.Apellido2
-                          }).ToList();
-            vm.Animales = _context.Animal
-                          .Select(a => new SelectListItem()
-                          {
-                              Value = a.IdAnimal.ToString(),
-                              Text = a.Especie +" Sexo:"+ a.Sexo + " Nombre:" + a.Nombre
-                          }).ToList();
-            return View(vm);
-            //return View();
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre");
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Nombre");
+            return View();
         }
 
         // POST: Adopcion/Create
@@ -77,6 +67,8 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre", adopcion.IdAdoptante);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Nombre", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -93,6 +85,8 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre", adopcion.IdAdoptante);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal","Nombre", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -128,6 +122,8 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Nombre", adopcion.IdAdoptante);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Nombre", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -140,6 +136,8 @@ namespace TP.Controllers
             }
 
             var adopcion = await _context.Adopcion
+                .Include(a => a.IdAdoptanteNavigation)
+                .Include(a => a.IdAnimalNavigation)
                 .FirstOrDefaultAsync(m => m.IdAdopcion == id);
             if (adopcion == null)
             {
