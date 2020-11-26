@@ -19,12 +19,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Sexo" class="control-label"></label>
-                <input asp-for="Sexo" class="form-control" />
+                @*<input asp-for="Sexo" class="form-control" />*@
+                <select asp-for="Sexo" class="form-control" asp-items="ViewBag.Sexo"></select>
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Raza" class="control-label"></label>
-                <input asp-for="Raza" class="form-control" />
+                @*<input asp-for="Raza" class="form-control" />*@
+                <select asp-for="Raza" class="form-control" asp-items="ViewBag.Raza"></select>
                 <span asp-validation-for="Raza" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
@@ -34,7 +36,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Edad" class="control-label"></label>
-                <input asp-for="Edad" class="form-control" />
+                @*<input asp-for="Edad" class="form-control" />*@
+                <select asp-for="Edad" class="form-control" asp-items="ViewBag.Edad"></select>
                 <span asp-validation-for="Edad" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,25 +47,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdGsanguineo" class="control-label"></label>
-                <select asp-for="IdGsanguineo" class ="form-control" asp-items="ViewBag.IdGsanguineo"></select>
+                <select asp-for="IdGsanguineo" class="form-control" asp-items="ViewBag.IdGsanguineo"></select>
             </div>
             <div class="form-group">
                 <label asp-for="IdOrganizacion" class="control-label"></label>
-                <select asp-for="IdOrganizacion" class ="form-control" asp-items="ViewBag.IdOrganizacion"></select>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
-                </label>
+                <select asp-for="IdOrganizacion" class="form-control" asp-items="ViewBag.IdOrganizacion"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Especie" class="control-label"></label>
-                <input asp-for="Especie" class="form-control" />
+                @*<input asp-for="Especie" class="form-control" />*@
+                <select asp-for="Especie" class="form-control" asp-items="ViewBag.Especie"></select>
                 <span asp-validation-for="Especie" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Adoptado" /> @Html.DisplayNameFor(model => model.Adoptado)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
                 </label>
             </div>
             <div class="form-group">
