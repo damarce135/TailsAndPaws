@@ -19,6 +19,11 @@ namespace TP.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> CreateAdopcion()
+        {
+            return RedirectToAction("Create", "Adopcion");
+        }
+
         // GET: Adoptante
         public async Task<IActionResult> Index()
         {

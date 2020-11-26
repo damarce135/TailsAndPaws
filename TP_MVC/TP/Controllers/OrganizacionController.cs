@@ -50,9 +50,11 @@ namespace TP.Controllers
         // GET: Organizacion/Create
         public IActionResult Create()
         {
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito");
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia");
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia");
             return View();
         }
 
@@ -69,9 +71,11 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", organizacion.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", organizacion.IdProvincia);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
 
@@ -88,9 +92,11 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", organizacion.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", organizacion.IdProvincia);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
 
@@ -126,9 +132,11 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", organizacion.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", organizacion.IdProvincia);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
 
