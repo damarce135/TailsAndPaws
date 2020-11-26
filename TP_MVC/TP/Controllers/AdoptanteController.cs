@@ -56,8 +56,8 @@ namespace TP.Controllers
         public IActionResult Create()
         {
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito");
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia");
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia");
             return View();
         }
 
@@ -75,8 +75,8 @@ namespace TP.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", adoptante.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", adoptante.IdProvincia);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
             return View(adoptante);
         }
 
@@ -94,8 +94,8 @@ namespace TP.Controllers
                 return NotFound();
             }
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", adoptante.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", adoptante.IdProvincia);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
             return View(adoptante);
         }
 
@@ -132,8 +132,8 @@ namespace TP.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "IdDistrito", adoptante.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "IdProvincia", adoptante.IdProvincia);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
             return View(adoptante);
         }
 
