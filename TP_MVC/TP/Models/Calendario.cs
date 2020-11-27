@@ -11,7 +11,7 @@ namespace TP.Models
         [Key]
         public int IdCalendario { get; set; }
         public string Asunto { get; set; }
-        public DateTime? FechaInicio { get; set; }
+        public DateTime FechaInicio { get; set; }
         public DateTime FechaFinal { get; set; }
         public string Descripcion { get; set; }
         public bool? DiaCompleto { get; set; }

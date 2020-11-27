@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="~/theme/plugins/fullcalendar-bootstrap/main.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -32,11 +33,11 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="Home" class="nav-link">Inicio</a>
+                    <a href="~/Home" class="nav-link">Inicio</a>
                 </li>
                 @*<li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>*@
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>*@
             </ul>
 
             <!-- SEARCH FORM -->
@@ -50,7 +51,6 @@
                     </div>
                 </div>
             </form>-->
-
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
 
@@ -68,7 +68,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
+            <a href="~/Home" class="brand-link">
                 <img src="~/theme/dist/img/AdminLTELogo.png"
                      alt="AdminLTE Logo"
                      class="brand-image img-circle elevation-3"
@@ -92,40 +92,40 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-header">LABELS</li>
                         <li class="nav-item">
-                            <a href="Organizacion" class="nav-link">
+                            <a href="~/Organizacion" class="nav-link">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Entidades</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Animal" class="nav-link">
+                            <a href="~/Animal" class="nav-link">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Animalitos</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Adoptante" class="nav-link">
+                            <a href="~/Adoptante" class="nav-link">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Adoptantes</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Adopcion" class="nav-link">
+                            <a href="~/Adopcion" class="nav-link">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Adopciones</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Donante" class="nav-link">
+                            <a href="~/Donante" class="nav-link">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Donaciones</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Producto" class="nav-link">
+                            <a href="~/Producto" class="nav-link">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Inventario</p>
                             </a>
@@ -180,6 +180,7 @@
     <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/theme/dist/js/adminlte.min.js"></script>
+
 
     @RenderSection("scripts", required: false)
 </body>
