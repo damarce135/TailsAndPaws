@@ -1,7 +1,8 @@
 ﻿@page
 @model RegisterConfirmationModel
 @{
-    ViewData["Title"] = "Register confirmation";
+    ViewData["Title"] = "Confirmación de registro";
+    Layout = "_LayoutLogin";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -16,7 +17,7 @@
     else
     {
 <p>
-        Please check your email to confirm your account.
+        Por favor, diríjase a su correo para confirmar su cuenta. 
 </p>
     }
 }
