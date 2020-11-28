@@ -21,9 +21,7 @@ namespace TP.Models
         public virtual DbSet<Adoptante> Adoptantes { get; set; }
         public virtual DbSet<Animal> Animals { get; set; }
         public virtual DbSet<Calendario> Calendarios { get; set; }
-        public virtual DbSet<Canton> Cantons { get; set; }
         public virtual DbSet<Categorium> Categoria { get; set; }
-        public virtual DbSet<Distrito> Distritos { get; set; }
         public virtual DbSet<Donante> Donantes { get; set; }
         public virtual DbSet<GrupoSanguineo> GrupoSanguineos { get; set; }
         public virtual DbSet<Organizacion> Organizacions { get; set; }
@@ -123,9 +121,9 @@ namespace TP.Models
 
                 entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
-                entity.Property(e => e.IdCanton).HasColumnName("idCanton");
+                //entity.Property(e => e.IdCanton).HasColumnName("idCanton");
 
-                entity.Property(e => e.IdDistrito).HasColumnName("idDistrito");
+                //entity.Property(e => e.IdDistrito).HasColumnName("idDistrito");
 
                 entity.Property(e => e.IdProvincia).HasColumnName("idProvincia");
 
@@ -141,17 +139,17 @@ namespace TP.Models
                     .IsUnicode(false)
                     .HasColumnName("telefono");
 
-                entity.HasOne(d => d.IdCantonNavigation)
-                    .WithMany(p => p.Adoptantes)
-                    .HasForeignKey(d => d.IdCanton)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__adoptante__idCan__7E37BEF6");
+                //entity.HasOne(d => d.IdCantonNavigation)
+                //    .WithMany(p => p.Adoptantes)
+                //    .HasForeignKey(d => d.IdCanton)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__adoptante__idCan__7E37BEF6");
 
-                entity.HasOne(d => d.IdDistritoNavigation)
-                    .WithMany(p => p.Adoptantes)
-                    .HasForeignKey(d => d.IdDistrito)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__adoptante__idDis__7F2BE32F");
+                //entity.HasOne(d => d.IdDistritoNavigation)
+                //    .WithMany(p => p.Adoptantes)
+                //    .HasForeignKey(d => d.IdDistrito)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__adoptante__idDis__7F2BE32F");
 
                 entity.HasOne(d => d.IdProvinciaNavigation)
                     .WithMany(p => p.Adoptantes)
@@ -264,23 +262,23 @@ namespace TP.Models
                     .HasColumnName("temaColor");
             });
 
-            modelBuilder.Entity<Canton>(entity =>
-            {
-                entity.HasKey(e => e.IdCanton)
-                    .HasName("PK__canton__622851F2CC5E22A7");
+            //modelBuilder.Entity<Canton>(entity =>
+            //{
+            //    entity.HasKey(e => e.IdCanton)
+            //        .HasName("PK__canton__622851F2CC5E22A7");
 
-                entity.ToTable("canton");
+            //    entity.ToTable("canton");
 
-                entity.Property(e => e.IdCanton)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idCanton");
+            //    entity.Property(e => e.IdCanton)
+            //        .ValueGeneratedNever()
+            //        .HasColumnName("idCanton");
 
-                entity.Property(e => e.NombreCanton)
-                    .IsRequired()
-                    .HasMaxLength(45)
-                    .IsUnicode(false)
-                    .HasColumnName("nombreCanton");
-            });
+            //    entity.Property(e => e.NombreCanton)
+            //        .IsRequired()
+            //        .HasMaxLength(45)
+            //        .IsUnicode(false)
+            //        .HasColumnName("nombreCanton");
+            //});
 
             modelBuilder.Entity<Categorium>(entity =>
             {
@@ -298,22 +296,22 @@ namespace TP.Models
                     .HasColumnName("nombreCategoria");
             });
 
-            modelBuilder.Entity<Distrito>(entity =>
-            {
-                entity.HasKey(e => e.IdDistrito)
-                    .HasName("PK__distrito__494092A8DBDBD146");
+            //modelBuilder.Entity<Distrito>(entity =>
+            //{
+            //    entity.HasKey(e => e.IdDistrito)
+            //        .HasName("PK__distrito__494092A8DBDBD146");
 
-                entity.ToTable("distrito");
+            //    entity.ToTable("distrito");
 
-                entity.Property(e => e.IdDistrito)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idDistrito");
+            //    entity.Property(e => e.IdDistrito)
+            //        .ValueGeneratedNever()
+            //        .HasColumnName("idDistrito");
 
-                entity.Property(e => e.NombreDistrito)
-                    .HasMaxLength(45)
-                    .IsUnicode(false)
-                    .HasColumnName("nombreDistrito");
-            });
+            //    entity.Property(e => e.NombreDistrito)
+            //        .HasMaxLength(45)
+            //        .IsUnicode(false)
+            //        .HasColumnName("nombreDistrito");
+            //});
 
             modelBuilder.Entity<Donante>(entity =>
             {
@@ -406,9 +404,9 @@ namespace TP.Models
 
                 //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
-                entity.Property(e => e.IdCanton).HasColumnName("idCanton");
+                //entity.Property(e => e.IdCanton).HasColumnName("idCanton");
 
-                entity.Property(e => e.IdDistrito).HasColumnName("idDistrito");
+                //entity.Property(e => e.IdDistrito).HasColumnName("idDistrito");
 
                 entity.Property(e => e.IdProvincia).HasColumnName("idProvincia");
 
@@ -429,17 +427,17 @@ namespace TP.Models
                     .IsUnicode(false)
                     .HasColumnName("tipo");
 
-                entity.HasOne(d => d.IdCantonNavigation)
-                    .WithMany(p => p.Organizacions)
-                    .HasForeignKey(d => d.IdCanton)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__organizac__idCan__02FC7413");
+                //entity.HasOne(d => d.IdCantonNavigation)
+                //    .WithMany(p => p.Organizacions)
+                //    .HasForeignKey(d => d.IdCanton)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__organizac__idCan__02FC7413");
 
-                entity.HasOne(d => d.IdDistritoNavigation)
-                    .WithMany(p => p.Organizacions)
-                    .HasForeignKey(d => d.IdDistrito)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__organizac__idDis__03F0984C");
+                //entity.HasOne(d => d.IdDistritoNavigation)
+                //    .WithMany(p => p.Organizacions)
+                //    .HasForeignKey(d => d.IdDistrito)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__organizac__idDis__03F0984C");
 
                 entity.HasOne(d => d.IdProvinciaNavigation)
                     .WithMany(p => p.Organizacions)

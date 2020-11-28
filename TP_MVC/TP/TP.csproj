@@ -17,11 +17,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="PagedList" Version="1.17.0" />
+    <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
     <PackageReference Include="SendGrid" Version="9.21.2" />
+    <PackageReference Include="X.PagedList" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="img\" />
+    <Folder Include="css\" />
     <Folder Include="Views\Calendario\" />
   </ItemGroup>
 

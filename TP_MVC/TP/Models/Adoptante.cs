@@ -19,7 +19,8 @@ namespace TP.Models
         [Display(Name ="Identificador")]
         public int IdAdoptante { get; set; }
 
-        [Range(1,9)]
+        [MinLength(9)]
+        [MaxLength(9)]
         [Display(Name = "Cédula")]
         public string Cedula { get; set; }
 
@@ -45,13 +46,13 @@ namespace TP.Models
         [Display(Name = "Provincia")]
         public int IdProvincia { get; set; }
 
-        [Required]
-        [Display(Name = "Cantón")]
-        public int IdCanton { get; set; }
+        //[Required]
+        //[Display(Name = "Cantón")]
+        //public int IdCanton { get; set; }
 
-        [Required]
-        [Display(Name = "Distrito")]
-        public int IdDistrito { get; set; }
+        //[Required]
+        //[Display(Name = "Distrito")]
+        //public int IdDistrito { get; set; }
 
         [Required]
         [Display(Name = "Dirección")]
@@ -60,12 +61,12 @@ namespace TP.Models
         [Display(Name = "Preferido")]
         public bool Habilitado { get; set; }
 
-        [ForeignKey("IdCanton")]
-        [Display(Name = "Canton")]
-        public virtual Canton IdCantonNavigation { get; set; }
+        //[ForeignKey("IdCanton")]
+        //[Display(Name = "Canton")]
+        //public virtual Canton IdCantonNavigation { get; set; }
 
-        [ForeignKey("IdDistrito")]
-        public virtual Distrito IdDistritoNavigation { get; set; }
+        //[ForeignKey("IdDistrito")]
+        //public virtual Distrito IdDistritoNavigation { get; set; }
 
         [ForeignKey("IdProvincia")]
         [Display(Name = "Provincia")]

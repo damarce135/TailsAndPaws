@@ -17,9 +17,9 @@ namespace TP.Data
         public virtual DbSet<Adoptante> Adoptante { get; set; }
         public virtual DbSet<Animal> Animal { get; set; }
         public virtual DbSet<Calendario> Calendario { get; set; }
-        public virtual DbSet<Canton> Canton { get; set; }
+        //public virtual DbSet<Canton> Canton { get; set; }
         public virtual DbSet<Categorium> Categoria { get; set; }
-        public virtual DbSet<Distrito> Distrito { get; set; }
+        //public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<Donante> Donante { get; set; }
         public virtual DbSet<GrupoSanguineo> GrupoSanguineo { get; set; }
         public virtual DbSet<Organizacion> Organizacion { get; set; }

@@ -44,13 +44,13 @@ namespace TP.Models
         [Required]
         public int IdProvincia { get; set; }
 
-        [Display(Name = "Cantón")]
-        [Required]
-        public int IdCanton { get; set; }
+        //[Display(Name = "Cantón")]
+        //[Required]
+        //public int IdCanton { get; set; }
 
-        [Display(Name = "Distrito")]
-        [Required]
-        public int IdDistrito { get; set; }
+        //[Display(Name = "Distrito")]
+        //[Required]
+        //public int IdDistrito { get; set; }
 
         [Display(Name = "Dirección")]
         [Required]
@@ -59,11 +59,11 @@ namespace TP.Models
         //[Display(Name = "Estado")]
         //public bool Habilitado { get; set; }
 
-        [ForeignKey("IdCanton")]
-        public virtual Canton IdCantonNavigation { get; set; }
+        //[ForeignKey("IdCanton")]
+        //public virtual Canton IdCantonNavigation { get; set; }
 
-        [ForeignKey("IdDistrito")]
-        public virtual Distrito IdDistritoNavigation { get; set; }
+        //[ForeignKey("IdDistrito")]
+        //public virtual Distrito IdDistritoNavigation { get; set; }
 
         [ForeignKey("IdProvincia")]
         [Display(Name = "Provincia")]

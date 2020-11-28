@@ -27,7 +27,7 @@ namespace TP.Controllers
         // GET: Adoptante
         public async Task<IActionResult> Index()
         {
-            var tPContext = _context.Adoptante.Include(a => a.IdCantonNavigation).Include(a => a.IdDistritoNavigation).Include(a => a.IdProvinciaNavigation);
+            var tPContext = _context.Adoptante.Include(a => a.IdProvinciaNavigation);
             return View(await tPContext.ToListAsync());
         }
 
@@ -40,8 +40,8 @@ namespace TP.Controllers
             }
 
             var adoptante = await _context.Adoptante
-                .Include(a => a.IdCantonNavigation)
-                .Include(a => a.IdDistritoNavigation)
+                //.Include(a => a.IdCantonNavigation)
+                //.Include(a => a.IdDistritoNavigation)
                 .Include(a => a.IdProvinciaNavigation)
                 .FirstOrDefaultAsync(m => m.IdAdoptante == id);
             if (adoptante == null)
@@ -55,8 +55,8 @@ namespace TP.Controllers
         // GET: Adoptante/Create
         public IActionResult Create()
         {
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia");
             return View();
         }
@@ -66,7 +66,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdAdoptante,Cedula,Nombre,Apellido1,Apellido2,Email,Telefono,IdProvincia,IdCanton,IdDistrito,DetalleDireccion,Habilitado")] Adoptante adoptante)
+        public async Task<IActionResult> Create([Bind("IdAdoptante,Cedula,Nombre,Apellido1,Apellido2,Email,Telefono,IdProvincia,DetalleDireccion,Habilitado")] Adoptante adoptante)
         {
             if (ModelState.IsValid)
             {
@@ -74,8 +74,8 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
             return View(adoptante);
         }
@@ -93,8 +93,8 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
             return View(adoptante);
         }
@@ -104,7 +104,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdAdoptante,Cedula,Nombre,Apellido1,Apellido2,Email,Telefono,IdProvincia,IdCanton,IdDistrito,DetalleDireccion,Habilitado")] Adoptante adoptante)
+        public async Task<IActionResult> Edit(int id, [Bind("IdAdoptante,Cedula,Nombre,Apellido1,Apellido2,Email,Telefono,IdProvincia,DetalleDireccion,Habilitado")] Adoptante adoptante)
         {
             if (id != adoptante.IdAdoptante)
             {
@@ -131,8 +131,8 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
             return View(adoptante);
         }
@@ -146,8 +146,8 @@ namespace TP.Controllers
             }
 
             var adoptante = await _context.Adoptante
-                .Include(a => a.IdCantonNavigation)
-                .Include(a => a.IdDistritoNavigation)
+                //.Include(a => a.IdCantonNavigation)
+                //.Include(a => a.IdDistritoNavigation)
                 .Include(a => a.IdProvinciaNavigation)
                 .FirstOrDefaultAsync(m => m.IdAdoptante == id);
             if (adoptante == null)

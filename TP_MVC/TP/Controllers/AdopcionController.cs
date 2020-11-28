@@ -12,6 +12,7 @@ namespace TP.Controllers
 {
     public class AdopcionController : Controller
     {
+
         private readonly ApplicationDbContext _context;
 
         public AdopcionController(ApplicationDbContext context)

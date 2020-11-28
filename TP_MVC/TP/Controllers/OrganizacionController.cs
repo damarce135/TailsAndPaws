@@ -22,7 +22,7 @@ namespace TP.Controllers
         // GET: Organizacion
         public async Task<IActionResult> Index()
         {
-            var tPContext = _context.Organizacion.Include(o => o.IdCantonNavigation).Include(o => o.IdDistritoNavigation).Include(o => o.IdProvinciaNavigation);
+            var tPContext = _context.Organizacion.Include(o => o.IdProvinciaNavigation);
             return View(await tPContext.ToListAsync());
         }
 
@@ -35,8 +35,8 @@ namespace TP.Controllers
             }
 
             var organizacion = await _context.Organizacion
-                .Include(o => o.IdCantonNavigation)
-                .Include(o => o.IdDistritoNavigation)
+                //.Include(o => o.IdCantonNavigation)
+                //.Include(o => o.IdDistritoNavigation)
                 .Include(o => o.IdProvinciaNavigation)
                 .FirstOrDefaultAsync(m => m.IdOrganizacion == id);
             if (organizacion == null)
@@ -52,8 +52,8 @@ namespace TP.Controllers
         {
             var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia");
             return View();
         }
@@ -63,7 +63,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,IdCanton,IdDistrito,DetalleDireccion")] Organizacion organizacion)
+        public async Task<IActionResult> Create([Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,DetalleDireccion")] Organizacion organizacion)
         {
             if (ModelState.IsValid)
             {
@@ -73,8 +73,8 @@ namespace TP.Controllers
             }
             var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
@@ -94,8 +94,8 @@ namespace TP.Controllers
             }
             var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
@@ -105,7 +105,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,IdCanton,IdDistrito,DetalleDireccion")] Organizacion organizacion)
+        public async Task<IActionResult> Edit(int id, [Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,DetalleDireccion")] Organizacion organizacion)
         {
             if (id != organizacion.IdOrganizacion)
             {
@@ -134,8 +134,8 @@ namespace TP.Controllers
             }
             var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", organizacion.IdProvincia);
             return View(organizacion);
         }
@@ -149,8 +149,8 @@ namespace TP.Controllers
             }
 
             var organizacion = await _context.Organizacion
-                .Include(o => o.IdCantonNavigation)
-                .Include(o => o.IdDistritoNavigation)
+                //.Include(o => o.IdCantonNavigation)
+                //.Include(o => o.IdDistritoNavigation)
                 .Include(o => o.IdProvinciaNavigation)
                 .FirstOrDefaultAsync(m => m.IdOrganizacion == id);
             if (organizacion == null)

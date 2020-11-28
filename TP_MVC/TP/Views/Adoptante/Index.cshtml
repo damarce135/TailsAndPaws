@@ -37,20 +37,21 @@
                     @Html.DisplayNameFor(model => model.Telefono)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.DetalleDireccion)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Habilitado)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.IdCantonNavigation)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IdDistritoNavigation)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
-                </th>
+                </th>*@
+                
                 <th></th>
             </tr>
         </thead>
@@ -82,12 +83,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Habilitado)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.IdCantonNavigation.NombreCanton)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.IdDistritoNavigation.NombreDistrito)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.NombreProvincia)
                     </td>

@@ -39,20 +39,21 @@
                     @Html.DisplayNameFor(model => model.Descripcion)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.DetalleDireccion)
                 </th>
                 @*<th>
                     @Html.DisplayNameFor(model => model.Habilitado)
                 </th>*@
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.IdCantonNavigation)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IdDistritoNavigation)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
-                </th>
+                </th>*@
+                
                 <th></th>
             </tr>
         </thead>
@@ -82,20 +83,21 @@
                         @Html.DisplayFor(modelItem => item.Descripcion)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.NombreProvincia)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.DetalleDireccion)
                     </td>
                     @*<td>
                         @Html.DisplayFor(modelItem => item.Habilitado)
                     </td>*@
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.IdCantonNavigation.NombreCanton)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.IdDistritoNavigation.NombreDistrito)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.NombreProvincia)
-                    </td>
+                    </td>*@
+                    
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.IdOrganizacion">Editar</a> |
                         <a asp-action="Details" asp-route-id="@item.IdOrganizacion">Detalles</a> |
