@@ -49,7 +49,8 @@ namespace TP.Controllers
         // GET: Animal/Create
         public IActionResult Create()
         {
-            var edades = new List<string> { "Menos de 6 meses", "Entre 6 meses y 1 año", "1 año", "2 años", "3 años", "4 años", "5 años",
+            var edades = new List<string> { "Menos de 1 mes", "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses",
+                "7 meses", "8 meses", "9 meses", "10 meses", "11 meses", "1 año", "2 años", "3 años", "4 años", "5 años",
                 "6 años", "7 años", "8 años", "9 años", "10 años", "11 años", "12 años", "13 años", "14 años", "15 años", "16 años", "17 años"};
             ViewData["Edad"] = new SelectList(edades);
             var especies = new List<string> { "Perro", "Gato", "Ave", "Roedor" };
@@ -108,7 +109,8 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            var edades = new List<string> { "Menos de 6 meses", "Entre 6 meses y 1 año", "1 año", "2 años", "3 años", "4 años", "5 años",
+            var edades = new List<string> { "Menos de 1 mes", "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses",
+                "7 meses", "8 meses", "9 meses", "10 meses", "11 meses", "1 año", "2 años", "3 años", "4 años", "5 años",
                 "6 años", "7 años", "8 años", "9 años", "10 años", "11 años", "12 años", "13 años", "14 años", "15 años", "16 años", "17 años"};
             ViewData["Edad"] = new SelectList(edades);
             var especies = new List<string> { "Perro", "Gato", "Ave", "Roedor" };
@@ -167,7 +169,8 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
-            var edades = new List<string> { "Menos de 6 meses", "Entre 6 meses y 1 año", "1 año", "2 años", "3 años", "4 años", "5 años",
+            var edades = new List<string> { "Menos de 1 mes", "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses",
+                "7 meses", "8 meses", "9 meses", "10 meses", "11 meses", "1 año", "2 años", "3 años", "4 años", "5 años",
                 "6 años", "7 años", "8 años", "9 años", "10 años", "11 años", "12 años", "13 años", "14 años", "15 años", "16 años", "17 años"};
             ViewData["Edad"] = new SelectList(edades);
             var especies = new List<string> { "Perro", "Gato", "Ave", "Roedor" };
@@ -245,7 +248,8 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            var edades = new List<string> { "Menos de 6 meses", "Entre 6 meses y 1 año", "1 año", "2 años", "3 años", "4 años", "5 años",
+            var edades = new List<string> { "Menos de 1 mes", "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses",
+                "7 meses", "8 meses", "9 meses", "10 meses", "11 meses", "1 año", "2 años", "3 años", "4 años", "5 años",
                 "6 años", "7 años", "8 años", "9 años", "10 años", "11 años", "12 años", "13 años", "14 años", "15 años", "16 años", "17 años"};
             ViewData["Edad"] = new SelectList(edades);
             var especies = new List<string> { "Perro", "Gato", "Ave", "Roedor" };

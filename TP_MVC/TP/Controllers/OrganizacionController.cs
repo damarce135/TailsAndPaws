@@ -50,7 +50,7 @@ namespace TP.Controllers
         // GET: Organizacion/Create
         public IActionResult Create()
         {
-            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton");
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito");
@@ -71,7 +71,7 @@ namespace TP.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
@@ -92,7 +92,7 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
-            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);
@@ -132,7 +132,7 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna" };
+            var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
             ViewData["Tipo"] = new SelectList(items);
             ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", organizacion.IdCanton);
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", organizacion.IdDistrito);

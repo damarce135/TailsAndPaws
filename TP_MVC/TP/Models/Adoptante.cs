@@ -61,12 +61,14 @@ namespace TP.Models
         public bool Habilitado { get; set; }
 
         [ForeignKey("IdCanton")]
+        [Display(Name = "Canton")]
         public virtual Canton IdCantonNavigation { get; set; }
 
         [ForeignKey("IdDistrito")]
         public virtual Distrito IdDistritoNavigation { get; set; }
 
         [ForeignKey("IdProvincia")]
+        [Display(Name = "Provincia")]
         public virtual Provincium IdProvinciaNavigation { get; set; }
         public virtual ICollection<Adopcion> Adopcions { get; set; }
 

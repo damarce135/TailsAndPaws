@@ -44,7 +44,7 @@ namespace TP.Models
         //public IEnumerable<GrupoSanguineo> GrupoSanguineos { get; set; }
         //public GrupoSanguineo GrupoSanguineo { get; set; }
 
-        [Display(Name = "Organización")]
+        [Display(Name = "Casa cuna")]
         public int IdOrganizacion { get; set; }
         //public IEnumerable<Organizacion> Organizacions { get; set; }
         //public Organizacion Organizacion { get; set; }
@@ -59,9 +59,11 @@ namespace TP.Models
         public bool Adoptado { get; set; }
 
         [ForeignKey("IdGsanguineo")]
+        [Display(Name = "Características")]
         public virtual GrupoSanguineo IdGsanguineoNavigation { get; set; }
 
         [ForeignKey("IdOrganizacion")]
+        [Display(Name = "Casa cuna")]
         public virtual Organizacion IdOrganizacionNavigation { get; set; }
         public virtual ICollection<Adopcion> Adopcions { get; set; }
 

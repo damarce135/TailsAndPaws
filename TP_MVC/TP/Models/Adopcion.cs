@@ -38,12 +38,14 @@ namespace TP.Models
         public ICollection<SelectListItem> Adoptantes { set; get; }
 
         [ForeignKey("IdAdoptante")]
+        [Display(Name = "Adoptante")]
         public virtual Adoptante IdAdoptanteNavigation { get; set; }
 
         [NotMapped]
         public IEnumerable<SelectListItem> Animales { set; get; }
 
         [ForeignKey("IdAnimal")]
+        [Display(Name = "Animalito")]
         public virtual Animal IdAnimalNavigation { get; set; }
     }
 }

@@ -66,6 +66,7 @@ namespace TP.Models
         public virtual Distrito IdDistritoNavigation { get; set; }
 
         [ForeignKey("IdProvincia")]
+        [Display(Name = "Provincia")]
         public virtual Provincium IdProvinciaNavigation { get; set; }
         public virtual ICollection<Animal> Animals { get; set; }
         public virtual ICollection<ProdProveedor> ProdProveedors { get; set; }
