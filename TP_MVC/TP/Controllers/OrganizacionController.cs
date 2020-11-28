@@ -63,7 +63,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,IdCanton,IdDistrito,DetalleDireccion,Habilitado")] Organizacion organizacion)
+        public async Task<IActionResult> Create([Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,IdCanton,IdDistrito,DetalleDireccion")] Organizacion organizacion)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,IdCanton,IdDistrito,DetalleDireccion,Habilitado")] Organizacion organizacion)
+        public async Task<IActionResult> Edit(int id, [Bind("IdOrganizacion,Tipo,Nombre,Apellido1,Apellido2,Telefono,Email,Descripcion,IdProvincia,IdCanton,IdDistrito,DetalleDireccion")] Organizacion organizacion)
         {
             if (id != organizacion.IdOrganizacion)
             {

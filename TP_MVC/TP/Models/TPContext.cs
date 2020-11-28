@@ -60,7 +60,7 @@ namespace TP.Models
                     .HasColumnType("datetime")
                     .HasColumnName("fechaSeguimiento");
 
-                entity.Property(e => e.Habilitado).HasColumnName("habilitado");
+                //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
                 entity.Property(e => e.IdAdoptante).HasColumnName("idAdoptante");
 
@@ -189,7 +189,7 @@ namespace TP.Models
                     .HasColumnType("datetime")
                     .HasColumnName("fechaIngreso");
 
-                entity.Property(e => e.Habilitado).HasColumnName("habilitado");
+                //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
                 entity.Property(e => e.IdGsanguineo).HasColumnName("idGSanguineo");
 
@@ -334,7 +334,7 @@ namespace TP.Models
                     .IsUnicode(false)
                     .HasColumnName("email");
 
-                entity.Property(e => e.Habilitado).HasColumnName("habilitado");
+                //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(45)
@@ -399,7 +399,7 @@ namespace TP.Models
                     .IsUnicode(false)
                     .HasColumnName("email");
 
-                entity.Property(e => e.Habilitado).HasColumnName("habilitado");
+                //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
                 entity.Property(e => e.IdCanton).HasColumnName("idCanton");
 
@@ -516,7 +516,7 @@ namespace TP.Models
                     .HasColumnType("datetime")
                     .HasColumnName("fechaIngreso");
 
-                entity.Property(e => e.Habilitado).HasColumnName("habilitado");
+                //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()

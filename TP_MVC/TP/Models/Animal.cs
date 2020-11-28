@@ -49,8 +49,8 @@ namespace TP.Models
         //public IEnumerable<Organizacion> Organizacions { get; set; }
         //public Organizacion Organizacion { get; set; }
 
-        [Display(Name = "Estado")]
-        public bool Habilitado { get; set; }
+        //[Display(Name = "Estado")]
+        //public bool Habilitado { get; set; }
 
         [Required]
         public string Especie { get; set; }

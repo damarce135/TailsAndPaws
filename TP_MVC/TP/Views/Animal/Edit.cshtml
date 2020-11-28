@@ -56,11 +56,11 @@
                 <select asp-for="IdOrganizacion" class="form-control" asp-items="ViewBag.IdOrganizacion"></select>
                 <span asp-validation-for="IdOrganizacion" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            @*<div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
                 </label>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="Especie" class="control-label"></label>
                 @*<input asp-for="Especie" class="form-control" />*@

@@ -54,7 +54,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdDonante,Nombre,Apellido1,Apellido2,Telefono,Email,Habilitado")] Donante donante)
+        public async Task<IActionResult> Create([Bind("IdDonante,Nombre,Apellido1,Apellido2,Telefono,Email")] Donante donante)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdDonante,Nombre,Apellido1,Apellido2,Telefono,Email,Habilitado")] Donante donante)
+        public async Task<IActionResult> Edit(int id, [Bind("IdDonante,Nombre,Apellido1,Apellido2,Telefono,Email")] Donante donante)
         {
             if (id != donante.IdDonante)
             {

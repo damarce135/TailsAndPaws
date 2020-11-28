@@ -19,10 +19,14 @@ namespace TP.Models
 
         [Display(Name = "Segundo Apellido")]
         public string Apellido2 { get; set; }
+
+        [Display(Name = "Teléfono")]
         public string Telefono { get; set; }
+
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Display(Name = "Estado")]
-        public bool Habilitado { get; set; }
+        //[Display(Name = "Estado")]
+        //public bool Habilitado { get; set; }
     }
 }

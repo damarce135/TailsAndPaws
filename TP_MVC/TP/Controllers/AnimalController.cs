@@ -101,7 +101,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdAnimal,Nombre,Sexo,Raza,Castrado,Edad,FechaIngreso,IdGsanguineo,IdOrganizacion,Habilitado,Especie,Adoptado")] Animal animal)
+        public async Task<IActionResult> Create([Bind("IdAnimal,Nombre,Sexo,Raza,Castrado,Edad,FechaIngreso,IdGsanguineo,IdOrganizacion,Especie,Adoptado")] Animal animal)
         {
             if (ModelState.IsValid)
             {
@@ -221,7 +221,7 @@ namespace TP.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdAnimal,Nombre,Sexo,Raza,Castrado,Edad,FechaIngreso,IdGsanguineo,IdOrganizacion,Habilitado,Especie,Adoptado")] Animal animal)
+        public async Task<IActionResult> Edit(int id, [Bind("IdAnimal,Nombre,Sexo,Raza,Castrado,Edad,FechaIngreso,IdGsanguineo,IdOrganizacion,Especie,Adoptado")] Animal animal)
         {
             if (id != animal.IdAnimal)
             {

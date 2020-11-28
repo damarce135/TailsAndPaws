@@ -57,7 +57,7 @@ namespace TP.Models
         [Display(Name = "Dirección")]
         public string DetalleDireccion { get; set; }
 
-        [Display(Name = "Estado")]
+        [Display(Name = "Preferido")]
         public bool Habilitado { get; set; }
 
         [ForeignKey("IdCanton")]

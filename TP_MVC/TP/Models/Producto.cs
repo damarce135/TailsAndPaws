@@ -21,6 +21,8 @@ namespace TP.Models
 
         [Required]
         public string Nombre { get; set; }
+
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
         [Required]
@@ -30,8 +32,8 @@ namespace TP.Models
         [Required]
         public int Cantidad { get; set; }
 
-        [Display(Name = "Estado")]
-        public bool Habilitado { get; set; }
+        //[Display(Name = "Estado")]
+        //public bool Habilitado { get; set; }
 
         public virtual ICollection<ProdCategorium> ProdCategoria { get; set; }
         public virtual ICollection<ProdProveedor> ProdProveedors { get; set; }

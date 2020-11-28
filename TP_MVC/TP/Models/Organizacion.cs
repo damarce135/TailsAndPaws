@@ -56,8 +56,8 @@ namespace TP.Models
         [Required]
         public string DetalleDireccion { get; set; }
 
-        [Display(Name = "Estado")]
-        public bool Habilitado { get; set; }
+        //[Display(Name = "Estado")]
+        //public bool Habilitado { get; set; }
 
         [ForeignKey("IdCanton")]
         public virtual Canton IdCantonNavigation { get; set; }

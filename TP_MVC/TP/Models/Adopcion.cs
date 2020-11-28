@@ -31,8 +31,8 @@ namespace TP.Models
         [Display(Name = "Fecha de Seguimiento")]
         public DateTime? FechaSeguimiento { get; set; }
 
-        [Display(Name = "Estado")]
-        public bool Habilitado { get; set; }
+        //[Display(Name = "Estado")]
+        //public bool Habilitado { get; set; }
 
         [NotMapped]
         public ICollection<SelectListItem> Adoptantes { set; get; }
