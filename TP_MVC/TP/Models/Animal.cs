@@ -26,7 +26,12 @@ namespace TP.Models
         public string Sexo { get; set; }
 
         [Required]
-        public string Raza { get; set; }
+        [Display(Name = "Tamaño")]
+        public string Tamano { get; set; }
+
+        [Required]
+        [Display(Name = "Características")]
+        public string Caracteristicas { get; set; }
 
         [Required]
         public bool Castrado { get; set; }
@@ -38,14 +43,14 @@ namespace TP.Models
         [Display(Name = "Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
 
-        [Required]
-        [Display(Name = "Grupo Sanguíneo")]
-        public int IdGsanguineo { get; set; }
+        //[Required]
+        //[Display(Name = "Grupo Sanguíneo")]
+        //public int IdGsanguineo { get; set; }
         //public IEnumerable<GrupoSanguineo> GrupoSanguineos { get; set; }
         //public GrupoSanguineo GrupoSanguineo { get; set; }
 
-        [Display(Name = "Casa cuna")]
-        public int IdOrganizacion { get; set; }
+        [Display(Name = "Casa Cuna")]
+        public int? IdOrganizacion { get; set; }
         //public IEnumerable<Organizacion> Organizacions { get; set; }
         //public Organizacion Organizacion { get; set; }
 
@@ -58,9 +63,9 @@ namespace TP.Models
         [Required]
         public bool Adoptado { get; set; }
 
-        [ForeignKey("IdGsanguineo")]
-        [Display(Name = "Características")]
-        public virtual GrupoSanguineo IdGsanguineoNavigation { get; set; }
+        //[ForeignKey("IdGsanguineo")]
+        //[Display(Name = "Características")]
+        //public virtual GrupoSanguineo IdGsanguineoNavigation { get; set; }
 
         [ForeignKey("IdOrganizacion")]
         [Display(Name = "Casa cuna")]
@@ -68,6 +73,6 @@ namespace TP.Models
         public virtual ICollection<Adopcion> Adopcions { get; set; }
 
         [NotMapped]
-        public string Fullname => string.Format("{0} {1} {2}", Raza, Sexo, Nombre);
+        public string Fullname => string.Format("{0} {1} {2}", Tamano, Sexo, Nombre);
     }
 }

@@ -189,9 +189,14 @@ namespace TP.Models
                     .HasColumnType("datetime")
                     .HasColumnName("fechaIngreso");
 
+                entity.Property(e => e.Caracteristicas)
+                    .IsRequired()
+                    .HasMaxLength(300)
+                    .HasColumnName("caracteristicas");
+
                 //entity.Property(e => e.Habilitado).HasColumnName("habilitado");
 
-                entity.Property(e => e.IdGsanguineo).HasColumnName("idGSanguineo");
+                //entity.Property(e => e.IdGsanguineo).HasColumnName("idGSanguineo");
 
                 entity.Property(e => e.IdOrganizacion).HasColumnName("idOrganizacion");
 
@@ -201,7 +206,7 @@ namespace TP.Models
                     .IsUnicode(false)
                     .HasColumnName("nombre");
 
-                entity.Property(e => e.Raza)
+                entity.Property(e => e.Tamano)
                     .IsRequired()
                     .HasMaxLength(45)
                     .IsUnicode(false)
@@ -213,11 +218,11 @@ namespace TP.Models
                     .IsUnicode(false)
                     .HasColumnName("sexo");
 
-                entity.HasOne(d => d.IdGsanguineoNavigation)
-                    .WithMany(p => p.Animals)
-                    .HasForeignKey(d => d.IdGsanguineo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__animal__idGSangu__01142BA1");
+                //entity.HasOne(d => d.IdGsanguineoNavigation)
+                //    .WithMany(p => p.Animals)
+                //    .HasForeignKey(d => d.IdGsanguineo)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__animal__idGSangu__01142BA1");
 
                 entity.HasOne(d => d.IdOrganizacionNavigation)
                     .WithMany(p => p.Animals)

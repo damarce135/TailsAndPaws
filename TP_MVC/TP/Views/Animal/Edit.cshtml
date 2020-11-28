@@ -25,10 +25,10 @@
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Raza" class="control-label"></label>
+                <label asp-for="Tamano" class="control-label"></label>
                 @*<input asp-for="Raza" class="form-control" />*@
-                <select asp-for="Raza" class="form-control" asp-items="ViewBag.Raza"></select>
-                <span asp-validation-for="Raza" class="text-danger"></span>
+                <select asp-for="Tamano" class="form-control" asp-items="ViewBag.Tamano"></select>
+                <span asp-validation-for="Tamano" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -46,10 +46,15 @@
                 <input asp-for="FechaIngreso" class="form-control" />
                 <span asp-validation-for="FechaIngreso" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="IdGsanguineo" class="control-label"></label>
                 <select asp-for="IdGsanguineo" class="form-control" asp-items="ViewBag.IdGsanguineo"></select>
                 <span asp-validation-for="IdGsanguineo" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Caracteristicas" class="control-label"></label>
+                <input asp-for="Caracteristicas" class="form-control" />
+                <span asp-validation-for="Caracteristicas" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdOrganizacion" class="control-label"></label>
@@ -57,10 +62,10 @@
                 <span asp-validation-for="IdOrganizacion" class="text-danger"></span>
             </div>
             @*<div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
-                </label>
-            </div>*@
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
+            </label>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Especie" class="control-label"></label>
                 @*<input asp-for="Especie" class="form-control" />*@

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TP.Data;
 
 namespace TP.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201128065423_UpdateToAnimal")]
+    partial class UpdateToAnimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -333,6 +335,9 @@ namespace TP.Data.Migrations
                     b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("GrupoSanguineoIdGsanguineo")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdOrganizacion")
                         .HasColumnType("int");
 
@@ -349,6 +354,8 @@ namespace TP.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdAnimal");
+
+                    b.HasIndex("GrupoSanguineoIdGsanguineo");
 
                     b.HasIndex("IdOrganizacion");
 
@@ -711,6 +718,9 @@ namespace TP.Data.Migrations
 
             modelBuilder.Entity("TP.Models.Animal", b =>
                 {
+                    b.HasOne("TP.Models.GrupoSanguineo", null)
+                        .WithMany("Animals")
+                        .HasForeignKey("GrupoSanguineoIdGsanguineo");
 
                     b.HasOne("TP.Models.Organizacion", "IdOrganizacionNavigation")
                         .WithMany("Animals")
@@ -815,6 +825,10 @@ namespace TP.Data.Migrations
                     b.Navigation("Organizacions");
                 });
 
+            modelBuilder.Entity("TP.Models.GrupoSanguineo", b =>
+                {
+                    b.Navigation("Animals");
+                });
 
             modelBuilder.Entity("TP.Models.Organizacion", b =>
                 {
