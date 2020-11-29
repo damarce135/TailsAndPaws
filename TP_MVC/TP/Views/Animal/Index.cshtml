@@ -1,64 +1,64 @@
 ﻿@model IEnumerable<TP.Models.Animal>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    @{
-        ViewData["Title"] = "Inicio - Animal";
-    }
+@{
+    ViewData["Title"] = "Inicio - Animal";
+}
 
-    <h1>Animales</h1>
+<h1>Animales</h1>
 
-    <p>
-        <a asp-action="Create">Crear Nuevo</a>
-    </p>
-    <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Animal">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Sexo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tamano)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Castrado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Edad)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FechaIngreso)
-                </th>
-                @*<th>
-            @Html.DisplayNameFor(model => model.Habilitado)
-        </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.Especie)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adoptado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Caracteristicas)
-                </th>
-                @*<th>
-            @Html.DisplayNameFor(model => model.IdGsanguineoNavigation)
-        </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.IdOrganizacionNavigation)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="miTabla">
-            @foreach (var item in Model)
-            {
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Animal">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tamano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Castrado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Habilitado)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Especie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adoptado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caracteristicas)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IdGsanguineoNavigation)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrganizacionNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="miTabla">
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
@@ -79,8 +79,8 @@
                     @Html.DisplayFor(modelItem => item.FechaIngreso)
                 </td>
                 @*<td>
-            @Html.DisplayFor(modelItem => item.Habilitado)
-        </td>*@
+                        @Html.DisplayFor(modelItem => item.Habilitado)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Especie)
                 </td>
@@ -91,8 +91,8 @@
                     @Html.DisplayFor(modelItem => item.Caracteristicas)
                 </td>
                 @*<td>
-            @Html.DisplayFor(modelItem => item.IdGsanguineoNavigation.NombreGsanguineo)
-        </td>*@
+                        @Html.DisplayFor(modelItem => item.IdGsanguineoNavigation.NombreGsanguineo)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.IdOrganizacionNavigation.Nombre)
                 </td>
@@ -102,17 +102,20 @@
                     <a asp-action="Delete" asp-route-id="@item.IdAnimal">Eliminar</a>
                 </td>
             </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
-    <script>
-        $(document).ready(function () {
-            $("#miBusqueda").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#miTabla tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+@*Paginación*@
+
+@*Filtro de búsqueda*@
+<script>
+    $(document).ready(function () {
+        $("#miBusqueda").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#miTabla tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-    </script>
+    });
+</script>

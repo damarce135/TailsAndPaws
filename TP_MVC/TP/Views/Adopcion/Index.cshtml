@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<TP.Models.Adopcion>
 @using PagedList.Core.Mvc
 
+@*Paginación*@
+
+@*Filtro de búsqueda*@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -16,7 +19,7 @@
     <a asp-action="CreateAdoptante" class="float-right">Registrar Adoptante</a>
 </p>
 <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Adopción">
-<table class="table">
+<table class="table" id="miTabla">
     <thead>
         <tr>
             <th>
@@ -63,10 +66,26 @@
                 </td>
             </tr>
         }
+
     </tbody>
 </table>
 
+@*Paginación*@
+<script>
+    $(function () {
+        $('#miTabla').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
 
+</script>
+
+@*Filtro de búsqueda*@
 <script>
     $(document).ready(function () {
         $("#miBusqueda").on("keyup", function () {
