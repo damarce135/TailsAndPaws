@@ -7,13 +7,9 @@
 
   <ItemGroup>
     <Compile Remove="css\**" />
-    <Compile Remove="Reports\**" />
     <Content Remove="css\**" />
-    <Content Remove="Reports\**" />
     <EmbeddedResource Remove="css\**" />
-    <EmbeddedResource Remove="Reports\**" />
     <None Remove="css\**" />
-    <None Remove="Reports\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FastReport.OpenSource" Version="2020.4.11" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
@@ -32,13 +29,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-    <PackageReference Include="PagedList" Version="1.17.0" />
-    <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
     <PackageReference Include="SendGrid" Version="9.21.2" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="18.3.0.51" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="FrontEnd\" />
+    <Folder Include="Reports\" />
     <Folder Include="Views\Calendario\" />
   </ItemGroup>
 
