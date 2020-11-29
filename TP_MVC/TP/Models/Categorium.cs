@@ -11,6 +11,7 @@ namespace TP.Models
         public Categorium()
         {
             ProdCategoria = new HashSet<ProdCategorium>();
+            Productos = new HashSet<Producto>();
         }
 
         [Key]
@@ -18,5 +19,6 @@ namespace TP.Models
         public string NombreCategoria { get; set; }
 
         public virtual ICollection<ProdCategorium> ProdCategoria { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
     }
 }

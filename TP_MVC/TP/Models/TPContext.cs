@@ -509,6 +509,8 @@ namespace TP.Models
 
                 entity.Property(e => e.Cantidad).HasColumnName("cantidad");
 
+                entity.Property(e => e.IdCategoria).HasColumnName("idCategoria");
+
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
                     .HasMaxLength(300)
@@ -526,6 +528,15 @@ namespace TP.Models
                     .HasMaxLength(45)
                     .IsUnicode(false)
                     .HasColumnName("nombre");
+
+                entity.HasOne(e => e.IdCategoriaNavigation)
+                .WithMany(p => p.Productos)
+                .HasForeignKey(e => e.IdCategoria)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__producto__idCate__681373AD");
+
+               
+                    //.HasConstraintName("FK__producto__idCate__681373AD");
             });
 
             modelBuilder.Entity<Provincium>(entity =>

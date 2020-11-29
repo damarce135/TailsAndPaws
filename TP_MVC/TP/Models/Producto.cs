@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -34,6 +35,14 @@ namespace TP.Models
 
         //[Display(Name = "Estado")]
         //public bool Habilitado { get; set; }
+
+        [Required]
+        [Display(Name = "Categoría")]
+        public int IdCategoria { get; set; }
+
+        [ForeignKey("IdCategoria")]
+        [Display(Name = "Categoría")]
+        public virtual Categorium IdCategoriaNavigation { get; set; }
 
         public virtual ICollection<ProdCategorium> ProdCategoria { get; set; }
         public virtual ICollection<ProdProveedor> ProdProveedors { get; set; }
