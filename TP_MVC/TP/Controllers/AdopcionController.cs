@@ -56,7 +56,7 @@ namespace TP.Controllers
         public IActionResult Create()
         {
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname");
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname");
+            ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado==false), "IdAnimal", "Fullname");
             return View();
         }
 
@@ -71,10 +71,15 @@ namespace TP.Controllers
             {
                 _context.Add(adopcion);
                 await _context.SaveChangesAsync();
+
+                string procedure = "EXEC AdoptarAnimal @id = " + adopcion.IdAnimal;
+                await _context.Database.ExecuteSqlRawAsync(procedure);
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname", adopcion.IdAnimal);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado == false), "IdAnimal", "Fullname", adopcion.IdAnimal);
+
             return View(adopcion);
         }
 
@@ -92,7 +97,7 @@ namespace TP.Controllers
                 return NotFound();
             }
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname", adopcion.IdAnimal);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado == false), "IdAnimal", "Fullname", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -129,7 +134,7 @@ namespace TP.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
-            ViewData["IdAnimal"] = new SelectList(_context.Animal, "IdAnimal", "Fullname", adopcion.IdAnimal);
+            ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado == false), "IdAnimal", "Fullname", adopcion.IdAnimal);
             return View(adopcion);
         }
 
@@ -161,6 +166,10 @@ namespace TP.Controllers
             var adopcion = await _context.Adopcion.FindAsync(id);
             _context.Adopcion.Remove(adopcion);
             await _context.SaveChangesAsync();
+
+            string procedure = "EXEC DesadoptarAnimal @id = " + adopcion.IdAnimal;
+            await _context.Database.ExecuteSqlRawAsync(procedure);
+
             return RedirectToAction(nameof(Index));
         }
 

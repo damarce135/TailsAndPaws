@@ -59,7 +59,7 @@ namespace TP.Controllers
             var tamanos = new List<string> { "Muy pequeño", "Pequeño", "Mediano", "Grande" };
             ViewData["Tamano"] = new SelectList(tamanos);
 
-            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Nombre");
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion.Where(o => o.Tipo == "Casa Cuna"), "IdOrganizacion", "Nombre");
             return View();
         }
 
@@ -88,7 +88,7 @@ namespace TP.Controllers
             ViewData["Tamano"] = new SelectList(tamanos);
 
             //ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo", animal.IdGsanguineo);
-            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Nombre", animal.IdOrganizacion);
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion.Where(o => o.Tipo == "Casa Cuna"), "IdOrganizacion", "Nombre", animal.IdOrganizacion);
             return View(animal);
         }
 
@@ -117,7 +117,7 @@ namespace TP.Controllers
             ViewData["Tamano"] = new SelectList(tamanos);
 
             //ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo", animal.IdGsanguineo);
-            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Nombre", animal.IdOrganizacion);
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion.Where(o => o.Tipo == "Casa Cuna"), "IdOrganizacion", "Nombre", animal.IdOrganizacion);
             return View(animal);
         }
 
@@ -165,7 +165,7 @@ namespace TP.Controllers
             ViewData["Tamano"] = new SelectList(tamanos);
 
             //ViewData["IdGsanguineo"] = new SelectList(_context.GrupoSanguineo, "IdGsanguineo", "NombreGsanguineo", animal.IdGsanguineo);
-            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion, "IdOrganizacion", "Nombre", animal.IdOrganizacion);
+            ViewData["IdOrganizacion"] = new SelectList(_context.Organizacion.Where(o => o.Tipo == "Casa Cuna"), "IdOrganizacion", "Nombre", animal.IdOrganizacion);
             return View(animal);
         }
 

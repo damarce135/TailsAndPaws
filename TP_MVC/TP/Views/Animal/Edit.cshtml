@@ -30,11 +30,16 @@
                 <select asp-for="Tamano" class="form-control" asp-items="ViewBag.Tamano"></select>
                 <span asp-validation-for="Tamano" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Castrado" /> @Html.DisplayNameFor(model => model.Castrado)
-                </label>
+            <div class="form-group">
+                <label asp-for="Castrado" class="control-label"></label>
+                <input asp-for="Castrado" class="form-control" />
+                <span asp-validation-for="Castrado" class="text-danger"></span>
             </div>
+            @*<div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Castrado" /> @Html.DisplayNameFor(model => model.Castrado)
+            </label>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Edad" class="control-label"></label>
                 @*<input asp-for="Edad" class="form-control" />*@
@@ -47,10 +52,10 @@
                 <span asp-validation-for="FechaIngreso" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-                <label asp-for="IdGsanguineo" class="control-label"></label>
-                <select asp-for="IdGsanguineo" class="form-control" asp-items="ViewBag.IdGsanguineo"></select>
-                <span asp-validation-for="IdGsanguineo" class="text-danger"></span>
-            </div>*@
+            <label asp-for="IdGsanguineo" class="control-label"></label>
+            <select asp-for="IdGsanguineo" class="form-control" asp-items="ViewBag.IdGsanguineo"></select>
+            <span asp-validation-for="IdGsanguineo" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Caracteristicas" class="control-label"></label>
                 <input asp-for="Caracteristicas" class="form-control" />
@@ -58,7 +63,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="IdOrganizacion" class="control-label"></label>
-                <select asp-for="IdOrganizacion" class="form-control" asp-items="ViewBag.IdOrganizacion"></select>
+                <select asp-for="IdOrganizacion" class="form-control" asp-items="ViewBag.IdOrganizacion">
+                    <option disabled selected>-- Sin casa cuna--</option>
+                </select>
                 <span asp-validation-for="IdOrganizacion" class="text-danger"></span>
             </div>
             @*<div class="form-group form-check">
@@ -72,11 +79,16 @@
                 <select asp-for="Especie" class="form-control" asp-items="ViewBag.Especie"></select>
                 <span asp-validation-for="Especie" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group">
+                <label asp-for="Adoptado" class="control-label"></label>
+                <input asp-for="Adoptado" class="form-control" />
+                <span asp-validation-for="Adoptado" class="text-danger"></span>
+            </div>
+            @*<div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Adoptado" /> @Html.DisplayNameFor(model => model.Adoptado)
                 </label>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
