@@ -70,13 +70,17 @@ namespace TP.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(adopcion);
-                await _context.SaveChangesAsync();
+                    _context.Add(adopcion);
+                    await _context.SaveChangesAsync();
 
-                string procedure = "EXEC AdoptarAnimal @id = " + adopcion.IdAnimal;
-                await _context.Database.ExecuteSqlRawAsync(procedure);
+                    string procedure = "EXEC AdoptarAnimal @id = " + adopcion.IdAnimal;
+                    await _context.Database.ExecuteSqlRawAsync(procedure);
 
-                return RedirectToAction(nameof(Index));
+                    string procedureSeg = "EXEC SeguimientoCalendario @id=" + adopcion.IdAnimal + ", @fecha='" + adopcion.FechaSeguimiento + "'";
+                    await _context.Database.ExecuteSqlRawAsync(procedureSeg);
+
+                    return RedirectToAction(nameof(Index));
+
             }
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
             ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado == false), "IdAnimal", "Fullname", adopcion.IdAnimal);
@@ -170,6 +174,9 @@ namespace TP.Controllers
 
             string procedure = "EXEC DesadoptarAnimal @id = " + adopcion.IdAnimal;
             await _context.Database.ExecuteSqlRawAsync(procedure);
+
+            string procedureSeg = "EXEC EliminaSeguimientoCalendario @fecha = '" + adopcion.FechaSeguimiento+"'";
+            await _context.Database.ExecuteSqlRawAsync(procedureSeg);
 
             return RedirectToAction(nameof(Index));
         }

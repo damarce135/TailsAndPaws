@@ -4,6 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
+
 <h1>Create</h1>
 
 <h4>Adopcion</h4>
@@ -14,11 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdAnimal" class="control-label"></label>
-                <select asp-for="IdAnimal" class ="form-control" asp-items="ViewBag.IdAnimal"></select>
+                <select asp-for="IdAnimal" class="form-control" asp-items="ViewBag.IdAnimal"></select>
             </div>
             <div class="form-group">
                 <label asp-for="IdAdoptante" class="control-label"></label>
-                <select asp-for="IdAdoptante" class ="form-control" asp-items="ViewBag.IdAdoptante"></select>
+                <select asp-for="IdAdoptante" class="form-control" asp-items="ViewBag.IdAdoptante"></select>
             </div>
             <div class="form-group">
                 <label asp-for="FechaAdopcion" class="control-label"></label>
@@ -31,10 +32,10 @@
                 <span asp-validation-for="FechaSeguimiento" class="text-danger"></span>
             </div>
             @*<div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
-                </label>
-            </div>*@
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Habilitado" /> @Html.DisplayNameFor(model => model.Habilitado)
+                    </label>
+                </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

@@ -9,7 +9,7 @@ using TP.Validations;
 
 namespace TP.Models
 {
-    public partial class Adopcion
+    public partial class Adopcion : IValidatableObject
     {
         [Key]
         [GenericRequired]
@@ -25,10 +25,12 @@ namespace TP.Models
         public int IdAdoptante { get; set; }
 
         [GenericRequired]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Fecha de Adopción")]
         public DateTime? FechaAdopcion { get; set; }
 
         [GenericRequired]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Fecha de Seguimiento")]
         public DateTime? FechaSeguimiento { get; set; }
 
@@ -48,5 +50,16 @@ namespace TP.Models
         [ForeignKey("IdAnimal")]
         [Display(Name = "Animalito")]
         public virtual Animal IdAnimalNavigation { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (FechaAdopcion > FechaSeguimiento)
+            {
+                yield return new ValidationResult(
+                    $"La fecha de seguimiento debe ser después de la fecha de adopción.",
+                    new[] { nameof(FechaSeguimiento) });
+            }
+        }
+
     }
 }
