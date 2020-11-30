@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TP.Data;
 using TP.Models;
 
+
 namespace TP.Controllers
 {
     public class AdopcionController : Controller
@@ -56,7 +57,7 @@ namespace TP.Controllers
         public IActionResult Create()
         {
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname");
-            ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado==false), "IdAnimal", "Fullname");
+            ViewData["IdAnimal"] = new SelectList(_context.Animal.Where(o => o.Adoptado == false), "IdAnimal", "Fullname");
             return View();
         }
 

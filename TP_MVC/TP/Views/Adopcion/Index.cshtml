@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<TP.Models.Adopcion>
-@*@using PagedList.Core.Mvc*@
-
 @*Paginación*@
 
 @*Filtro de búsqueda*@
@@ -71,19 +69,7 @@
 </table>
 
 @*Paginación*@
-<script>
-    $(function () {
-        $('#miTabla').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
-    })
 
-</script>
 
 @*Filtro de búsqueda*@
 <script>
