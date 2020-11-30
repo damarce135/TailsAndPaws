@@ -105,6 +105,41 @@ namespace TP.Controllers
             return View(calendario);
         }
 
+        // GET: Calendario/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var calendario = await _context.Calendario
+                .FirstOrDefaultAsync(m => m.IdCalendario == id);
+            if (calendario == null)
+            {
+                return NotFound();
+            }
+
+            return View(calendario);
+        }
+
+        // POST: Calendario/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var calendario = await _context.Calendario.FindAsync(id);
+            _context.Calendario.Remove(calendario);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Calendario
+        public async Task<IActionResult> IndexCalendario()
+        {
+            return View(await _context.Calendario.ToListAsync());
+        }
+
         private bool CalendarioExists(int id)
         {
             return _context.Calendario.Any(e => e.IdCalendario == id);
