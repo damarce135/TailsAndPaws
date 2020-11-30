@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TP.Validations;
 
 #nullable disable
 
@@ -11,23 +12,23 @@ namespace TP.Models
     public partial class Adopcion
     {
         [Key]
-        [Required]
+        [GenericRequired]
         [Display(Name ="Identificador")]
         public int IdAdopcion { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Animal")]
         public int IdAnimal { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Adoptante")]
         public int IdAdoptante { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Fecha de Adopción")]
-        public DateTime FechaAdopcion { get; set; }
+        public DateTime? FechaAdopcion { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Fecha de Seguimiento")]
         public DateTime? FechaSeguimiento { get; set; }
 

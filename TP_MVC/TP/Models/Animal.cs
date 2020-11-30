@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TP.Validations;
 
 #nullable disable
 
@@ -15,33 +16,32 @@ namespace TP.Models
         }
 
         [Key]
-        [Required]
+        [GenericRequired]
         [Display(Name ="Identificador")]
         public int IdAnimal { get; set; }
 
-        [Required]
-        public string Nombre { get; set; }
+        [GenericRequired]
+        public string? Nombre { get; set; }
 
-        [Required]
-        public string Sexo { get; set; }
+        [GenericRequired]
+        public string? Sexo { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Tamaño")]
-        public string Tamano { get; set; }
+        public string? Tamano { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Características")]
-        public string Caracteristicas { get; set; }
+        public string? Caracteristicas { get; set; }
 
-        [Required]
         public bool Castrado { get; set; }
 
-        [Required]
-        public string Edad { get; set; }
+        [GenericRequired]
+        public string? Edad { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Fecha de Ingreso")]
-        public DateTime FechaIngreso { get; set; }
+        public DateTime? FechaIngreso { get; set; }
 
         //[Required]
         //[Display(Name = "Grupo Sanguíneo")]
@@ -57,10 +57,9 @@ namespace TP.Models
         //[Display(Name = "Estado")]
         //public bool Habilitado { get; set; }
 
-        [Required]
+        [GenericRequired]
         public string Especie { get; set; }
 
-        [Required]
         public bool Adoptado { get; set; }
 
         //[ForeignKey("IdGsanguineo")]

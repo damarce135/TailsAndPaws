@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TP.Validations;
 
 #nullable disable
 
@@ -17,27 +18,27 @@ namespace TP.Models
 
         [Key]
         [Display(Name ="Identificador")]
-        [Required]
+        [GenericRequired]
         public int IdOrganizacion { get; set; }
 
-        [Required]
-        public string Tipo { get; set; }
+        [GenericRequired]
+        public string? Tipo { get; set; }
 
-        [Required]
-        public string Nombre { get; set; }
+        [GenericRequired]
+        public string? Nombre { get; set; }
 
         [Display(Name = "Primer Apellido")]
-        public string Apellido1 { get; set; }
+        public string? Apellido1 { get; set; }
 
         [Display(Name = "Segundo Apellido")]
-        public string Apellido2 { get; set; }
+        public string? Apellido2 { get; set; }
 
         [Display(Name = "Teléfono")]
-        [Required]
-        public string Telefono { get; set; }
+        [GenericRequired]
+        public string? Telefono { get; set; }
 
-        [Required]
-        public string Email { get; set; }
+        [GenericRequired]
+        public string? Email { get; set; }
         public string Descripcion { get; set; }
 
         [Display(Name = "Provincia")]
@@ -53,8 +54,8 @@ namespace TP.Models
         //public int IdDistrito { get; set; }
 
         [Display(Name = "Dirección")]
-        [Required]
-        public string DetalleDireccion { get; set; }
+        [GenericRequired]
+        public string? DetalleDireccion { get; set; }
 
         //[Display(Name = "Estado")]
         //public bool Habilitado { get; set; }

@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <Compile Remove="css\**" />
+    <Compile Remove="FrontEnd\**" />
     <Content Remove="css\**" />
+    <Content Remove="FrontEnd\**" />
     <EmbeddedResource Remove="css\**" />
+    <EmbeddedResource Remove="FrontEnd\**" />
     <None Remove="css\**" />
+    <None Remove="FrontEnd\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="FrontEnd\" />
     <Folder Include="Reports\" />
     <Folder Include="Views\Calendario\" />
   </ItemGroup>

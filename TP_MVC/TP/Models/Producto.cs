@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TP.Validations;
 
 #nullable disable
 
@@ -17,26 +18,26 @@ namespace TP.Models
 
         [Key]
         [Display(Name ="Identificador")]
-        [Required]
+        [GenericRequired]
         public int IdProducto { get; set; }
 
-        [Required]
-        public string Nombre { get; set; }
+        [GenericRequired]
+        public string? Nombre { get; set; }
 
         [Display(Name = "Descripción")]
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name ="Fecha de Ingreso")]
-        public DateTime FechaIngreso { get; set; }
+        public DateTime? FechaIngreso { get; set; }
 
-        [Required]
-        public int Cantidad { get; set; }
+        [GenericRequired]
+        public int? Cantidad { get; set; }
 
         //[Display(Name = "Estado")]
         //public bool Habilitado { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Categoría")]
         public int IdCategoria { get; set; }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TP.Validations;
 
 #nullable disable
 
@@ -15,36 +16,37 @@ namespace TP.Models
         }
 
         [Key]
-        [Required]
+        [GenericRequired]
         [Display(Name ="Identificador")]
         public int IdAdoptante { get; set; }
 
         [MinLength(9)]
         [MaxLength(9)]
+        [GenericRequired]
         [Display(Name = "Cédula")]
-        public string Cedula { get; set; }
+        public string? Cedula { get; set; }
 
-        [Required]
-        public string Nombre { get; set; }
+        [GenericRequired]
+        public string? Nombre { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Primer Apellido")]
-        public string Apellido1 { get; set; }
+        public string? Apellido1 { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Segundo Apellido")]
-        public string Apellido2 { get; set; }
+        public string? Apellido2 { get; set; }
 
-        [Required]
-        public string Email { get; set; }
+        [GenericRequired]
+        public string? Email { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Teléfono")]
-        public string Telefono { get; set; }
+        public string? Telefono { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Provincia")]
-        public int IdProvincia { get; set; }
+        public int? IdProvincia { get; set; }
 
         //[Required]
         //[Display(Name = "Cantón")]
@@ -54,12 +56,12 @@ namespace TP.Models
         //[Display(Name = "Distrito")]
         //public int IdDistrito { get; set; }
 
-        [Required]
+        [GenericRequired]
         [Display(Name = "Dirección")]
-        public string DetalleDireccion { get; set; }
+        public string? DetalleDireccion { get; set; }
 
         [Display(Name = "Preferido")]
-        public bool Habilitado { get; set; }
+        public bool? Habilitado { get; set; }
 
         //[ForeignKey("IdCanton")]
         //[Display(Name = "Canton")]
