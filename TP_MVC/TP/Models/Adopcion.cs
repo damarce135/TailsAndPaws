@@ -32,7 +32,7 @@ namespace TP.Models
         [GenericRequired]
         [DataType(DataType.DateTime)]
         [Display(Name = "Fecha de Seguimiento")]
-        public DateTime? FechaSeguimiento { get; set; }
+        public DateTime FechaSeguimiento { get; set; }
 
         //[Display(Name = "Estado")]
         //public bool Habilitado { get; set; }

@@ -78,6 +78,9 @@
                         @Html.DisplayFor(modelItem => item.Telefono)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.NombreProvincia)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.DetalleDireccion)
                     </td>
                     <td>
@@ -89,9 +92,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.IdDistritoNavigation.NombreDistrito)
                     </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.NombreProvincia)
-                    </td>
+                    
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.IdAdoptante">Editar</a> |
                         <a asp-action="Details" asp-route-id="@item.IdAdoptante">Detalles</a> |
@@ -102,6 +103,7 @@
         </tbody>
     </table>
 
+@*Filtro de Búsqueda*@
     <script>
         $(document).ready(function () {
             $("#miBusqueda").on("keyup", function () {
