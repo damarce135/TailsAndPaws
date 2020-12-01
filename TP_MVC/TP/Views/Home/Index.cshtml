@@ -76,6 +76,7 @@
     <!-- fullCalendar 2.2.5 -->
     <script src="~/theme/plugins/moment/moment.min.js"></script>
     <script src="~/theme/plugins/fullcalendar/main.min.js"></script>
+    <script src='~/theme/plugins/fullcalendar/locale-all.js'></script>
     <script src="~/theme/plugins/fullcalendar-daygrid/main.min.js"></script>
     <script src="~/theme/plugins/fullcalendar-timegrid/main.min.js"></script>
     <script src="~/theme/plugins/fullcalendar-interaction/main.min.js"></script>
@@ -145,6 +146,7 @@
             //});
 
             var calendar = new Calendar(calendarEl, {
+                locale: 'es',
                 plugins: ['bootstrap', 'interaction', 'dayGrid', 'timeGrid'],
                 header: {
                     left: 'prev,next today',
