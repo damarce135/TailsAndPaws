@@ -38,9 +38,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="TemaColor" class="control-label"></label>
-                <input asp-for="TemaColor" class="form-control" />
+                <select asp-for="TemaColor" class="form-control" asp-items="ViewBag.Color"></select>
                 <span asp-validation-for="TemaColor" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="TemaColor" class="control-label"></label>
+                <input asp-for="TemaColor" class="form-control" />
+                <span asp-validation-for="TemaColor" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />
             </div>

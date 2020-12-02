@@ -12,10 +12,11 @@ using Syncfusion.Pdf.Graphics;
 using Syncfusion.Drawing;
 using System.IO;
 using Syncfusion.Pdf.Grid;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace TP.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdopcionController : Controller
     {
 

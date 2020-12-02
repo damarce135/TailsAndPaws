@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,7 @@ using TP.Models;
 
 namespace TP.Controllers
 {
-    [Authorize(Roles = "Admin,Voluntario")]
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
 
@@ -38,6 +39,8 @@ namespace TP.Controllers
 
         public IActionResult Create()
         {
+            var colores = new List<string> { "Gris", "Celeste", "Naranja", "Rojo" };
+            ViewData["Color"] = new SelectList(colores);
             return View();
         }
 
@@ -47,10 +50,26 @@ namespace TP.Controllers
         {
             if (ModelState.IsValid)
             {
+                if ( calendario.TemaColor == "Gris" ) 
+                {
+                    calendario.TemaColor = "#BEB7A4";
+                } if (calendario.TemaColor == "Rojo")
+                {
+                    calendario.TemaColor = "#FF3F00";
+                } if (calendario.TemaColor == "Naranja")
+                {
+                    calendario.TemaColor = "#FF7F11";
+                }
+                if (calendario.TemaColor == "Celeste")
+                {
+                    calendario.TemaColor = "#9BD8DB";
+                }
                 _context.Add(calendario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            var colores = new List<string> { "Gris", "Celeste", "Naranja", "Rojo" };
+            ViewData["Color"] = new SelectList(colores);
             return View(calendario);
         }
 
@@ -67,6 +86,8 @@ namespace TP.Controllers
             {
                 return NotFound();
             }
+            var colores = new List<string> { "Gris", "Celeste", "Naranja", "Rojo" };
+            ViewData["Color"] = new SelectList(colores);
             return View(calendario);
         }
 
@@ -102,6 +123,8 @@ namespace TP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            var colores = new List<string> { "Gris", "Celeste", "Naranja", "Rojo" };
+            ViewData["Color"] = new SelectList(colores);
             return View(calendario);
         }
 
