@@ -13,6 +13,8 @@ using Syncfusion.Drawing;
 using System.IO;
 using Syncfusion.Pdf.Grid;
 using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Syncfusion.Pdf.Tables;
 
 namespace TP.Controllers
 {
@@ -42,8 +44,8 @@ namespace TP.Controllers
             //Draw the image
             graphics.DrawImage(image, bounds);
 
-            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
-            bounds = new RectangleF(0, bounds.Bottom + 90, graphics.ClientSize.Width, 30);
+            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(190,183,164));
+            bounds = new RectangleF(0, bounds.Bottom + 20, graphics.ClientSize.Width, 30);
             //Draws a rectangle to place the heading in that region.
             graphics.DrawRectangle(solidBrush, bounds);
             //Creates a font for adding the heading in the page
@@ -54,19 +56,53 @@ namespace TP.Controllers
 
             //Draws the heading on the page
             PdfLayoutResult result = element.Draw(page, new PointF(10, bounds.Top + 8));
-            string currentDate = "DATE " + DateTime.Now.ToString("dd/MM/yyyy");
+            string currentDate = "Fecha: " + DateTime.Now.ToString("dd/MM/yyyy");
             //Measures the width of the text to place it in the correct location
             SizeF textSize = subHeadingFont.MeasureString(currentDate);
             PointF textPosition = new PointF(graphics.ClientSize.Width - textSize.Width - 10, result.Bounds.Y);
             //Draws the date by using DrawString method
             graphics.DrawString(currentDate, subHeadingFont, element.Brush, textPosition);
-            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
+            PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
 
             //Falta obtener la data
-            //create a base query.
+           DataTable table = new DataTable();
+            //Include columns to the DataTable.
 
-            //var projectsQuery = from p in _context.Donante select p;
+            table.Columns.Add("Animal");
+            table.Columns.Add("Adoptante");
+            table.Columns.Add("Fecha de Adopción");
+            table.Columns.Add("Fecha de Seguimiento");
 
+            //Include rows to the DataTable.
+            // recuerde que los rows tienen que ser de la misma cantidad de las columnas por si explota aca
+            foreach (var item in from p in _context.Adopcion.Include(a => a.IdAdoptanteNavigation)
+                 .Include(a => a.IdAnimalNavigation) select p)
+                table.Rows.Add(new string[] { item.IdAnimalNavigation.Nombre, item.IdAdoptanteNavigation.Nombre,
+               DateTime.Parse(item.FechaAdopcion.ToString()).ToShortDateString(), item.FechaSeguimiento.ToShortDateString() });
+
+            //var adopcion = _context.Adopcion
+            //     .Include(a => a.IdAdoptanteNavigation)
+            //     .Include(a => a.IdAnimalNavigation)
+            //     .FirstOrDefaultAsync(m => m.IdAdopcion == id);
+
+            PdfLightTable pdfLightTable = new PdfLightTable();
+            pdfLightTable.DataSource = table;
+            //Draw PdfLightTable.
+
+            PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
+            PdfCellStyle altStyle = new PdfCellStyle(font, PdfBrushes.Black, PdfPens.Black);
+            altStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(230, 230, 230));
+
+            PdfCellStyle headerStyle = new PdfCellStyle(font, PdfBrushes.Black, PdfPens.Black);
+            headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(190, 183, 164));
+            // alterna colores entre rows
+            pdfLightTable.Style.AlternateStyle = altStyle;
+
+            pdfLightTable.Style.HeaderStyle = headerStyle;
+
+            pdfLightTable.Style.ShowHeader = true;
+
+            pdfLightTable.Draw(page, new PointF(0, bounds.Bottom ));
             ////add sorting.
             //var projectsSortedByDateQuery = projectsQuery.OrderBy(x => x.IdDonante);
 
