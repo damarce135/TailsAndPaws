@@ -7,7 +7,7 @@ using TP.Validations;
 
 namespace TP.Models
 {
-    public partial class Calendario
+    public partial class Calendario : IValidatableObject
     {
         [Key]
         [Display(Name = "Identificador")]
@@ -29,10 +29,20 @@ namespace TP.Models
 
         [GenericRequired]
         [Display(Name = "Evento de todo el día")]
-        public bool? DiaCompleto { get; set; }
+        public bool DiaCompleto { get; set; }
 
         [GenericRequired]
         [Display(Name = "Color")]
         public string? TemaColor { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (FechaInicio > FechaFinal)
+            {
+                yield return new ValidationResult(
+                    $"La fecha final debe ser después de la fecha de incio.",
+                    new[] { nameof(FechaFinal) });
+            }
+        }
     }
 }
