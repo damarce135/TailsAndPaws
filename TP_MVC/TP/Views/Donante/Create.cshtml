@@ -4,10 +4,11 @@
     ViewData["Title"] = "Crear - Donantes";
 }
 
-<h1>Crear</h1>
+<h1>Crear Donante</h1>
 
 <hr />
 <div class="row">
+    <div class="col-md-4"></div>
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -37,10 +38,10 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-                <label asp-for="Habilitado" class="control-label"></label>
-                <input asp-for="Habilitado" class="form-control" />
-                <span asp-validation-for="Habilitado" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="Habilitado" class="control-label"></label>
+                    <input asp-for="Habilitado" class="form-control" />
+                    <span asp-validation-for="Habilitado" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />
             </div>

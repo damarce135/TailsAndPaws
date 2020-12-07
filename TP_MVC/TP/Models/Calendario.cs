@@ -10,7 +10,7 @@ namespace TP.Models
     public partial class Calendario
     {
         [Key]
-        [Display(Name = "Idntificador")]
+        [Display(Name = "Identificador")]
         public int IdCalendario { get; set; }
 
         [GenericRequired]

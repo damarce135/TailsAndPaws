@@ -175,5 +175,10 @@ namespace TP.Controllers
         {
             return _context.Adoptante.Any(e => e.IdAdoptante == id);
         }
+
+        //private bool AdoptanteExistsInAdoption(Adoptante id)
+        //{
+        //    return _context.Adopcion.Any(a => a.IdAdoptanteNavigation == id);
+        //}
     }
 }

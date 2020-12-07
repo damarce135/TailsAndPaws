@@ -21,7 +21,7 @@ namespace TP.Controllers
     [Authorize(Roles = "Admin")]
     public class AdopcionController : Controller
     {
-
+ 
         private readonly ApplicationDbContext _context;
 
         public AdopcionController(ApplicationDbContext context)
@@ -74,16 +74,10 @@ namespace TP.Controllers
             table.Columns.Add("Fecha de Seguimiento");
 
             //Include rows to the DataTable.
-            // recuerde que los rows tienen que ser de la misma cantidad de las columnas por si explota aca
             foreach (var item in from p in _context.Adopcion.Include(a => a.IdAdoptanteNavigation)
                  .Include(a => a.IdAnimalNavigation) select p)
                 table.Rows.Add(new string[] { item.IdAnimalNavigation.Nombre, item.IdAdoptanteNavigation.Nombre,
                DateTime.Parse(item.FechaAdopcion.ToString()).ToShortDateString(), item.FechaSeguimiento.ToShortDateString() });
-
-            //var adopcion = _context.Adopcion
-            //     .Include(a => a.IdAdoptanteNavigation)
-            //     .Include(a => a.IdAnimalNavigation)
-            //     .FirstOrDefaultAsync(m => m.IdAdopcion == id);
 
             PdfLightTable pdfLightTable = new PdfLightTable();
             pdfLightTable.DataSource = table;
@@ -103,24 +97,7 @@ namespace TP.Controllers
             pdfLightTable.Style.ShowHeader = true;
 
             pdfLightTable.Draw(page, new PointF(0, bounds.Bottom ));
-            ////add sorting.
-            //var projectsSortedByDateQuery = projectsQuery.OrderBy(x => x.IdDonante);
-
-            ////execute and get the sorted results.
-            //var projectsSortedByDateResults = projectsSortedByDateQuery.ToList();
-
-            ////add paging and ordering (required for paging).
-            //var projectsWithPagingQuery = projectsQuery
-
-            //              .OrderBy(x => x.IdDonante)
-
-            //              .Take(5)
-
-            //              .Skip(0);
-
-            ////execute and get the first 5 results.
-            //var projectsWithPagingResults = projectsWithPagingQuery.ToList();
-
+            
             //Save the PDF document to stream
             MemoryStream stream = new MemoryStream();
             doc.Save(stream);
@@ -289,8 +266,6 @@ namespace TP.Controllers
 
             string procedure = "EXEC DesadoptarAnimal @id = " + adopcion.IdAnimal;
             await _context.Database.ExecuteSqlRawAsync(procedure);
-
-
 
             string procedureSeg = "EXEC EliminaSeguimientoCalendario @fecha = '" + adopcion.FechaSeguimiento.ToString("s")+"'";
             await _context.Database.ExecuteSqlRawAsync(procedureSeg);
