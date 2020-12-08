@@ -29,7 +29,7 @@ namespace TP.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Error al cargar usuario con ID '{_userManager.GetUserId(User)}'.");
             }
 
             _logger.LogInformation("User with ID '{UserId}' asked for their personal data.", _userManager.GetUserId(User));

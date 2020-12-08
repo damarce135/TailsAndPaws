@@ -168,6 +168,11 @@ namespace TP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var animalExiste = _context.Animal.FromSqlRaw("select * from animal where idOrganizacion = " + id).ToList().Count;
+            if (animalExiste > 0)
+            {
+                return NotFound($"Error: La organización tiene una animalito registrado. Elimine la casa cuna del animalito para poder eliminarla.");
+            }
             var organizacion = await _context.Organizacion.FindAsync(id);
             _context.Organizacion.Remove(organizacion);
             await _context.SaveChangesAsync();

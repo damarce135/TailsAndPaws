@@ -46,7 +46,7 @@ namespace TP.Areas.Identity.Pages.Account.Manage
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirm new password")]
-            [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+            [Compare("NewPassword", ErrorMessage = "La contraseña y la confirmación no son congruentes.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -91,8 +91,8 @@ namespace TP.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            _logger.LogInformation("User changed their password successfully.");
-            StatusMessage = "Your password has been changed.";
+            _logger.LogInformation("Contraseña actualizada exitosamente.");
+            StatusMessage = "Su contraseña ha cambiado.";
 
             return RedirectToPage();
         }

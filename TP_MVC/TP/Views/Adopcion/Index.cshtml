@@ -60,12 +60,14 @@
                 @Html.DisplayFor(modelItem => item.IdAdoptanteNavigation.Nombre)
                 @Html.DisplayFor(modelItem => item.IdAdoptanteNavigation.Apellido1)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAnimalNavigation.Sexo)
+                @Html.DisplayFor(modelItem => item.IdAnimalNavigation.Tamano)
+                @Html.DisplayFor(modelItem => item.IdAnimalNavigation.Nombre)
+            </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdAnimalNavigation.Nombre)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.IdAdopcion">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdAdopcion">Eliminar</a>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdAdopcion">Detalles</a> |
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.IdAdopcion">Eliminar</a>
                 </td>
             </tr>
         }

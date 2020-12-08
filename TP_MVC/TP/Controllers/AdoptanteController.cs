@@ -139,25 +139,28 @@ namespace TP.Controllers
             return View(adoptante);
         }
 
+
         // GET: Adoptante/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
             }
 
             var adoptante = await _context.Adoptante
-                //.Include(a => a.IdCantonNavigation)
-                //.Include(a => a.IdDistritoNavigation)
-                .Include(a => a.IdProvinciaNavigation)
-                .FirstOrDefaultAsync(m => m.IdAdoptante == id);
+                    //.Include(a => a.IdCantonNavigation)
+                    //.Include(a => a.IdDistritoNavigation)
+                    .Include(a => a.IdProvinciaNavigation)
+                    .FirstOrDefaultAsync(m => m.IdAdoptante == id);
+
             if (adoptante == null)
             {
                 return NotFound();
             }
 
-            return View(adoptante);
+                return View(adoptante);
         }
 
         // POST: Adoptante/Delete/5
@@ -165,11 +168,17 @@ namespace TP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var adopcionExiste = _context.Adopcion.FromSqlRaw("select * from adopcion where idAdoptante = " + id).ToList().Count;
+            if (adopcionExiste > 0)
+            {
+                return NotFound($"Error: El adoptante tiene una adopción registrada. Elimine la adopción para poder eliminar el adoptante.");
+            }
             var adoptante = await _context.Adoptante.FindAsync(id);
             _context.Adoptante.Remove(adoptante);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool AdoptanteExists(int id)
         {

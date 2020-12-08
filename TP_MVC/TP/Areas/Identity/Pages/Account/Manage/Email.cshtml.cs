@@ -44,7 +44,7 @@ namespace TP.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage = "El email nuevo debe ser válido.")]
             [Display(Name = "New email")]
             public string NewEmail { get; set; }
         }
@@ -107,7 +107,7 @@ namespace TP.Areas.Identity.Pages.Account.Manage
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Su email no ha cambiado.";
             return RedirectToPage();
         }
 

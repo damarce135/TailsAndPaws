@@ -61,7 +61,7 @@ namespace TP.Areas.Identity.Pages.Account.Manage
             {
                 if (!await _userManager.CheckPasswordAsync(user, Input.Password))
                 {
-                    ModelState.AddModelError(string.Empty, "Incorrect password.");
+                    ModelState.AddModelError(string.Empty, "Contraseña incorrecta.");
                     return Page();
                 }
             }
@@ -70,12 +70,12 @@ namespace TP.Areas.Identity.Pages.Account.Manage
             var userId = await _userManager.GetUserIdAsync(user);
             if (!result.Succeeded)
             {
-                throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
+                throw new InvalidOperationException($"Error inesperado al borrar el usuario con el ID '{userId}'.");
             }
 
             await _signInManager.SignOutAsync();
 
-            _logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
+            _logger.LogInformation("User con ID '{UserId}' eliminado.", userId);
 
             return Redirect("~/");
         }

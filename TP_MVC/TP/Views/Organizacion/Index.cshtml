@@ -14,7 +14,7 @@
         <a asp-action="Create">Crear Nueva</a>
     </p>
     <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Entidad">
-    <table class="table">
+    <table class="table table-striped projects">
         <thead>
             <tr>
                 <th>
@@ -26,24 +26,24 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Apellido1)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.Apellido2)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Telefono)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.Email)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Descripcion)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.DetalleDireccion)
-                </th>
+                </th>*@
                 @*<th>
                     @Html.DisplayNameFor(model => model.Habilitado)
                 </th>*@
@@ -70,24 +70,24 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Apellido1)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.Apellido2)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Telefono)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.Email)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Descripcion)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.IdProvinciaNavigation.NombreProvincia)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.DetalleDireccion)
-                    </td>
+                    </td>*@
                     @*<td>
                         @Html.DisplayFor(modelItem => item.Habilitado)
                     </td>*@
@@ -99,9 +99,9 @@
                     </td>*@
                     
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdOrganizacion">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdOrganizacion">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdOrganizacion">Eliminar</a>
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.IdOrganizacion">Editar</a> |
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdOrganizacion">Detalles</a> |
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.IdOrganizacion">Eliminar</a>
                     </td>
                 </tr>
             }

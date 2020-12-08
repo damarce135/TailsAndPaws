@@ -14,7 +14,7 @@
     <a asp-action="Create">Crear Nuevo</a>
 </p>
 <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Animal">
-<table class="table">
+<table class="table table-striped projects">
     <thead>
         <tr>
             <th>
@@ -38,9 +38,9 @@
             @*<th>
                     @Html.DisplayNameFor(model => model.Habilitado)
                 </th>*@
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Especie)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Adoptado)
             </th>
@@ -81,9 +81,9 @@
                 @*<td>
                         @Html.DisplayFor(modelItem => item.Habilitado)
                     </td>*@
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Especie)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Adoptado)
                 </td>
@@ -97,9 +97,9 @@
                     @Html.DisplayFor(modelItem => item.IdOrganizacionNavigation.Nombre)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdAnimal">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.IdAnimal">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.IdAnimal">Eliminar</a>
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.IdAnimal">Editar</a> |
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdAnimal">Detalles</a> |
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.IdAnimal">Eliminar</a>
                 </td>
             </tr>
         }

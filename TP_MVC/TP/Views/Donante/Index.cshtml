@@ -15,7 +15,7 @@
     </p>
 
     <input class="form-control" id="miBusqueda" type="text" placeholder="Buscar Donante">
-    <table class="table">
+    <table class="table table-striped projects">
         <thead>
             <tr>
                 <th>
@@ -24,9 +24,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Apellido1)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.Apellido2)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Telefono)
                 </th>
@@ -49,9 +49,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Apellido1)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.Apellido2)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Telefono)
                     </td>
@@ -62,9 +62,9 @@
                         @Html.DisplayFor(modelItem => item.Habilitado)
                     </td>*@
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdDonante">Editar</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdDonante">Detalles</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdDonante">Eliminar</a>
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.IdDonante">Editar</a> |
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.IdDonante">Detalles</a> |
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.IdDonante">Eliminar</a>
                     </td>
                 </tr>
             }
