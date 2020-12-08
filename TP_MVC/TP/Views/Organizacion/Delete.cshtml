@@ -8,88 +8,53 @@
 
 <h3>¿Está seguro que desea eliminar esta entidad?</h3>
 
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-        <dd class="col-sm-10">
+<div class="row">
+    <div class="col-md-4"></div>
+    &nbsp;
+    &nbsp;
+    <div class="col-md-4">
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Tipo): </b>
             @Html.DisplayFor(model => model.Tipo)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Nombre): </b>
             @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido1)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Apellido1): </b>
             @Html.DisplayFor(model => model.Apellido1)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido2)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Apellido2): </b>
             @Html.DisplayFor(model => model.Apellido2)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Telefono): </b>
             @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Email): </b>
             @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.Descripcion): </b>
             @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProvinciaNavigation)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.IdProvinciaNavigation): </b>
             @Html.DisplayFor(model => model.IdProvinciaNavigation.NombreProvincia)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DetalleDireccion)
-        </dt>
-        <dd class="col-sm-10">
+        </div>
+        <div class="form-group">
+            <b>@Html.DisplayNameFor(model => model.DetalleDireccion): </b>
             @Html.DisplayFor(model => model.DetalleDireccion)
-        </dd>
+        </div>
 
-
-        @*<dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Habilitado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Habilitado)
-        </dd>*@
-        @*<dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdCantonNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdCantonNavigation.NombreCanton)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdDistritoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdDistritoNavigation.NombreDistrito)
-        </dd class>*@
-
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="IdOrganizacion" />
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a asp-action="Index">Volver</a>
-    </form>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdOrganizacion" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            <a asp-action="Index">Volver</a>
+        </form>
+    </div>
 </div>
+
