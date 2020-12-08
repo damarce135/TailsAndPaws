@@ -2,44 +2,43 @@
 <section class="content">
     <div class="container-fluid">
         @*<div class="row">*@
-            <div class="btn-toolbar">
-                @*<div class="sticky-top mb-3">*@
-                    @*<div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Eventos disponibles</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="external-events">
-                                    <div class="checkbox">
-                                        <label for="drop-remove">
-                                            <input type="checkbox" id="drop-remove">
-                                            Eliminar después de agregar
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*@
-                    <!-- /.card -->
-                   
-                                @*<input id="new-event" type="text" class="form-control" placeholder="Asunto">*@
-                                    <button id="add-new-event" type="button" class="btn btn-secondary btn-block mb-1">Agregar</button>
-                               <p></p>
-                                    <button id="edit-event" type="button" class="btn btn-secondary btn-block">Editar</button>
-                    
-                @*</div>*@
-            </div>
-            <!-- /.col -->
-            <div class="row">
-                <div class="card card-primary">
-                    <div class="card-body p-0">
-                        <!-- THE CALENDAR -->
-                        <div id="calendar"></div>
+        <div class="btn-toolbar">
+            @*<div class="sticky-top mb-3">*@
+            @*<div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Eventos disponibles</h4>
                     </div>
-                    <!-- /.card-body -->
+                    <div class="card-body">
+                        <div id="external-events">
+                            <div class="checkbox">
+                                <label for="drop-remove">
+                                    <input type="checkbox" id="drop-remove">
+                                    Eliminar después de agregar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            <!-- /.card -->
+            @*<input id="new-event" type="text" class="form-control" placeholder="Asunto">*@
+            <button id="add-new-event" type="button" class="btn btn-secondary btn-block mb-1">Agregar</button>
+            <p></p>
+            <button id="edit-event" type="button" class="btn btn-secondary btn-block">Editar</button>
+
+            @*</div>*@
+        </div>
+        <!-- /.col -->
+        <div class="row">
+            <div class="card card-primary">
+                <div class="card-body p-0">
+                    <!-- THE CALENDAR -->
+                    <div id="calendar"></div>
                 </div>
-                <!-- /.card -->
+                <!-- /.card-body -->
             </div>
-            <!-- /.col -->
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
         @*</div>*@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -62,45 +61,17 @@
     <script src="~/theme/plugins/moment/moment.min.js"></script>
     <script src="~/theme/plugins/fullcalendar/main.min.js"></script>
 
+    <script src="~/theme/plugins/fullcalendar-interaction/main.min.js"></script>
+
     <script src="~/theme/plugins/fullcalendar/locales/es.js"></script>
 
     <script src="~/theme/plugins/fullcalendar-daygrid/main.min.js"></script>
     <script src="~/theme/plugins/fullcalendar-timegrid/main.min.js"></script>
-    <script src="~/theme/plugins/fullcalendar-interaction/main.min.js"></script>
+
     <script src="~/theme/plugins/fullcalendar-bootstrap/main.min.js"></script>
+
     <script>
         $(function () {
-
-            /* initialize the external events
-             -----------------------------------------------------------------*/
-            function ini_events(ele) {
-                ele.each(function () {
-
-                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-                    // it doesn't need to have a start or end
-                    var eventObject = {
-                        title: $.trim($(this).text()) // use the element's text as the event title
-                    }
-
-                    // store the Event Object in the DOM element so we can get to it later
-                    $(this).data('eventObject', eventObject)
-
-                    // make the event draggable using jQuery UI
-                    $(this).draggable({
-                        zIndex: 1070,
-                        revert: true, // will cause the event to go back to its
-                        revertDuration: 0  //  original position after the drag
-                    })
-
-                })
-            }
-
-
-
-            //ini_events($('#external-events div.external-event'))
-
-
-
             /* initialize the calendar
              -----------------------------------------------------------------*/
             //Date for the calendar events (dummy data)
@@ -110,7 +81,7 @@
                 y = date.getFullYear()
 
             var Calendar = FullCalendar.Calendar;
-            var Draggable = FullCalendarInteraction.Draggable;
+            //var Draggable = FullCalendarInteraction.Draggable;
 
             //var containerEl = document.getElementById('external-events');
             //var checkbox = document.getElementById('drop-remove');
@@ -142,22 +113,11 @@
                 },
                 //Random default events
                 events: "https://localhost:44370/findall",
-                editable: true,
-                droppable: true, // this allows things to be dropped onto the calendar !!!
-                drop: function (info) {
-                    // is the "remove after drop" checkbox checked?
-                    if (checkbox.checked) {
-                        // if so, remove the element from the "Draggable Events" list
-                        info.draggedEl.parentNode.removeChild(info.draggedEl);
+                dayClick: function (date, jsEvent, view) {
+                    if (view.name == 'dayGridMonth' || view.name == 'timeGridWeek') {
+                        $('#calendar').fullCalendar('gotoDate', date);
+                        $('#calendar').fullCalendar('changeView', 'timeGridDay');
                     }
-                },
-                eventClick: function (event) {
-                    alert(event.title);
-                },
-                editable: true,
-                selectable: true,
-                select: function (event) {
-                    alert(eventsList);
                 }
             });
 
