@@ -76,6 +76,10 @@ namespace TP.Controllers
             {
                 _context.Add(animal);
                 await _context.SaveChangesAsync();
+
+                string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó el animal " + animal.Nombre + "'";
+                await _context.Database.ExecuteSqlRawAsync(bitacora);
+
                 return RedirectToAction(nameof(Index));
             }
             var edades = new List<string> { "Menos de 1 mes", "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses",
@@ -203,6 +207,10 @@ namespace TP.Controllers
             var animal = await _context.Animal.FindAsync(id);
             _context.Animal.Remove(animal);
             await _context.SaveChangesAsync();
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó el animal " + animal.Nombre + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
+
             return RedirectToAction(nameof(Index));
         }
 

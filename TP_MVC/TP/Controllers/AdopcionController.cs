@@ -21,7 +21,7 @@ namespace TP.Controllers
     [Authorize(Roles = "Admin")]
     public class AdopcionController : Controller
     {
- 
+
         private readonly ApplicationDbContext _context;
 
         public AdopcionController(ApplicationDbContext context)
@@ -44,7 +44,7 @@ namespace TP.Controllers
             //Draw the image
             graphics.DrawImage(image, bounds);
 
-            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(190,183,164));
+            PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(190, 183, 164));
             bounds = new RectangleF(0, bounds.Bottom + 20, graphics.ClientSize.Width, 30);
             //Draws a rectangle to place the heading in that region.
             graphics.DrawRectangle(solidBrush, bounds);
@@ -65,7 +65,7 @@ namespace TP.Controllers
             PdfFont timesRoman = new PdfStandardFont(PdfFontFamily.TimesRoman, 10);
 
             //Falta obtener la data
-           DataTable table = new DataTable();
+            DataTable table = new DataTable();
             //Include columns to the DataTable.
 
             table.Columns.Add("Animal");
@@ -75,7 +75,8 @@ namespace TP.Controllers
 
             //Include rows to the DataTable.
             foreach (var item in from p in _context.Adopcion.Include(a => a.IdAdoptanteNavigation)
-                 .Include(a => a.IdAnimalNavigation) select p)
+                 .Include(a => a.IdAnimalNavigation)
+                                 select p)
                 table.Rows.Add(new string[] { item.IdAnimalNavigation.Nombre, item.IdAdoptanteNavigation.Nombre,
                DateTime.Parse(item.FechaAdopcion.ToString()).ToShortDateString(), item.FechaSeguimiento.ToShortDateString() });
 
@@ -96,8 +97,8 @@ namespace TP.Controllers
 
             pdfLightTable.Style.ShowHeader = true;
 
-            pdfLightTable.Draw(page, new PointF(0, bounds.Bottom ));
-            
+            pdfLightTable.Draw(page, new PointF(0, bounds.Bottom));
+
             //Save the PDF document to stream
             MemoryStream stream = new MemoryStream();
             doc.Save(stream);
@@ -162,16 +163,19 @@ namespace TP.Controllers
         {
             if (ModelState.IsValid)
             {
-                    _context.Add(adopcion);
-                    await _context.SaveChangesAsync();
+                _context.Add(adopcion);
+                await _context.SaveChangesAsync();
 
-                    string procedure = "EXEC AdoptarAnimal @id = " + adopcion.IdAnimal;
-                    await _context.Database.ExecuteSqlRawAsync(procedure);
+                string procedure = "EXEC AdoptarAnimal @id = " + adopcion.IdAnimal;
+                await _context.Database.ExecuteSqlRawAsync(procedure);
 
-                    string procedureSeg = "EXEC SeguimientoCalendario @id=" + adopcion.IdAnimal + ", @fecha='" + adopcion.FechaSeguimiento.ToString("s") + "'";
-                    await _context.Database.ExecuteSqlRawAsync(procedureSeg);
+                string procedureSeg = "EXEC SeguimientoCalendario @id=" + adopcion.IdAnimal + ", @fecha='" + adopcion.FechaSeguimiento.ToString("s") + "'";
+                await _context.Database.ExecuteSqlRawAsync(procedureSeg);
 
-                    return RedirectToAction(nameof(Index));
+                string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó la adopción " + adopcion.IdAdopcion + "'" ;
+                await _context.Database.ExecuteSqlRawAsync(bitacora);
+
+                return RedirectToAction(nameof(Index));
 
             }
             ViewData["IdAdoptante"] = new SelectList(_context.Adoptante, "IdAdoptante", "Fullname", adopcion.IdAdoptante);
@@ -267,8 +271,11 @@ namespace TP.Controllers
             string procedure = "EXEC DesadoptarAnimal @id = " + adopcion.IdAnimal;
             await _context.Database.ExecuteSqlRawAsync(procedure);
 
-            string procedureSeg = "EXEC EliminaSeguimientoCalendario @fecha = '" + adopcion.FechaSeguimiento.ToString("s")+"'";
+            string procedureSeg = "EXEC EliminaSeguimientoCalendario @fecha = '" + adopcion.FechaSeguimiento.ToString("s") + "'";
             await _context.Database.ExecuteSqlRawAsync(procedureSeg);
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó la adopción " + adopcion.IdAdopcion + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
 
             return RedirectToAction(nameof(Index));
         }

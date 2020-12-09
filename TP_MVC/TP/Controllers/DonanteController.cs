@@ -64,6 +64,10 @@ namespace TP.Controllers
             {
                 _context.Add(donante);
                 await _context.SaveChangesAsync();
+
+                string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó el donante " + donante.IdDonante + "'";
+                await _context.Database.ExecuteSqlRawAsync(bitacora);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(donante);
@@ -146,6 +150,10 @@ namespace TP.Controllers
             var donante = await _context.Donante.FindAsync(id);
             _context.Donante.Remove(donante);
             await _context.SaveChangesAsync();
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó el donante " + donante.IdDonante + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
+
             return RedirectToAction(nameof(Index));
         }
 

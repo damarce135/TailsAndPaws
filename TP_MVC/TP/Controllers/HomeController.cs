@@ -66,6 +66,10 @@ namespace TP.Controllers
                 }
                 _context.Add(calendario);
                 await _context.SaveChangesAsync();
+
+                string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó el evento " + calendario.Asunto + "'";
+                await _context.Database.ExecuteSqlRawAsync(bitacora);
+
                 return RedirectToAction(nameof(Index));
             }
             var colores = new List<string> { "Gris", "Celeste", "Naranja", "Rojo" };
@@ -154,6 +158,10 @@ namespace TP.Controllers
             var calendario = await _context.Calendario.FindAsync(id);
             _context.Calendario.Remove(calendario);
             await _context.SaveChangesAsync();
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó el evento " + calendario.Asunto + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
+
             return RedirectToAction(nameof(Index));
         }
 

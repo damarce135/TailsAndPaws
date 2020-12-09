@@ -70,12 +70,21 @@ namespace TP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdAdoptante,Cedula,Nombre,Apellido1,Apellido2,Email,Telefono,IdProvincia,DetalleDireccion,Habilitado")] Adoptante adoptante)
         {
+
             if (ModelState.IsValid)
-            {
-                _context.Add(adoptante);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                    {
+                if (_context.Adoptante.Any(x => x.Cedula == adoptante.Cedula))
+                {
+                    return NotFound("Error: Ya esta cédula está registrada.");
+                }
+                      _context.Add(adoptante);
+                        await _context.SaveChangesAsync();
+
+                        string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó el adoptante " + adoptante.Cedula + "'";
+                        await _context.Database.ExecuteSqlRawAsync(bitacora);
+
+                        return RedirectToAction(nameof(Index));
+                    }
             //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "NombreCanton", adoptante.IdCanton);
             //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "NombreDistrito", adoptante.IdDistrito);
             ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
@@ -160,7 +169,7 @@ namespace TP.Controllers
                 return NotFound();
             }
 
-                return View(adoptante);
+            return View(adoptante);
         }
 
         // POST: Adoptante/Delete/5
@@ -176,6 +185,10 @@ namespace TP.Controllers
             var adoptante = await _context.Adoptante.FindAsync(id);
             _context.Adoptante.Remove(adoptante);
             await _context.SaveChangesAsync();
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó el adoptante " + adoptante.Cedula + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
+
             return RedirectToAction(nameof(Index));
         }
 

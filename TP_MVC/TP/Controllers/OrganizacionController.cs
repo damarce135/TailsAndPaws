@@ -71,6 +71,10 @@ namespace TP.Controllers
             {
                 _context.Add(organizacion);
                 await _context.SaveChangesAsync();
+
+                string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó la organización " + organizacion.Nombre + "'";
+                await _context.Database.ExecuteSqlRawAsync(bitacora);
+
                 return RedirectToAction(nameof(Index));
             }
             var items = new List<string> { "Proveedor", "Veterinaria", "Casa Cuna", "Colaborador" };
@@ -176,6 +180,10 @@ namespace TP.Controllers
             var organizacion = await _context.Organizacion.FindAsync(id);
             _context.Organizacion.Remove(organizacion);
             await _context.SaveChangesAsync();
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó la organización " + organizacion.Nombre + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
+
             return RedirectToAction(nameof(Index));
         }
 

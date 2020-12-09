@@ -65,6 +65,10 @@ namespace TP.Controllers
             {
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
+
+                string bitacora = "EXEC addBitacora @accion= 'Create' , @detalle='Se creó el producto " + producto.Nombre + "'";
+                await _context.Database.ExecuteSqlRawAsync(bitacora);
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCategoria"] = new SelectList(_context.Categoria, "IdCategoria", "NombreCategoria", producto.IdCategoria);
@@ -151,6 +155,10 @@ namespace TP.Controllers
             var producto = await _context.Producto.FindAsync(id);
             _context.Producto.Remove(producto);
             await _context.SaveChangesAsync();
+
+            string bitacora = "EXEC addBitacora @accion= 'Delete' , @detalle='Se eliminó el producto " + producto.Nombre + "'";
+            await _context.Database.ExecuteSqlRawAsync(bitacora);
+
             return RedirectToAction(nameof(Index));
         }
 
