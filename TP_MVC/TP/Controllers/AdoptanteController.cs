@@ -75,7 +75,10 @@ namespace TP.Controllers
                     {
                 if (_context.Adoptante.Any(x => x.Cedula == adoptante.Cedula))
                 {
-                    return NotFound("Error: Ya esta cédula está registrada.");
+                    ViewBag.Error = "Error: Ya esta cédula está registrada.";
+                    ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "NombreProvincia", adoptante.IdProvincia);
+                    return View(adoptante);
+                    //return NotFound("Error: Ya esta cédula está registrada.");
                 }
                       _context.Add(adoptante);
                         await _context.SaveChangesAsync();
@@ -177,10 +180,15 @@ namespace TP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var adoptante1 = await _context.Adoptante
+                    .Include(a => a.IdProvinciaNavigation)
+                    .FirstOrDefaultAsync(m => m.IdAdoptante == id);
             var adopcionExiste = _context.Adopcion.FromSqlRaw("select * from adopcion where idAdoptante = " + id).ToList().Count;
             if (adopcionExiste > 0)
             {
-                return NotFound($"Error: El adoptante tiene una adopción registrada. Elimine la adopción para poder eliminar el adoptante.");
+                ViewBag.Error = "Error: El adoptante tiene una adopción registrada. Elimine la adopción para poder eliminar el adoptante.";
+                return View(adoptante1);
+                //return NotFound($"Error: El adoptante tiene una adopción registrada. Elimine la adopción para poder eliminar el adoptante.");
             }
             var adoptante = await _context.Adoptante.FindAsync(id);
             _context.Adoptante.Remove(adoptante);

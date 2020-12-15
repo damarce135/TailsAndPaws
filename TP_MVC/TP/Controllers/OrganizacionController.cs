@@ -172,10 +172,15 @@ namespace TP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var organizacion1 = await _context.Organizacion
+                .Include(o => o.IdProvinciaNavigation)
+                .FirstOrDefaultAsync(m => m.IdOrganizacion == id);
             var animalExiste = _context.Animal.FromSqlRaw("select * from animal where idOrganizacion = " + id).ToList().Count;
             if (animalExiste > 0)
             {
-                return NotFound($"Error: La organización tiene una animalito registrado. Elimine la casa cuna del animalito para poder eliminarla.");
+                ViewBag.Error = "Error: La organización tiene una animalito registrado. Elimine la casa cuna del animalito para poder eliminarla.";
+                return View(organizacion1);
+                //return NotFound($"Error: La organización tiene una animalito registrado. Elimine la casa cuna del animalito para poder eliminarla.");
             }
             var organizacion = await _context.Organizacion.FindAsync(id);
             _context.Organizacion.Remove(organizacion);
