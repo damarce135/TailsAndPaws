@@ -32,6 +32,7 @@ namespace TP.Models
         public DateTime? FechaIngreso { get; set; }
 
         [GenericRequired]
+        [RegularExpression(@"^[1-9]\d{0,2}$", ErrorMessage = "Cantidad inválida, debe ser un número positivo.")]
         public int? Cantidad { get; set; }
 
         //[Display(Name = "Estado")]
